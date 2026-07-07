@@ -119,6 +119,13 @@
         gap: 8px;
     }
 
+    .sol-baslik-btn-grup {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        flex-shrink: 0;
+    }
+
     .sol-ayar-btn {
         background: transparent;
         border: none;
@@ -2400,6 +2407,284 @@
 
     .foto-buyuk-ok-sol { left: 24px; }
     .foto-buyuk-ok-sag { right: 24px; }
+
+    /* ===== TÜM HASTA FOTOĞRAFLARI GALERİSİ - SAĞ PANEL İÇİNDE (ızgara görünümü, hasta seçildiğinde açılan sağ panelle aynı yerde) ===== */
+    .sag-galeri {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sag-galeri.aktif {
+        display: flex;
+    }
+
+    .sag-galeri-ust {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 18px;
+        flex-shrink: 0;
+    }
+
+    .sag-galeri-ust h1 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-heading);
+    }
+
+    .sag-galeri-grid {
+        flex: 1;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 14px;
+        align-content: start;
+        padding-bottom: 12px;
+    }
+
+    .sag-galeri-karti {
+        cursor: pointer;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--border-default);
+        background: var(--white);
+        transition: box-shadow .15s ease, transform .15s ease;
+    }
+
+    .sag-galeri-karti:hover {
+        box-shadow: var(--golge-orta);
+        transform: translateY(-2px);
+    }
+
+    .sag-galeri-resim-sarici {
+        position: relative;
+        width: 100%;
+        min-height: 90px;
+        max-height: 260px;
+        background: #e8eeec;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sag-galeri-resim-sarici img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .sag-galeri-mini-nokta {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        transform: translate(-50%, -50%);
+    }
+
+    .sag-galeri-bilgi {
+        padding: 9px 10px 10px;
+    }
+
+    .sag-galeri-hasta {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text-heading);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .sag-galeri-tarih {
+        font-size: 10.5px;
+        color: var(--text-faint);
+        margin-top: 2px;
+    }
+
+    .sag-galeri-tip {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--primary);
+        margin-top: 3px;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+    }
+
+    .sag-galeri-bos {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: var(--text-faint);
+        font-size: 12px;
+        padding: 40px 0;
+    }
+
+    /* ===== TÜM HASTA FOTOĞRAFLARI GALERİSİ - BÜYÜK GÖRÜNÜM (ızgaradan bir karta tıklanınca açılır; hasta fotoğrafı büyütmesiyle aynı düzen: solda resim, sağda bilgi paneli) ===== */
+    .tum-galeri-modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.85);
+        z-index: 1100;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tum-galeri-modal.acik {
+        display: flex;
+    }
+
+    .tum-galeri-icerik {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0;
+        max-width: 92%;
+        max-height: 90%;
+        background: var(--overlay-dark);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .tum-galeri-sol {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--overlay-darker);
+        min-width: 0;
+    }
+
+    .tum-galeri-buyuk-resim-sarici {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 68vw;
+        max-height: 88vh;
+    }
+
+    .tum-galeri-buyuk-resim-sarici img {
+        max-width: 68vw;
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        user-select: none;
+    }
+
+    /* Marker (ayak işaretleme) tipi kayıtlarda ayak.png üzerine noktalar bindirilir */
+    .tum-galeri-marker-nokta {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.92);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .tum-galeri-bos {
+        color: rgba(255,255,255,0.75);
+        font-size: 13px;
+        padding: 40px;
+    }
+
+    .tum-galeri-sag {
+        width: 300px;
+        flex-shrink: 0;
+        background: var(--white);
+        padding: 20px 18px;
+        overflow-y: auto;
+        max-height: 88vh;
+    }
+
+    .tum-galeri-sag-baslik {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--navy-text-label);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+
+    .tum-galeri-hasta-adi {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text-heading);
+        margin-bottom: 14px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .tum-galeri-tarih-tip {
+        font-size: 12.5px;
+        color: var(--text-secondary);
+        margin-bottom: 14px;
+    }
+
+    .tum-galeri-rozetler {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 14px;
+    }
+
+    .tum-galeri-sayac {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--text-faint);
+        padding-top: 12px;
+        border-top: 1px solid var(--border-subtle);
+    }
+
+    .tum-galeri-kapat {
+        position: absolute;
+        top: 20px;
+        right: 28px;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 32px;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .tum-galeri-ok {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255,255,255,0.12);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.15s ease;
+    }
+
+    .tum-galeri-ok:hover:not(:disabled) {
+        background: rgba(255,255,255,0.25);
+    }
+
+    .tum-galeri-ok:disabled {
+        opacity: .3;
+        cursor: default;
+    }
+
+    .tum-galeri-ok svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .tum-galeri-ok-sol { left: 24px; }
+    .tum-galeri-ok-sag { right: 24px; }
 </style>
 </head>
 <body>
@@ -2410,12 +2695,22 @@
     <div class="sol-panel">
         <div class="sol-baslik-satiri">
             <div class="sol-baslik">Hasta İşlemleri</div>
-            <button class="sol-ayar-btn" id="hazirNotAyarBtn" title="Hazır Not Butonları Ayarları" type="button">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"></path>
-                </svg>
-            </button>
+            <div class="sol-baslik-btn-grup">
+                <button class="sol-ayar-btn" id="hazirNotAyarBtn" title="Hazır Not Butonları Ayarları" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"></path>
+                    </svg>
+                </button>
+                <button class="sol-ayar-btn" id="tumGaleriAcBtn" title="Tüm Hasta Fotoğrafları Galerisi" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                    </svg>
+                </button>
+            </div>
         </div>
 
         <button class="yeni-kayit-btn" id="yeniKayitBtn">
@@ -2755,6 +3050,17 @@
             <div class="hesap-hasta-listesi" id="hesapHastaListesi"></div>
         </div>
 
+        <!-- TÜM HASTA FOTOĞRAFLARI GALERİSİ - SAĞ PANEL İÇİNDE (önce tüm fotoğraflar ızgara halinde) -->
+        <div class="sag-galeri" id="sagGaleri">
+            <div class="sag-galeri-ust">
+                <h1>Tüm Hasta Fotoğrafları</h1>
+                <button class="hesap-geri-btn" id="sagGaleriGeriBtn">← Geri Dön</button>
+            </div>
+            <div class="sag-galeri-grid" id="sagGaleriGrid">
+                <div class="sag-galeri-bos">Yükleniyor...</div>
+            </div>
+        </div>
+
     </div>
 
 </div>
@@ -3005,6 +3311,33 @@
     </div>
 </div>
 
+<!-- TÜM HASTA FOTOĞRAFLARI GALERİSİ - BÜYÜK GÖRÜNÜM (ızgaradan bir fotoğrafa tıklanınca açılır; hasta fotoğrafları büyütmesiyle aynı düzen: solda resim, sağda bilgi paneli, ok tuşlarıyla sağa/sola gezinme) -->
+<div class="tum-galeri-modal" id="tumGaleriModal">
+    <button class="tum-galeri-kapat" id="tumGaleriKapatBtn" type="button">&times;</button>
+    <button class="tum-galeri-ok tum-galeri-ok-sol" id="tumGaleriOncekiBtn" type="button" title="Önceki (←)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+
+    <div class="tum-galeri-icerik">
+        <div class="tum-galeri-sol" id="tumGaleriFotoAlani">
+            <div class="tum-galeri-bos" id="tumGaleriBos">Yükleniyor...</div>
+        </div>
+        <div class="tum-galeri-sag" id="tumGaleriBilgi" style="display:none;">
+            <div class="tum-galeri-sag-baslik">Hasta</div>
+            <div class="tum-galeri-hasta-adi" id="tumGaleriHastaAdi">-</div>
+            <div class="tum-galeri-tarih-tip" id="tumGaleriTarihTip">-</div>
+            <div class="tum-galeri-rozetler" id="tumGaleriRozetler"></div>
+            <div class="foto-buyuk-tarih-baslik" style="margin-top:4px;">Bu Tarihe Ait Değerlendirme Notları</div>
+            <div class="foto-buyuk-eslesenler" id="tumGaleriEslesenler"></div>
+            <div class="tum-galeri-sayac" id="tumGaleriSayac">0/0</div>
+        </div>
+    </div>
+
+    <button class="tum-galeri-ok tum-galeri-ok-sag" id="tumGaleriSonrakiBtn" type="button" title="Sonraki (→)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+</div>
+
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
     import {
@@ -3018,7 +3351,8 @@
         onSnapshot,
         serverTimestamp,
         query,
-        orderBy
+        orderBy,
+        getDocs
     } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
     // Firebase Configuration
@@ -3061,12 +3395,14 @@
     const sagTc = document.getElementById('sagTc');
     const sagRozetler = document.getElementById('sagRozetler');
     const sagHesaplama = document.getElementById('sagHesaplama');
+    const sagGaleri = document.getElementById('sagGaleri');
 
-    // Sağ paneldeki üç görünümden ('bos' | 'hasta' | 'hesaplama') sadece biri aktif olur
+    // Sağ paneldeki dört görünümden ('bos' | 'hasta' | 'hesaplama' | 'galeri') sadece biri aktif olur
     function sagGorunumuAyarla(gorunum) {
         sagBos.style.display = gorunum === 'bos' ? 'flex' : 'none';
         sagIcerik.classList.toggle('aktif', gorunum === 'hasta');
         sagHesaplama.classList.toggle('aktif', gorunum === 'hesaplama');
+        sagGaleri.classList.toggle('aktif', gorunum === 'galeri');
     }
 
     const sekmeDegerlendirmeBtn = document.getElementById('sekmeDegerlendirmeBtn');
@@ -4110,6 +4446,8 @@
     // Ok tuşları: lightbox açıksa bir önceki/sonraki fotoğrafa geçer,
     // kapalıyken Hasta Fotoğrafları sekmesi aktifse galeriyi kaydırır.
     document.addEventListener('keydown', (e) => {
+        if (tumGaleriModal.classList.contains('acik') || sagGaleri.classList.contains('aktif')) return;
+
         if (fotoBuyukModal.classList.contains('acik')) {
             if (e.key === 'ArrowLeft') {
                 e.preventDefault();
@@ -5115,6 +5453,278 @@
         console.error('Hazır not butonları dinlenirken hata:', hata);
     });
     // ================== HAZIR NOT BUTONLARI SONU ==================
+
+    // ================== TÜM HASTA FOTOĞRAFLARI GALERİSİ ==================
+    // "Marker Ekle" panelinin üstündeki ayarlar ikonunun yanındaki galeri butonuna
+    // basılınca, sağ panelde (bir hasta seçildiğinde açılan aynı alanda) bir ızgara
+    // görünümü açılır ve tüm hastaların "Hasta Fotoğrafları" sekmesine yüklediği
+    // gerçek fotoğrafları (ayak.png üzerine işaretlenen çizimler DAHİL EDİLMEZ),
+    // tarihe göre (en yeni önce) ızgara halinde gösterir. Bir fotoğrafa tıklanınca,
+    // hasta fotoğrafı büyütmesiyle aynı düzende (solda resim, sağda bilgi paneli)
+    // tam ekran büyük görünüm açılır; sağ/sol oklarla (veya klavye ok tuşlarıyla)
+    // tüm liste gezilebilir ve fotoğrafla aynı güne ait Hasta Değerlendirme /
+    // Tedavi Planı notları da bilgi panelinde gösterilir.
+    const tumGaleriAcBtn = document.getElementById('tumGaleriAcBtn');
+    const sagGaleriGeriBtn = document.getElementById('sagGaleriGeriBtn');
+    const sagGaleriGrid = document.getElementById('sagGaleriGrid');
+    const tumGaleriModal = document.getElementById('tumGaleriModal');
+    const tumGaleriKapatBtn = document.getElementById('tumGaleriKapatBtn');
+    const tumGaleriFotoAlani = document.getElementById('tumGaleriFotoAlani');
+    const tumGaleriBilgi = document.getElementById('tumGaleriBilgi');
+    const tumGaleriHastaAdi = document.getElementById('tumGaleriHastaAdi');
+    const tumGaleriTarihTip = document.getElementById('tumGaleriTarihTip');
+    const tumGaleriRozetler = document.getElementById('tumGaleriRozetler');
+    const tumGaleriEslesenler = document.getElementById('tumGaleriEslesenler');
+    const tumGaleriSayac = document.getElementById('tumGaleriSayac');
+    const tumGaleriOncekiBtn = document.getElementById('tumGaleriOncekiBtn');
+    const tumGaleriSonrakiBtn = document.getElementById('tumGaleriSonrakiBtn');
+
+    let tumGaleriListesi = [];
+    let tumGaleriAktifIndex = 0;
+
+    // Hasta Değerlendirme / Tedavi Planı alanlarının hepsi (data-alan listesi) - fotoğrafla
+    // aynı güne ait notları eşleştirebilmek için her hastanın bu alanlarını da okuruz.
+    const tumGaleriAlanAdlari = Object.keys(alanBaslikMap);
+
+    async function tumGaleriVerisiniTopla() {
+        const oge = [];
+
+        await Promise.all(hastalar.map(async (hasta) => {
+            try {
+                const [fotoSnap, ...alanSnaplari] = await Promise.all([
+                    getDocs(collection(db, "hastalar", hasta.id, "fotograflar")),
+                    ...tumGaleriAlanAdlari.map(alanAdi => getDocs(collection(db, "hastalar", hasta.id, alanAdi)))
+                ]);
+
+                // Bu hastanın tüm değerlendirme/tedavi planı girişlerini (tarih eşleştirmesi için) topla
+                const hastaAlanVerileri = {};
+                tumGaleriAlanAdlari.forEach((alanAdi, i) => {
+                    hastaAlanVerileri[alanAdi] = alanSnaplari[i].docs.map(d => {
+                        const veri = d.data();
+                        return {
+                            metin: veri.metin,
+                            tarih: veri.olusturulmaZamani && veri.olusturulmaZamani.toDate ? veri.olusturulmaZamani.toDate() : null
+                        };
+                    });
+                });
+
+                fotoSnap.docs.forEach(d => {
+                    const veri = d.data();
+                    const tarih = veri.olusturulmaZamani && veri.olusturulmaZamani.toDate ? veri.olusturulmaZamani.toDate() : null;
+
+                    // Fotoğrafla aynı güne ait değerlendirme/tedavi planı notlarını topla
+                    const notlar = [];
+                    tumGaleriAlanAdlari.forEach(alanAdi => {
+                        (hastaAlanVerileri[alanAdi] || [])
+                            .filter(giris => ayniGunMu(giris.tarih, tarih))
+                            .forEach(giris => {
+                                notlar.push({
+                                    baslik: alanBaslikMap[alanAdi],
+                                    metin: giris.metin || '',
+                                    tarih: giris.tarih
+                                });
+                            });
+                    });
+
+                    oge.push({
+                        tip: 'foto',
+                        hastaAdi: hasta.adSoyad,
+                        sikayet: hasta.sikayet || [],
+                        tarih,
+                        url: veri.url,
+                        notlar
+                    });
+                });
+            } catch (hata) {
+                console.error('Galeri verisi toplanırken hata (hasta: ' + hasta.id + '):', hata);
+            }
+        }));
+
+        oge.sort((a, b) => {
+            const ta = a.tarih ? a.tarih.getTime() : 0;
+            const tb = b.tarih ? b.tarih.getTime() : 0;
+            return tb - ta;
+        });
+
+        return oge;
+    }
+
+    // Bir galeri ögesi için (ızgara kartı veya büyük görünüm) verilen konteynerin içine
+    // yüklenen hasta fotoğrafını doldurur.
+    function tumGaleriIcerigiDoldur(konteyner, oge) {
+        konteyner.innerHTML = '';
+        const img = document.createElement('img');
+        img.alt = 'Hasta fotoğrafı';
+        img.src = oge.url;
+        konteyner.appendChild(img);
+    }
+
+    // ---- IZGARA (SAĞ PANEL İÇİNDE) ----
+    function tumGaleriGridiCiz() {
+        sagGaleriGrid.innerHTML = '';
+
+        if (tumGaleriListesi.length === 0) {
+            sagGaleriGrid.innerHTML = '<div class="sag-galeri-bos">Henüz gösterilecek fotoğraf yok.</div>';
+            return;
+        }
+
+        tumGaleriListesi.forEach((oge, index) => {
+            const kart = document.createElement('div');
+            kart.className = 'sag-galeri-karti';
+
+            const resimSarici = document.createElement('div');
+            resimSarici.className = 'sag-galeri-resim-sarici';
+            tumGaleriIcerigiDoldur(resimSarici, oge);
+
+            const bilgi = document.createElement('div');
+            bilgi.className = 'sag-galeri-bilgi';
+            const tarihMetni = oge.tarih ? tarihiKisaFormatla(oge.tarih) : 'Tarih bilinmiyor';
+            bilgi.innerHTML = `
+                <div class="sag-galeri-hasta">${oge.hastaAdi || 'İsimsiz Hasta'}</div>
+                <div class="sag-galeri-tarih">${tarihMetni}</div>
+                <div class="sag-galeri-tip">Yüklenen Fotoğraf</div>
+            `;
+
+            kart.appendChild(resimSarici);
+            kart.appendChild(bilgi);
+            kart.addEventListener('click', () => tumGaleriBuyukAc(index));
+
+            sagGaleriGrid.appendChild(kart);
+        });
+    }
+
+    async function tumGaleriPaneliAc() {
+        sagGorunumuAyarla('galeri');
+        sagGaleriGrid.innerHTML = '<div class="sag-galeri-bos">Yükleniyor...</div>';
+
+        try {
+            tumGaleriListesi = await tumGaleriVerisiniTopla();
+            tumGaleriGridiCiz();
+        } catch (hata) {
+            console.error('Galeri yüklenirken hata:', hata);
+            sagGaleriGrid.innerHTML = '<div class="sag-galeri-bos">Fotoğraflar yüklenirken bir hata oluştu.</div>';
+        }
+    }
+
+    // ---- BÜYÜK GÖRÜNÜM (hasta fotoğrafı büyütmesiyle aynı düzen: solda resim, sağda bilgi, sağa/sola gezinme) ----
+    function tumGaleriOgesiniCiz() {
+        const oge = tumGaleriListesi[tumGaleriAktifIndex];
+
+        tumGaleriOncekiBtn.disabled = tumGaleriListesi.length <= 1;
+        tumGaleriSonrakiBtn.disabled = tumGaleriListesi.length <= 1;
+
+        if (!oge) {
+            tumGaleriFotoAlani.innerHTML = '<div class="tum-galeri-bos">Henüz gösterilecek fotoğraf yok.</div>';
+            tumGaleriBilgi.style.display = 'none';
+            tumGaleriSayac.textContent = '0/0';
+            return;
+        }
+
+        tumGaleriSayac.textContent = `${tumGaleriAktifIndex + 1}/${tumGaleriListesi.length}`;
+        tumGaleriBilgi.style.display = 'block';
+        tumGaleriHastaAdi.textContent = oge.hastaAdi || 'İsimsiz Hasta';
+        const tarihMetni = oge.tarih ? tarihiKisaFormatla(oge.tarih) : 'Tarih bilinmiyor';
+        tumGaleriTarihTip.textContent = `${tarihMetni} · Yüklenen Fotoğraf`;
+
+        tumGaleriRozetler.innerHTML = '';
+        (oge.sikayet || []).forEach(s => {
+            const rozet = document.createElement('span');
+            rozet.className = 'rozet ' + rozetSinifi(s);
+            rozet.textContent = s;
+            tumGaleriRozetler.appendChild(rozet);
+        });
+
+        // Fotoğrafla aynı güne ait Hasta Değerlendirme / Tedavi Planı notları
+        tumGaleriEslesenler.innerHTML = '';
+        const notlar = oge.notlar || [];
+        if (notlar.length === 0) {
+            const bos = document.createElement('div');
+            bos.className = 'foto-eslesme-yok';
+            bos.textContent = 'Bu tarihe ait Hasta Değerlendirme veya Tedavi Planı kaydı bulunamadı.';
+            tumGaleriEslesenler.appendChild(bos);
+        } else {
+            // Aynı başlık altındaki notları grupla (foto-buyuk-eslesenler ile aynı görünüm)
+            const basliklar = [];
+            const baslikGruplari = {};
+            notlar.forEach(not => {
+                if (!baslikGruplari[not.baslik]) {
+                    baslikGruplari[not.baslik] = [];
+                    basliklar.push(not.baslik);
+                }
+                baslikGruplari[not.baslik].push(not);
+            });
+
+            basliklar.forEach(baslikAdi => {
+                const blok = document.createElement('div');
+                blok.className = 'foto-eslesen-blok';
+
+                const baslik = document.createElement('div');
+                baslik.className = 'foto-eslesen-baslik';
+                baslik.textContent = baslikAdi;
+                blok.appendChild(baslik);
+
+                baslikGruplari[baslikAdi].forEach(not => {
+                    const notEl = document.createElement('div');
+                    notEl.className = 'foto-eslesen-not';
+                    notEl.innerHTML = `
+                        <span class="foto-eslesen-not-tarih">${not.tarih ? tarihiKisaFormatla(not.tarih) : ''}</span>
+                        <span class="foto-eslesen-not-metin"></span>
+                    `;
+                    notEl.querySelector('.foto-eslesen-not-metin').textContent = not.metin || '';
+                    blok.appendChild(notEl);
+                });
+
+                tumGaleriEslesenler.appendChild(blok);
+            });
+        }
+
+        tumGaleriFotoAlani.innerHTML = '<div class="tum-galeri-buyuk-resim-sarici" id="tumGaleriBuyukSarici"></div>';
+        const buyukSarici = document.getElementById('tumGaleriBuyukSarici');
+        tumGaleriIcerigiDoldur(buyukSarici, oge);
+    }
+
+    function tumGaleriOnceki() {
+        if (tumGaleriListesi.length === 0) return;
+        tumGaleriAktifIndex = (tumGaleriAktifIndex - 1 + tumGaleriListesi.length) % tumGaleriListesi.length;
+        tumGaleriOgesiniCiz();
+    }
+
+    function tumGaleriSonraki() {
+        if (tumGaleriListesi.length === 0) return;
+        tumGaleriAktifIndex = (tumGaleriAktifIndex + 1) % tumGaleriListesi.length;
+        tumGaleriOgesiniCiz();
+    }
+
+    function tumGaleriBuyukAc(index) {
+        tumGaleriAktifIndex = index;
+        tumGaleriModal.classList.add('acik');
+        tumGaleriOgesiniCiz();
+    }
+
+    function tumGaleriBuyukKapat() {
+        tumGaleriModal.classList.remove('acik');
+    }
+
+    if (tumGaleriAcBtn) tumGaleriAcBtn.addEventListener('click', tumGaleriPaneliAc);
+    if (sagGaleriGeriBtn) sagGaleriGeriBtn.addEventListener('click', () => sagGorunumuAyarla('bos'));
+    if (tumGaleriKapatBtn) tumGaleriKapatBtn.addEventListener('click', tumGaleriBuyukKapat);
+    if (tumGaleriOncekiBtn) tumGaleriOncekiBtn.addEventListener('click', tumGaleriOnceki);
+    if (tumGaleriSonrakiBtn) tumGaleriSonrakiBtn.addEventListener('click', tumGaleriSonraki);
+
+    tumGaleriModal.addEventListener('click', (e) => {
+        if (e.target === tumGaleriModal) tumGaleriBuyukKapat();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (tumGaleriModal.classList.contains('acik')) {
+            if (e.key === 'Escape') tumGaleriBuyukKapat();
+            else if (e.key === 'ArrowLeft') tumGaleriOnceki();
+            else if (e.key === 'ArrowRight') tumGaleriSonraki();
+        }
+    });
+    // ================== TÜM HASTA FOTOĞRAFLARI GALERİSİ SONU ==================
+
+
 
 
 </script>
