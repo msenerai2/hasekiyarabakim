@@ -929,17 +929,23 @@
         gap: 10px;
     }
 
+    .tarihegore-foto-satiri {
+        display: flex;
+        align-items: stretch;
+        align-self: center;
+        gap: 14px;
+        margin-bottom: 12px;
+    }
+
     .tarihegore-foto {
         position: relative;
         flex-shrink: 0;
-        align-self: center;
         width: 750px;
         height: 300px;
         border-radius: 10px;
         overflow: hidden;
         background: var(--bg-panel-alt, #eee);
         border: 1px solid var(--border-color, #ddd);
-        margin-bottom: 12px;
     }
 
     .tarihegore-foto img {
@@ -951,14 +957,19 @@
         -webkit-user-drag: none;
     }
 
+    /* MARKER SEÇME ALANI - fotoğrafın soluna, ayrı ve sabit bir kutu olarak
+       oturur; fotoğrafla aynı yüksekliktedir ve her zaman görünür durumdadır. */
+    .ayak-marker-panel-alani {
+        flex-shrink: 0;
+        width: 176px;
+        display: flex;
+    }
+
     /* ===== AYAK FOTOĞRAFI İŞARETLEME (MARKER) SİSTEMİ ===== */
     .ayak-marker-katman {
         position: absolute;
         inset: 0;
         z-index: 2;
-    }
-
-    .ayak-marker-katman.isaretleme-modu {
         cursor: crosshair;
     }
 
@@ -971,49 +982,73 @@
         pointer-events: auto;
     }
 
-    .ayak-marker-ekle-btn {
+    /* İşaretleme yapılırken imlecin bulunduğu yerde görünen saydam önizleme */
+    .ayak-marker-onizleme {
         position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 4;
-        width: 30px;
-        height: 30px;
+        transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: none;
-        background: rgba(15, 20, 20, 0.55);
-        color: #fff;
-        font-size: 19px;
-        line-height: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background .15s, transform .15s;
-    }
-
-    .ayak-marker-ekle-btn:hover { background: rgba(15, 20, 20, 0.8); }
-
-    .ayak-marker-ekle-btn.aktif {
-        background: var(--primary);
-        transform: rotate(45deg);
-    }
-
-    .ayak-marker-panel {
-        position: absolute;
-        top: 48px;
-        left: 10px;
-        z-index: 5;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-        padding: 12px;
-        width: 176px;
+        border: 2px dashed rgba(255, 255, 255, 0.95);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+        pointer-events: none;
+        opacity: 0.5;
+        z-index: 3;
         display: none;
+    }
+
+    .ayak-marker-onizleme.gorunur {
+        display: block;
+    }
+
+    /* Marker üzerine gelindiğinde çıkan tarih/saat tooltip'i */
+    .ayak-marker-tooltip {
+        position: absolute;
+        transform: translate(-50%, calc(-100% - 10px));
+        background: rgba(15, 20, 20, 0.9);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 500;
+        padding: 4px 9px;
+        border-radius: 6px;
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 5;
+        display: none;
+    }
+
+    .ayak-marker-tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid transparent;
+        border-top-color: rgba(15, 20, 20, 0.9);
+    }
+
+    .ayak-marker-tooltip.gorunur {
+        display: block;
+    }
+
+    /* Marker seçim kutusu artık açılıp kapanan bir pencere değil; solda sabit
+       duran, fotoğrafla aynı yükseklikte kalıcı bir kutu. */
+    .ayak-marker-panel {
+        background: #fff;
+        border: 1px solid var(--border-default);
+        border-radius: 10px;
+        box-shadow: var(--golge-orta);
+        padding: 16px 14px;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .ayak-marker-panel-grup {
+        display: flex;
         flex-direction: column;
         gap: 10px;
     }
-
-    .ayak-marker-panel.acik { display: flex; }
 
     .ayak-marker-panel-baslik {
         font-size: 12px;
@@ -1038,8 +1073,8 @@
     }
 
     .ayak-marker-boyut-btn {
-        width: 30px;
-        height: 30px;
+        width: 34px;
+        height: 34px;
         border-radius: 50%;
         border: 2px solid transparent;
         background: #f1f4f3;
@@ -1069,8 +1104,8 @@
     }
 
     .ayak-marker-renk-btn {
-        width: 21px;
-        height: 21px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         border: 2px solid transparent;
         cursor: pointer;
@@ -1088,17 +1123,6 @@
         padding: 0;
         background: none;
         cursor: pointer;
-    }
-
-    .ayak-marker-kapat-btn {
-        align-self: flex-end;
-        font-size: 11px;
-        color: #93a09d;
-        background: none;
-        border: none;
-        cursor: pointer;
-        text-decoration: underline;
-        padding: 0;
     }
 
     .ayak-marker-nav-btn {
@@ -2537,45 +2561,52 @@
 
                     <div class="degerlendirme-icerik" id="degerlendirmeIcerik">
                         <div class="alan-bloku aktif-sayfa" data-alan="tarihegore">
-                            <div class="tarihegore-foto" id="tarihegoreFoto">
-                                <img src="ayak.png" alt="Ayak Fotoğrafı" id="tarihegoreFotoImg" draggable="false">
-                                <div class="ayak-marker-katman" id="ayakMarkerKatman"></div>
-
-                                <button class="ayak-marker-ekle-btn" id="ayakMarkerEkleBtn" type="button" title="İşaretleme Ekle">+</button>
-
-                                <div class="ayak-marker-panel" id="ayakMarkerPanel">
-                                    <div class="ayak-marker-panel-baslik">Marker Ekle</div>
-                                    <div class="ayak-marker-alt-baslik">Boyut</div>
-                                    <div class="ayak-marker-boyutlar" id="ayakMarkerBoyutlar">
-                                        <button type="button" class="ayak-marker-boyut-btn" data-boyut="5" title="5 px"><span style="width:5px;height:5px;"></span></button>
-                                        <button type="button" class="ayak-marker-boyut-btn" data-boyut="10" title="10 px"><span style="width:10px;height:10px;"></span></button>
-                                        <button type="button" class="ayak-marker-boyut-btn" data-boyut="25" title="25 px"><span style="width:18px;height:18px;"></span></button>
-                                        <button type="button" class="ayak-marker-boyut-btn" data-boyut="50" title="50 px"><span style="width:26px;height:26px;"></span></button>
+                            <div class="tarihegore-foto-satiri">
+                                <div class="ayak-marker-panel-alani">
+                                    <div class="ayak-marker-panel" id="ayakMarkerPanel">
+                                        <div class="ayak-marker-panel-baslik">Marker Ekle</div>
+                                        <div class="ayak-marker-panel-grup">
+                                            <div class="ayak-marker-alt-baslik">Boyut</div>
+                                            <div class="ayak-marker-boyutlar" id="ayakMarkerBoyutlar">
+                                                <button type="button" class="ayak-marker-boyut-btn" data-boyut="5" title="5 px"><span style="width:5px;height:5px;"></span></button>
+                                                <button type="button" class="ayak-marker-boyut-btn" data-boyut="10" title="10 px"><span style="width:10px;height:10px;"></span></button>
+                                                <button type="button" class="ayak-marker-boyut-btn" data-boyut="25" title="25 px"><span style="width:18px;height:18px;"></span></button>
+                                                <button type="button" class="ayak-marker-boyut-btn" data-boyut="50" title="50 px"><span style="width:26px;height:26px;"></span></button>
+                                            </div>
+                                        </div>
+                                        <div class="ayak-marker-panel-grup">
+                                            <div class="ayak-marker-alt-baslik">Renk</div>
+                                            <div class="ayak-marker-renkler" id="ayakMarkerRenkler">
+                                                <button type="button" class="ayak-marker-renk-btn" data-renk="#e53935" style="background:#e53935;" title="Kırmızı"></button>
+                                                <button type="button" class="ayak-marker-renk-btn" data-renk="#fb8c00" style="background:#fb8c00;" title="Turuncu"></button>
+                                                <button type="button" class="ayak-marker-renk-btn" data-renk="#fdd835" style="background:#fdd835;" title="Sarı"></button>
+                                                <button type="button" class="ayak-marker-renk-btn" data-renk="#43a047" style="background:#43a047;" title="Yeşil"></button>
+                                                <button type="button" class="ayak-marker-renk-btn" data-renk="#1e88e5" style="background:#1e88e5;" title="Mavi"></button>
+                                                <button type="button" class="ayak-marker-renk-btn" data-renk="#8e24aa" style="background:#8e24aa;" title="Mor"></button>
+                                                <button type="button" class="ayak-marker-renk-btn" data-renk="#212121" style="background:#212121;" title="Siyah"></button>
+                                                <input type="color" class="ayak-marker-renk-ozel" id="ayakMarkerRenkOzel" value="#e53935" title="Özel renk seç">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="ayak-marker-alt-baslik">Renk</div>
-                                    <div class="ayak-marker-renkler" id="ayakMarkerRenkler">
-                                        <button type="button" class="ayak-marker-renk-btn" data-renk="#e53935" style="background:#e53935;" title="Kırmızı"></button>
-                                        <button type="button" class="ayak-marker-renk-btn" data-renk="#fb8c00" style="background:#fb8c00;" title="Turuncu"></button>
-                                        <button type="button" class="ayak-marker-renk-btn" data-renk="#fdd835" style="background:#fdd835;" title="Sarı"></button>
-                                        <button type="button" class="ayak-marker-renk-btn" data-renk="#43a047" style="background:#43a047;" title="Yeşil"></button>
-                                        <button type="button" class="ayak-marker-renk-btn" data-renk="#1e88e5" style="background:#1e88e5;" title="Mavi"></button>
-                                        <button type="button" class="ayak-marker-renk-btn" data-renk="#8e24aa" style="background:#8e24aa;" title="Mor"></button>
-                                        <button type="button" class="ayak-marker-renk-btn" data-renk="#212121" style="background:#212121;" title="Siyah"></button>
-                                        <input type="color" class="ayak-marker-renk-ozel" id="ayakMarkerRenkOzel" value="#e53935" title="Özel renk seç">
-                                    </div>
-                                    <button type="button" class="ayak-marker-kapat-btn" id="ayakMarkerPanelKapatBtn">Kapat</button>
                                 </div>
 
-                                <div class="ayak-marker-sayac" id="ayakMarkerSayac">0/0</div>
+                                <div class="tarihegore-foto" id="tarihegoreFoto">
+                                    <img src="ayak.png" alt="Ayak Fotoğrafı" id="tarihegoreFotoImg" draggable="false">
+                                    <div class="ayak-marker-katman" id="ayakMarkerKatman">
+                                        <div class="ayak-marker-onizleme" id="ayakMarkerOnizleme"></div>
+                                    </div>
 
-                                <button class="ayak-marker-nav-btn ayak-marker-nav-sol" id="ayakFotoOncekiBtn" type="button" title="Önceki (←)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                                </button>
-                                <button class="ayak-marker-nav-btn ayak-marker-nav-sag" id="ayakFotoSonrakiBtn" type="button" title="Sonraki (→)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                                </button>
+                                    <div class="ayak-marker-sayac" id="ayakMarkerSayac">0/0</div>
 
-                                <div class="ayak-marker-tarih" id="ayakMarkerTarih" style="display:none;">-</div>
+                                    <button class="ayak-marker-nav-btn ayak-marker-nav-sol" id="ayakFotoOncekiBtn" type="button" title="Önceki (←)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                    </button>
+                                    <button class="ayak-marker-nav-btn ayak-marker-nav-sag" id="ayakFotoSonrakiBtn" type="button" title="Sonraki (→)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                    </button>
+
+                                    <div class="ayak-marker-tarih" id="ayakMarkerTarih" style="display:none;">-</div>
+                                </div>
                             </div>
                             <div class="alan-baslik-satiri">
                                 <div class="alan-baslik-sol">
@@ -3335,9 +3366,8 @@
     // seçilirse marker, o an ekranda görünen kayda eklenir.
     const ayakMarkerFoto = document.getElementById('tarihegoreFoto');
     const ayakMarkerKatman = document.getElementById('ayakMarkerKatman');
-    const ayakMarkerEkleBtn = document.getElementById('ayakMarkerEkleBtn');
+    const ayakMarkerOnizleme = document.getElementById('ayakMarkerOnizleme');
     const ayakMarkerPanel = document.getElementById('ayakMarkerPanel');
-    const ayakMarkerPanelKapatBtn = document.getElementById('ayakMarkerPanelKapatBtn');
     const ayakMarkerBoyutBtns = Array.from(document.querySelectorAll('.ayak-marker-boyut-btn'));
     const ayakMarkerRenkBtns = Array.from(document.querySelectorAll('.ayak-marker-renk-btn'));
     const ayakMarkerRenkOzel = document.getElementById('ayakMarkerRenkOzel');
@@ -3353,7 +3383,6 @@
     let ayakMarkerVersiyonlari = []; // her biri: {id, markerlar:[{x,y,boyut,renk,tarih}], olusturulmaZamani, sonDuzenleme}
     let ayakMarkerAktifIndex = 0;    // 0 = en yeni işaretleme
     let ayakMarkerDinleyici = null;
-    let ayakMarkerEklemeModu = false;
     let ayakMarkerSeciliBoyut = 25;
     let ayakMarkerSeciliRenk = '#e53935';
     let ayakMarkerBekleyenKoordinat = null; // {x, y} yüzde cinsinden, onay bekleyen tıklama
@@ -3365,26 +3394,19 @@
     const ayakVarsayilanRenkBtn = ayakMarkerRenkBtns.find(b => b.dataset.renk === ayakMarkerSeciliRenk);
     if (ayakVarsayilanRenkBtn) ayakVarsayilanRenkBtn.classList.add('secili');
 
-    function ayakIsaretlemeModunuKapat() {
-        ayakMarkerEklemeModu = false;
-        ayakMarkerPanel.classList.remove('acik');
-        ayakMarkerEkleBtn.classList.remove('aktif');
-        ayakMarkerKatman.classList.remove('isaretleme-modu');
+    // Saydam önizleme dairesinin boyut/rengini güncel seçime göre ayarla
+    function ayakOnizlemeyiGuncelle() {
+        ayakMarkerOnizleme.style.width = ayakMarkerSeciliBoyut + 'px';
+        ayakMarkerOnizleme.style.height = ayakMarkerSeciliBoyut + 'px';
+        ayakMarkerOnizleme.style.background = ayakMarkerSeciliRenk;
     }
-
-    ayakMarkerEkleBtn.addEventListener('click', () => {
-        ayakMarkerEklemeModu = !ayakMarkerEklemeModu;
-        ayakMarkerPanel.classList.toggle('acik', ayakMarkerEklemeModu);
-        ayakMarkerEkleBtn.classList.toggle('aktif', ayakMarkerEklemeModu);
-        ayakMarkerKatman.classList.toggle('isaretleme-modu', ayakMarkerEklemeModu);
-    });
-
-    ayakMarkerPanelKapatBtn.addEventListener('click', ayakIsaretlemeModunuKapat);
+    ayakOnizlemeyiGuncelle();
 
     ayakMarkerBoyutBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             ayakMarkerSeciliBoyut = parseInt(btn.dataset.boyut, 10);
             ayakMarkerBoyutBtns.forEach(b => b.classList.toggle('secili', b === btn));
+            ayakOnizlemeyiGuncelle();
         });
     });
 
@@ -3393,6 +3415,7 @@
             ayakMarkerSeciliRenk = btn.dataset.renk;
             ayakMarkerRenkBtns.forEach(b => b.classList.toggle('secili', b === btn));
             if (ayakMarkerRenkOzel) ayakMarkerRenkOzel.value = ayakMarkerSeciliRenk;
+            ayakOnizlemeyiGuncelle();
         });
     });
 
@@ -3400,13 +3423,27 @@
         ayakMarkerRenkOzel.addEventListener('input', () => {
             ayakMarkerSeciliRenk = ayakMarkerRenkOzel.value;
             ayakMarkerRenkBtns.forEach(b => b.classList.remove('secili'));
+            ayakOnizlemeyiGuncelle();
         });
     }
 
-    // Fotoğraf üzerine tıklanınca (yalnızca işaretleme modu açıkken) marker konumunu
-    // yüzde cinsinden hesapla; mevcut kayıt varsa "aynı mı / yeni mi" sorusunu sor.
+    // Fare fotoğraf üzerinde gezinirken, tıklanacak yeri gösteren saydam önizleme daiiresini takip ettir
+    ayakMarkerKatman.addEventListener('mousemove', (e) => {
+        const rect = ayakMarkerKatman.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        ayakMarkerOnizleme.style.left = x + '%';
+        ayakMarkerOnizleme.style.top = y + '%';
+        ayakMarkerOnizleme.classList.add('gorunur');
+    });
+
+    ayakMarkerKatman.addEventListener('mouseleave', () => {
+        ayakMarkerOnizleme.classList.remove('gorunur');
+    });
+
+    // Fotoğraf üzerine tıklanınca marker konumunu yüzde cinsinden hesapla;
+    // mevcut kayıt varsa "aynı mı / yeni mi" sorusunu sor.
     ayakMarkerKatman.addEventListener('click', (e) => {
-        if (!ayakMarkerEklemeModu) return;
         const rect = ayakMarkerKatman.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
@@ -3494,9 +3531,15 @@
         }
     }
 
+    // Marker üzerine gelindiğinde tarih/saat gösteren tooltip elementi (bir kez oluşturulur)
+    const ayakMarkerNoktaTooltip = document.createElement('div');
+    ayakMarkerNoktaTooltip.className = 'ayak-marker-tooltip';
+    ayakMarkerKatman.appendChild(ayakMarkerNoktaTooltip);
+
     function ayakMarkerlariCiz() {
         const versiyon = ayakMarkerVersiyonlari[ayakMarkerAktifIndex];
-        ayakMarkerKatman.innerHTML = '';
+        ayakMarkerNoktaTooltip.classList.remove('gorunur');
+        Array.from(ayakMarkerKatman.querySelectorAll('.ayak-marker-nokta')).forEach(n => n.remove());
 
         if (!versiyon) {
             ayakMarkerSayac.textContent = '0/0';
@@ -3518,8 +3561,16 @@
             nokta.style.width = marker.boyut + 'px';
             nokta.style.height = marker.boyut + 'px';
             nokta.style.background = marker.renk;
-            nokta.title = marker.tarih ? tarihiKisaFormatla(new Date(marker.tarih)) : '';
             nokta.addEventListener('click', (e) => e.stopPropagation());
+            nokta.addEventListener('mouseenter', () => {
+                ayakMarkerNoktaTooltip.textContent = marker.tarih ? tarihiKisaFormatla(new Date(marker.tarih)) : '-';
+                ayakMarkerNoktaTooltip.style.left = marker.x + '%';
+                ayakMarkerNoktaTooltip.style.top = marker.y + '%';
+                ayakMarkerNoktaTooltip.classList.add('gorunur');
+            });
+            nokta.addEventListener('mouseleave', () => {
+                ayakMarkerNoktaTooltip.classList.remove('gorunur');
+            });
             ayakMarkerKatman.appendChild(nokta);
         });
 
@@ -3549,7 +3600,6 @@
         ayakMarkerVersiyonlari = [];
         ayakMarkerAktifIndex = 0;
         ayakMarkerYeniOdaklan = false;
-        ayakIsaretlemeModunuKapat();
         ayakMarkerSorusunuKapat();
         ayakMarkerlariCiz();
     }
