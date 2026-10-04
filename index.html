@@ -2135,34 +2135,69 @@
         margin-bottom: 16px;
     }
 
-    .foto-ekle-btn {
+    .foto-ekle-grubu {
         display: flex;
         align-items: center;
-        gap: 6px;
-        background: var(--primary);
-        color: var(--white);
-        border: none;
-        padding: 8px 14px;
-        border-radius: 6px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .foto-ekle-btn,
+    .foto-kamera-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 38px;
+        padding: 8px 13px;
+        border-radius: 7px;
         font-size: 12.5px;
-        font-weight: 500;
+        font-weight: 600;
         cursor: pointer;
         font-family: inherit;
-        transition: background 0.15s ease;
+        transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+    }
+
+    .foto-ekle-btn {
+        background: var(--primary);
+        color: var(--white);
+        border: 1px solid var(--primary);
     }
 
     .foto-ekle-btn:hover {
         background: var(--primary-dark);
+        border-color: var(--primary-dark);
+        box-shadow: 0 3px 10px rgba(13, 148, 136, 0.2);
     }
 
-    .foto-ekle-btn:disabled {
-        opacity: 0.6;
+    .foto-kamera-btn {
+        background: var(--white);
+        color: var(--primary);
+        border: 1px solid var(--primary-tint-300);
+    }
+
+    .foto-kamera-btn:hover {
+        background: var(--primary-tint-50);
+        border-color: var(--primary);
+        box-shadow: 0 3px 10px rgba(13, 148, 136, 0.12);
+    }
+
+    .foto-ekle-btn:active,
+    .foto-kamera-btn:active {
+        transform: translateY(1px);
+    }
+
+    .foto-ekle-btn:disabled,
+    .foto-kamera-btn:disabled {
+        opacity: 0.55;
         cursor: default;
+        box-shadow: none;
     }
 
-    .foto-ekle-btn svg {
-        width: 14px;
-        height: 14px;
+    .foto-ekle-btn svg,
+    .foto-kamera-btn svg {
+        width: 16px;
+        height: 16px;
         flex-shrink: 0;
     }
 
@@ -3801,15 +3836,25 @@
             <!-- SEKME 4: HASTA FOTOĞRAFLARI -->
             <div class="sekme-icerik" id="sekmeFotograflar">
                 <div class="foto-ust-satir">
-                    <button class="foto-ekle-btn" id="fotoEkleBtn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <path d="M21 15l-5-5L5 21"></path>
-                        </svg>
-                        Fotoğraf Ekle (Tekli veya Toplu)
-                    </button>
+                    <div class="foto-ekle-grubu">
+                        <button class="foto-ekle-btn" id="fotoEkleBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <path d="M21 15l-5-5L5 21"></path>
+                            </svg>
+                            Galeriden Seç
+                        </button>
+                        <button class="foto-kamera-btn" id="fotoKameraBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.5 4h-5L7.8 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2.8z"></path>
+                                <circle cx="12" cy="13" r="3.5"></circle>
+                            </svg>
+                            Kamera ile Çek
+                        </button>
+                    </div>
                     <input type="file" id="fotoInput" accept="image/*" multiple hidden>
+                    <input type="file" id="fotoKameraInput" accept="image/*" capture="environment" hidden>
                     <span class="foto-durum" id="fotoDurum"></span>
                 </div>
                 <div class="foto-galeri-sarici" id="fotoGaleriSarici">
@@ -5009,6 +5054,8 @@
 
     const fotoEkleBtn = document.getElementById('fotoEkleBtn');
     const fotoInput = document.getElementById('fotoInput');
+    const fotoKameraBtn = document.getElementById('fotoKameraBtn');
+    const fotoKameraInput = document.getElementById('fotoKameraInput');
     const fotoDurum = document.getElementById('fotoDurum');
     const fotoGrid = document.getElementById('fotoGrid');
     const fotoGaleriSolBtn = document.getElementById('fotoGaleriSolBtn');
@@ -5053,44 +5100,69 @@
         });
     }
 
+    if (fotoKameraBtn) {
+        fotoKameraBtn.addEventListener('click', () => {
+            if (!seciliHastaId) {
+                alert('Lütfen önce sol taraftan bir hasta seçin.');
+                return;
+            }
+            fotoKameraInput.click();
+        });
+    }
+
+    async function fotograflariYukle(dosyalar, kaynakInput) {
+        if (!dosyalar || dosyalar.length === 0) return;
+
+        if (!seciliHastaId) {
+            alert('Lütfen önce sol taraftan bir hasta seçin.');
+            if (kaynakInput) kaynakInput.value = '';
+            return;
+        }
+
+        fotoEkleBtn.disabled = true;
+        if (fotoKameraBtn) fotoKameraBtn.disabled = true;
+
+        let basarili = 0;
+
+        for (let i = 0; i < dosyalar.length; i++) {
+            fotoDurum.textContent = `Yükleniyor... (${i + 1}/${dosyalar.length})`;
+            try {
+                const url = await cloudinaryYukle(dosyalar[i]);
+                await addDoc(collection(db, "hastalar", seciliHastaId, "fotograflar"), {
+                    url,
+                    olusturulmaZamani: serverTimestamp()
+                });
+                basarili++;
+            } catch (hata) {
+                console.error('Fotoğraf yüklenirken hata:', hata);
+            }
+        }
+
+        if (basarili === dosyalar.length) {
+            fotoDurum.textContent = `${basarili} fotoğraf başarıyla eklendi.`;
+            setTimeout(() => { fotoDurum.textContent = ''; }, 2500);
+        } else {
+            fotoDurum.textContent = `${basarili}/${dosyalar.length} fotoğraf yüklenebildi.`;
+            alert('Bazı fotoğraflar yüklenirken bir hata oluştu. Lütfen tekrar deneyin.');
+            setTimeout(() => { fotoDurum.textContent = ''; }, 4000);
+        }
+
+        fotoEkleBtn.disabled = false;
+        if (fotoKameraBtn) fotoKameraBtn.disabled = false;
+        if (kaynakInput) kaynakInput.value = '';
+    }
+
     if (fotoInput) {
         fotoInput.addEventListener('change', async () => {
             const dosyalar = Array.from(fotoInput.files || []);
-            if (dosyalar.length === 0) return;
-            if (!seciliHastaId) {
-                alert('Lütfen önce sol taraftan bir hasta seçin.');
-                fotoInput.value = '';
-                return;
-            }
+            await fotograflariYukle(dosyalar, fotoInput);
+        });
+    }
 
-            fotoEkleBtn.disabled = true;
-            let basarili = 0;
-
-            for (let i = 0; i < dosyalar.length; i++) {
-                fotoDurum.textContent = `Yükleniyor... (${i + 1}/${dosyalar.length})`;
-                try {
-                    const url = await cloudinaryYukle(dosyalar[i]);
-                    await addDoc(collection(db, "hastalar", seciliHastaId, "fotograflar"), {
-                        url,
-                        olusturulmaZamani: serverTimestamp()
-                    });
-                    basarili++;
-                } catch (hata) {
-                    console.error('Fotoğraf yüklenirken hata:', hata);
-                }
-            }
-
-            fotoDurum.textContent = basarili === dosyalar.length
-                ? ''
-                : `${basarili}/${dosyalar.length} fotoğraf yüklenebildi.`;
-
-            if (basarili < dosyalar.length) {
-                alert('Bazı fotoğraflar yüklenirken bir hata oluştu. Lütfen tekrar deneyin.');
-                setTimeout(() => { fotoDurum.textContent = ''; }, 4000);
-            }
-
-            fotoEkleBtn.disabled = false;
-            fotoInput.value = '';
+    if (fotoKameraInput) {
+        fotoKameraInput.addEventListener('change', async () => {
+            const dosyalar = Array.from(fotoKameraInput.files || []);
+            await fotograflariYukle(dosyalar, fotoKameraInput);
         });
     }
 
