@@ -215,13 +215,43 @@
     }
 
     /* HASTA LİSTESİ */
-    .liste-baslik {
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--navy-text-label);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+    .liste-baslik-siralama {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
         margin-bottom: 10px;
+    }
+
+    .liste-baslik-siralama .liste-baslik {
+        margin-bottom: 0;
+        min-width: 0;
+    }
+
+    .siralama-select {
+        min-width: 148px;
+        max-width: 62%;
+        padding: 5px 24px 5px 8px;
+        border: 1px solid var(--navy-600);
+        border-radius: 6px;
+        background: var(--navy-900);
+        color: var(--navy-text-secondary);
+        font: 500 10.5px/1.2 inherit;
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+    }
+
+    .siralama-select:hover,
+    .siralama-select:focus {
+        border-color: var(--primary-light);
+        background: var(--navy-750);
+        color: var(--navy-text-primary);
+    }
+
+    .siralama-select option {
+        background: var(--navy-900);
+        color: var(--navy-text-primary);
     }
 
     .arama-kutusu {
@@ -1308,6 +1338,13 @@
         border-bottom: 1px solid var(--border-subtle);
     }
 
+.tarihegore-not-ust { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .tarihegore-not-islemler { display:flex; gap:2px; flex-shrink:0; }
+    .tarihegore-not-btn { border:none; background:transparent; color:var(--border-faint); cursor:pointer; padding:3px; border-radius:4px; display:flex; align-items:center; justify-content:center; }
+    .tarihegore-not-btn svg { width:11px; height:11px; }
+    .tarihegore-not-duzenle:hover { color:var(--primary); background:var(--primary-tint-50); }
+    .tarihegore-not-sil:hover { color:var(--danger); background:var(--danger-tint); }
+
     .tarihegore-not {
         display: flex;
         flex-direction: column;
@@ -1476,6 +1513,12 @@
         outline: none;
         border-color: var(--primary-light);
     }
+
+    .not-modal-tarih-satir { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px; }
+    .not-modal-tarih-alan { display:flex; flex-direction:column; gap:5px; }
+    .not-modal-tarih-alan label { font-size:10px; font-weight:600; color:var(--text-secondary); }
+    .not-modal-tarih-alan input { width:100%; box-sizing:border-box; padding:8px 9px; border:1px solid var(--border-subtle); border-radius:6px; background:var(--surface-subtle); color:var(--text-body); font:inherit; font-size:12px; outline:none; }
+    .not-modal-tarih-alan input:focus { border-color:var(--primary); background:var(--white); }
 
     .not-modal-footer {
         padding: 14px 20px;
@@ -1739,12 +1782,20 @@
         font-weight: 500;
     }
 
+    .giris-islem-btnlar { display:flex; align-items:center; gap:2px; flex-shrink:0; }
+    .giris-islem-btn {
+        background:none; border:none; color:var(--border-faint); cursor:pointer; padding:3px;
+        display:flex; align-items:center; justify-content:center; border-radius:4px; flex-shrink:0;
+        transition:color .15s ease, background .15s ease;
+    }
+    .giris-duzenle-btn:hover { color:var(--primary); background:var(--primary-tint-50); }
+
     .giris-sil-btn {
         background: none;
         border: none;
         color: var(--border-faint);
         cursor: pointer;
-        padding: 2px;
+        padding: 3px;
         display: flex;
         align-items: center;
         border-radius: 4px;
@@ -1757,10 +1808,7 @@
         background: var(--danger-tint);
     }
 
-    .giris-sil-btn svg {
-        width: 11px;
-        height: 11px;
-    }
+    .giris-islem-btn svg, .giris-sil-btn svg { width:11px; height:11px; }
 
     .giris-metin {
         font-size: 12.5px;
@@ -2129,28 +2177,17 @@
         padding: 6px 0;
     }
 
-    /* GALERİ SARICI - ok tuşları ile kaydırma */
+    /* HASTA FOTOĞRAFLARI - ızgara + dikey kaydırma */
     .foto-galeri-sarici {
         position: relative;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        display: block;
+        width: 100%;
+        min-width: 0;
     }
 
+    /* Izgara görünümünde yatay galeri oklarına gerek yok. */
     .foto-galeri-ok {
-        flex-shrink: 0;
-        width: 34px;
-        height: 34px;
-        border-radius: 50%;
-        border: 1px solid var(--border-subtle);
-        background: var(--white);
-        color: var(--primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        transition: background 0.15s ease, border-color 0.15s ease;
+        display: none !important;
     }
 
     .foto-galeri-ok:hover {
@@ -2164,19 +2201,24 @@
     }
 
     .foto-grid {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 14px;
-        overflow-x: auto;
+        width: 100%;
+        max-height: min(520px, calc(100dvh - 260px));
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
-        scroll-snap-type: x proximity;
-        padding: 4px 2px 10px;
-        flex: 1;
+        padding: 4px 4px 10px 2px;
+        box-sizing: border-box;
         min-width: 0;
     }
 
     .foto-grid::-webkit-scrollbar {
-        height: 7px;
+        width: 7px;
+        height: 0;
     }
 
     .foto-grid::-webkit-scrollbar-track {
@@ -2196,9 +2238,9 @@
         border: 1px solid var(--border-subtle);
         border-radius: 8px;
         padding: 8px;
-        flex: 0 0 160px;
-        width: 160px;
-        scroll-snap-align: start;
+        width: auto;
+        min-width: 0;
+        box-sizing: border-box;
     }
 
     .foto-resim-sarici {
@@ -2685,6 +2727,645 @@
 
     .tum-galeri-ok-sol { left: 24px; }
     .tum-galeri-ok-sag { right: 24px; }
+
+
+    /* =========================================================
+       MOBİL / TABLET RESPONSIVE TASARIM
+       Masaüstü düzenine dokunmadan küçük ekranları uyarlar.
+       ========================================================= */
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        min-width: 0;
+    }
+
+    @media (max-width: 900px) {
+        html, body {
+            width: 100%;
+            min-width: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            min-height: 0;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Hasta listesi üstte, hasta detayları altta */
+        .sol-panel {
+            width: 100%;
+            height: 40dvh;
+            min-height: 250px;
+            max-height: 430px;
+            flex: 0 0 40dvh;
+            padding: 14px 14px 12px;
+            border-right: none;
+            border-bottom: 1px solid var(--navy-900);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .sag-panel {
+            width: 100%;
+            height: 60dvh;
+            flex: 1 1 auto;
+            min-height: 0;
+            padding: 18px 16px 40px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .liste-baslik-siralama {
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .siralama-select {
+            min-width: 145px;
+            max-width: 58%;
+            min-height: 38px;
+            font-size: 11px;
+        }
+
+        .arama-kutusu input {
+            min-height: 42px;
+            font-size: 16px;
+        }
+
+        .hasta-satiri,
+        .hasta-karti {
+            min-height: 54px;
+        }
+
+        .hasta-satiri button,
+        .hasta-karti button,
+        button {
+            touch-action: manipulation;
+        }
+
+        .sag-hasta-baslik {
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .sag-hasta-baslik h1 {
+            font-size: clamp(22px, 5vw, 30px);
+            overflow-wrap: anywhere;
+        }
+
+        .sag-hasta-rozetler {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .sekme-grubu {
+            position: sticky;
+            top: -18px;
+            z-index: 20;
+            margin: 0 -16px 18px;
+            padding: 0 16px;
+            background: var(--bg-panel-alt);
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            white-space: nowrap;
+        }
+
+        .sekme-grubu::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sekme-btn {
+            flex: 0 0 auto;
+            min-height: 46px;
+            padding: 12px 4px;
+            font-size: 13px;
+            margin-right: 16px;
+        }
+
+        .degerlendirme-yerlesim {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .degerlendirme-menu {
+            width: 100%;
+            flex-direction: row;
+            gap: 7px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .degerlendirme-menu > button,
+        .degerlendirme-menu-btn,
+        .degerlendirme-baslat-btn,
+        .degerlendirme-tarihe-btn {
+            flex: 0 0 auto;
+            width: auto;
+            min-height: 44px;
+            white-space: nowrap;
+            margin-bottom: 0;
+        }
+
+        .degerlendirme-icerik {
+            width: 100%;
+        }
+
+        .alan-sutun,
+        .alan-bloku {
+            min-width: 0;
+        }
+
+        .giris-karti {
+            padding: 9px 10px;
+        }
+
+        .giris-islem-btnlar button,
+        .giris-sil-btn,
+        .giris-duzenle-btn {
+            min-width: 40px;
+            min-height: 40px;
+        }
+
+        textarea,
+        input,
+        select {
+            max-width: 100%;
+        }
+
+        /* Formların taşmasını engelle */
+        .degerlendirme-baslat-kutu,
+        .modal-kutu,
+        .not-modal-kutu,
+        .duzenleme-modal-kutu {
+            width: min(640px, calc(100vw - 24px));
+            max-width: calc(100vw - 24px);
+        }
+
+        .modal-overlay,
+        .not-modal-overlay,
+        .degerlendirme-baslat-modal-overlay {
+            padding: 12px;
+            align-items: center;
+        }
+
+        .modal-kutu,
+        .not-modal-kutu,
+        .degerlendirme-baslat-kutu {
+            max-height: calc(100dvh - 24px);
+        }
+
+        .modal-body,
+        .not-modal-body,
+        .degerlendirme-baslat-modal-body {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Mobil: 2 sütunlu ızgara, belirli yükseklikten sonra aşağı kaydırma */
+        .foto-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            max-height: 58dvh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 4px 3px 12px 2px;
+            scroll-snap-type: none;
+        }
+
+        .foto-karti {
+            width: 100%;
+            min-width: 0;
+        }
+
+        /* Tarihe göre değerlendirme blokları */
+        .tarihegore-blok,
+        .tarihegore-not {
+            min-width: 0;
+        }
+
+        .tarihegore-not-metin {
+            overflow-wrap: anywhere;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .sol-panel {
+            height: 42dvh;
+            flex-basis: 42dvh;
+            min-height: 235px;
+            padding: 11px 10px 9px;
+        }
+
+        .sag-panel {
+            height: 58dvh;
+            padding: 14px 11px 32px;
+        }
+
+        .liste-baslik-siralama {
+            align-items: center;
+        }
+
+        .liste-baslik {
+            font-size: 12px;
+        }
+
+        .siralama-select {
+            min-width: 0;
+            width: 53%;
+            max-width: 53%;
+            min-height: 38px;
+            padding-left: 7px;
+            padding-right: 20px;
+            font-size: 10px;
+        }
+
+        .arama-kutusu {
+            margin-bottom: 8px;
+        }
+
+        .arama-kutusu input {
+            min-height: 44px;
+        }
+
+        .hasta-satiri,
+        .hasta-karti {
+            padding: 9px 8px;
+        }
+
+        .sag-hasta-baslik h1 {
+            font-size: 22px;
+        }
+
+        .sekme-grubu {
+            top: -14px;
+            margin-left: -11px;
+            margin-right: -11px;
+            padding-left: 11px;
+            padding-right: 11px;
+        }
+
+        .sekme-btn {
+            min-height: 44px;
+            font-size: 12px;
+            margin-right: 13px;
+        }
+
+        .degerlendirme-menu {
+            gap: 6px;
+        }
+
+        .degerlendirme-menu > button,
+        .degerlendirme-menu-btn,
+        .degerlendirme-baslat-btn,
+        .degerlendirme-tarihe-btn {
+            min-height: 42px;
+            padding: 9px 11px;
+            font-size: 11px;
+        }
+
+        .alan-baslik-satiri {
+            gap: 6px;
+        }
+
+        .giris-karti-ust {
+            align-items: flex-start;
+        }
+
+        .giris-tarih {
+            font-size: 10px;
+        }
+
+        .modal-overlay,
+        .not-modal-overlay,
+        .degerlendirme-baslat-modal-overlay {
+            padding: 8px;
+        }
+
+        .modal-kutu,
+        .not-modal-kutu,
+        .degerlendirme-baslat-kutu,
+        .duzenleme-modal-kutu {
+            width: calc(100vw - 16px);
+            max-width: calc(100vw - 16px);
+            max-height: calc(100dvh - 16px);
+            border-radius: 12px;
+        }
+
+        .modal-header {
+            padding: 14px 15px;
+        }
+
+        .modal-body {
+            padding: 14px 15px;
+        }
+
+        .modal-footer {
+            padding: 11px 15px;
+            gap: 8px;
+        }
+
+        .modal-footer button {
+            min-height: 44px;
+        }
+
+        .foto-karti {
+            flex-basis: 155px;
+        }
+
+        /* Mobilde tarih/saat alanları yan yana taşmasın */
+        .not-duzenle-tarih-saat,
+        .tarih-saat-grubu,
+        .form-satiri {
+            flex-wrap: wrap;
+        }
+
+        .not-duzenle-tarih-saat > *,
+        .tarih-saat-grubu > * {
+            flex: 1 1 130px;
+            min-width: 0;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .sol-panel {
+            min-height: 220px;
+        }
+
+        .siralama-select {
+            width: 48%;
+            max-width: 48%;
+            font-size: 9.5px;
+        }
+
+        .sag-panel {
+            padding-left: 9px;
+            padding-right: 9px;
+        }
+
+        .sag-hasta-baslik h1 {
+            font-size: 20px;
+        }
+    }
+
+    /* =========================================================
+       MARKER + MOBİL RESPONSIVE v2
+       Marker kontrolü küçük ekranlarda hiçbir zaman yatay taşma
+       nedeniyle ekran dışına çıkmaz. Fotoğraf da ekran genişliğine
+       göre yeniden boyutlanır.
+       ========================================================= */
+
+    .tarihegore-foto-satiri {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .tarihegore-foto,
+    .ayak-marker-panel-alani {
+        min-width: 0;
+    }
+
+    @media (max-width: 1100px) {
+        .tarihegore-foto {
+            width: min(750px, calc(100vw - 300px));
+        }
+
+        .ayak-marker-panel-alani {
+            width: 160px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        /* Marker paneli fotoğrafın ÜSTÜNE alınır; böylece 750px sabit
+           fotoğraf genişliği yüzünden panel ekranın dışına taşmaz. */
+        .tarihegore-foto-satiri {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            align-self: stretch;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            overflow: visible;
+        }
+
+        .ayak-marker-panel-alani {
+            order: 1;
+            width: 100%;
+            max-width: 100%;
+            flex: 0 0 auto;
+        }
+
+        .ayak-marker-panel {
+            width: 100%;
+            min-width: 0;
+            height: auto;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto 1fr 1.25fr;
+            align-items: center;
+            gap: 9px 12px;
+        }
+
+        .ayak-marker-panel-baslik {
+            grid-column: 1 / -1;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+
+        .ayak-marker-panel-grup {
+            min-width: 0;
+            gap: 6px;
+        }
+
+        .ayak-marker-panel-grup:first-of-type {
+            min-width: 0;
+        }
+
+        .ayak-marker-alt-baslik {
+            margin-bottom: 0;
+            font-size: 9px;
+        }
+
+        .ayak-marker-boyutlar {
+            justify-content: flex-start;
+            gap: 5px;
+            flex-wrap: nowrap;
+        }
+
+        .ayak-marker-boyut-btn {
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+        }
+
+        .ayak-marker-renkler {
+            min-width: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .ayak-marker-renk-btn {
+            width: 27px;
+            height: 27px;
+            flex: 0 0 27px;
+        }
+
+        .ayak-marker-renk-ozel {
+            width: 29px;
+            height: 29px;
+            flex: 0 0 29px;
+        }
+
+        .tarihegore-foto {
+            order: 2;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 5 / 2;
+            min-height: 190px;
+            max-height: 360px;
+            flex: 0 0 auto;
+        }
+
+        .tarihegore-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    @media (max-width: 600px) {
+        /* Telefonlarda panel tek sütunlu ve kompakt; hiçbir kontrol
+           ekran genişliğini zorlamaz. */
+        .tarihegore-foto-satiri {
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .ayak-marker-panel {
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 10px;
+            padding: 9px;
+            border-radius: 9px;
+        }
+
+        .ayak-marker-panel-baslik {
+            font-size: 11px;
+        }
+
+        .ayak-marker-panel-grup {
+            width: 100%;
+        }
+
+        .ayak-marker-panel-grup:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .ayak-marker-boyutlar {
+            gap: 4px;
+        }
+
+        .ayak-marker-boyut-btn {
+            width: 32px;
+            height: 32px;
+            flex-basis: 32px;
+        }
+
+        .ayak-marker-renkler {
+            gap: 4px;
+        }
+
+        .ayak-marker-renk-btn {
+            width: 26px;
+            height: 26px;
+            flex-basis: 26px;
+        }
+
+        .ayak-marker-renk-ozel {
+            width: 28px;
+            height: 28px;
+            flex-basis: 28px;
+        }
+
+        .tarihegore-foto {
+            width: 100%;
+            min-height: 170px;
+            max-height: none;
+            aspect-ratio: 4 / 2.2;
+            border-radius: 9px;
+        }
+
+        .ayak-marker-nav-btn {
+            width: 38px;
+            height: 38px;
+        }
+
+        .ayak-marker-nav-sol { left: 7px; }
+        .ayak-marker-nav-sag { right: 7px; }
+
+        .ayak-marker-sayac {
+            top: 7px;
+            right: 7px;
+            font-size: 10px;
+        }
+
+        .ayak-marker-tarih {
+            right: 7px;
+            bottom: 7px;
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .ayak-marker-panel {
+            grid-template-columns: 1fr;
+        }
+
+        .ayak-marker-panel-grup:last-child {
+            grid-column: auto;
+        }
+
+        .ayak-marker-renkler {
+            justify-content: flex-start;
+        }
+
+        .tarihegore-foto {
+            min-height: 155px;
+            aspect-ratio: 4 / 2.25;
+        }
+    }
+
+    /* Dokunmatik cihazlarda hover'a bağımlı etkileşim olmasın */
+    @media (hover: none) and (pointer: coarse) {
+        button,
+        select,
+        input,
+        textarea {
+            touch-action: manipulation;
+        }
+
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+
 </style>
 </head>
 <body>
@@ -2730,7 +3411,17 @@
             Hasta Hesapla
         </button>
 
-        <div class="liste-baslik">Hastalar</div>
+        <div class="liste-baslik-siralama">
+            <div class="liste-baslik">Hastalar</div>
+            <select class="siralama-select" id="siralamaSelect" title="Hasta listesini sırala" aria-label="Hasta listesini sırala">
+                <option value="basvuru-desc">Başvuru tarihi · En yeni</option>
+                <option value="basvuru-asc">Başvuru tarihi · En eski</option>
+                <option value="isim-asc">İsim · A-Z</option>
+                <option value="isim-desc">İsim · Z-A</option>
+                <option value="gelis-desc">Son geliş · En yeni</option>
+                <option value="gelis-asc">Son geliş · En eski</option>
+            </select>
+        </div>
         <div class="arama-kutusu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -3074,6 +3765,10 @@
         </div>
         <div class="not-modal-body">
             <textarea id="notModalTextarea" placeholder="Notunuzu buraya yazın..." rows="5"></textarea>
+            <div class="not-modal-tarih-satir">
+                <div class="not-modal-tarih-alan"><label for="notModalTarih">Tarih</label><input type="date" id="notModalTarih"></div>
+                <div class="not-modal-tarih-alan"><label for="notModalSaat">Saat</label><input type="time" id="notModalSaat"></div>
+            </div>
             <div class="not-hazir-butonlar" id="notHazirButonlar"></div>
         </div>
         <div class="not-modal-footer">
@@ -3380,9 +4075,14 @@
     const hastaListesi = document.getElementById('hastaListesi');
     const listeBos = document.getElementById('listeBos');
     const aramaInput = document.getElementById('aramaInput');
+    const siralamaSelect = document.getElementById('siralamaSelect');
     const aramaSonucYok = document.getElementById('aramaSonucYok');
 
     let hastalar = [];
+    let siralamaTuru = 'basvuru-desc';
+    // Hasta ID'sine göre son geliş tarihini (ms) tutar.
+    // Gelişler alt koleksiyonda olduğu için liste sıralamasında bu önbelleği kullanıyoruz.
+    let hastaSonGelisTarihleri = {};
     let seciliHastaId = null;
     let vurgulananHastaId = null;
     let duzenlenenHastaId = null; // dolu ise modal "düzenleme" modunda çalışır
@@ -3631,7 +4331,7 @@
         tarihegoreAlanlari.forEach(alanAdi => {
             (alanVerileri[alanAdi] || []).forEach(giris => {
                 if (!giris.tarih) return;
-                tumGirisler.push({ alanAdi, metin: giris.metin, tarih: giris.tarih });
+                tumGirisler.push({ alanAdi, id: giris.id, metin: giris.metin, tarih: giris.tarih });
             });
         });
 
@@ -3670,14 +4370,19 @@
                 const notEl = document.createElement('div');
                 notEl.className = 'tarihegore-not';
                 notEl.innerHTML = `
-                    <div>
-                        <span class="tarihegore-not-alan"></span>
-                        <span class="tarihegore-not-tarih">${tarihiKisaFormatla(giris.tarih)}</span>
+                    <div class="tarihegore-not-ust"><div><span class="tarihegore-not-alan"></span><span class="tarihegore-not-tarih">${tarihiKisaFormatla(giris.tarih)}</span></div>
+                        <div class="tarihegore-not-islemler"><button type="button" class="tarihegore-not-btn tarihegore-not-duzenle" title="Notu düzenle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button type="button" class="tarihegore-not-btn tarihegore-not-sil" title="Notu sil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div>
                     </div>
                     <span class="tarihegore-not-metin"></span>
                 `;
                 notEl.querySelector('.tarihegore-not-alan').textContent = alanBaslikMap[giris.alanAdi] || giris.alanAdi;
                 notEl.querySelector('.tarihegore-not-metin').textContent = giris.metin || '';
+                notEl.querySelector('.tarihegore-not-duzenle').addEventListener('click', () => notModaliniAc(alanBaslikMap[giris.alanAdi] || giris.alanAdi, giris.alanAdi, null, giris));
+                notEl.querySelector('.tarihegore-not-sil').addEventListener('click', async () => {
+                    if (!confirm('Bu notu silmek istediğinize emin misiniz?')) return;
+                    try { await deleteDoc(doc(db, 'hastalar', seciliHastaId, giris.alanAdi, giris.id)); }
+                    catch (hata) { console.error('Not silinirken hata:', hata); alert('Not silinirken bir hata oluştu.'); }
+                });
                 blok.appendChild(notEl);
             });
 
@@ -4032,6 +4737,7 @@
 
             // Fotoğraf tarihleriyle eşleştirme için bu alanın güncel verisini sakla
             alanVerileri[alanAdi] = girisler.map(g => ({
+                id: g.id,
                 metin: g.metin,
                 tarih: g.olusturulmaZamani && g.olusturulmaZamani.toDate ? g.olusturulmaZamani.toDate() : null
             }));
@@ -4074,26 +4780,28 @@
                 tarihEl.textContent = tarih ? tarihiKisaFormatla(tarih) : 'Kaydediliyor...';
                 ustSatir.appendChild(tarihEl);
 
+                const islemBtnlar = document.createElement('div');
+                islemBtnlar.className = 'giris-islem-btnlar';
+
+                const duzenleBtn = document.createElement('button');
+                duzenleBtn.className = 'giris-islem-btn giris-duzenle-btn';
+                duzenleBtn.title = 'Notu düzenle';
+                duzenleBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>`;
+                duzenleBtn.addEventListener('click', (e) => { e.stopPropagation(); notModaliniAc(alanBaslikMap[alanAdi] || alanAdi, alanAdi, null, giris); });
+                islemBtnlar.appendChild(duzenleBtn);
+
                 const silBtn = document.createElement('button');
-                silBtn.className = 'giris-sil-btn';
+                silBtn.className = 'giris-islem-btn giris-sil-btn';
                 silBtn.title = 'Notu sil';
-                silBtn.innerHTML = `
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="3 6 5 6 21 6"></polyline>
-                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
-                    </svg>
-                `;
-                silBtn.addEventListener('click', async () => {
-                    const onayMi = confirm('Bu notu silmek istediğinize emin misiniz?');
-                    if (!onayMi) return;
-                    try {
-                        await deleteDoc(doc(db, "hastalar", hastaId, alanAdi, giris.id));
-                    } catch (hata) {
-                        console.error('Not silinirken hata:', hata);
-                        alert('Not silinirken bir hata oluştu.');
-                    }
+                silBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg>`;
+                silBtn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    if (!confirm('Bu notu silmek istediğinize emin misiniz?')) return;
+                    try { await deleteDoc(doc(db, "hastalar", hastaId, alanAdi, giris.id)); }
+                    catch (hata) { console.error('Not silinirken hata:', hata); alert('Not silinirken bir hata oluştu.'); }
                 });
-                ustSatir.appendChild(silBtn);
+                islemBtnlar.appendChild(silBtn);
+                ustSatir.appendChild(islemBtnlar);
 
                 const metinEl = document.createElement('div');
                 metinEl.className = 'giris-metin';
@@ -4117,9 +4825,26 @@
     const notModalKapatBtn = document.getElementById('notModalKapatBtn');
     const notModalVazgecBtn = document.getElementById('notModalVazgecBtn');
     const notModalKaydetBtn = document.getElementById('notModalKaydetBtn');
+    const notModalTarih = document.getElementById('notModalTarih');
+    const notModalSaat = document.getElementById('notModalSaat');
 
     let aktifAlanAdi = null;
     let aktifDurumEl = null;
+    let aktifNotId = null;
+
+    function notTarihInputaCevir(tarih) {
+        if (!(tarih instanceof Date) || isNaN(tarih.getTime())) return '';
+        return `${tarih.getFullYear()}-${String(tarih.getMonth()+1).padStart(2,'0')}-${String(tarih.getDate()).padStart(2,'0')}`;
+    }
+    function notSaatInputaCevir(tarih) {
+        if (!(tarih instanceof Date) || isNaN(tarih.getTime())) return '';
+        return `${String(tarih.getHours()).padStart(2,'0')}:${String(tarih.getMinutes()).padStart(2,'0')}`;
+    }
+    function notTarihSaattenDateOlustur() {
+        if (!notModalTarih.value || !notModalSaat.value) return null;
+        const tarih = new Date(`${notModalTarih.value}T${notModalSaat.value}`);
+        return isNaN(tarih.getTime()) ? null : tarih;
+    }
 
     // GELİŞ KAYDI
     let gelisListesiDinleyici = null;
@@ -4429,19 +5154,7 @@
             fotoBuyukSonraki();
         });
     }
-
-    // Galerideki ok butonları: şeridi sola/sağa kaydırır
-    if (fotoGaleriSolBtn) {
-        fotoGaleriSolBtn.addEventListener('click', () => {
-            fotoGrid.scrollBy({ left: -360, behavior: 'smooth' });
-        });
-    }
-
-    if (fotoGaleriSagBtn) {
-        fotoGaleriSagBtn.addEventListener('click', () => {
-            fotoGrid.scrollBy({ left: 360, behavior: 'smooth' });
-        });
-    }
+    // Fotoğraf galerisi artık ızgara + dikey kaydırma kullanıyor; yatay galeri okları devre dışı.
 
     // Ok tuşları: lightbox açıksa bir önceki/sonraki fotoğrafa geçer,
     // kapalıyken Hasta Fotoğrafları sekmesi aktifse galeriyi kaydırır.
@@ -4467,13 +5180,7 @@
             const yazimAlanindaMi = aktifEleman && (aktifEleman.tagName === 'INPUT' || aktifEleman.tagName === 'TEXTAREA');
             if (yazimAlanindaMi) return;
 
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                fotoGrid.scrollBy({ left: -360, behavior: 'smooth' });
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                fotoGrid.scrollBy({ left: 360, behavior: 'smooth' });
-            }
+            // Fotoğraf galerisi ızgara olduğu için sağ/sol oklarıyla yatay kaydırma yok.
             return;
         }
 
@@ -4511,11 +5218,18 @@
         });
     }
 
-    function notModaliniAc(alanBaslik, alanAdi, durumEl) {
+    function notModaliniAc(alanBaslik, alanAdi, durumEl, duzenlenecekNot = null) {
         aktifAlanAdi = alanAdi;
         aktifDurumEl = durumEl;
-        notModalBaslik.textContent = alanBaslik + ' — Not Ekle';
-        notModalTextarea.value = '';
+        aktifNotId = duzenlenecekNot ? duzenlenecekNot.id : null;
+        const duzenlemeMi = !!duzenlenecekNot;
+        notModalBaslik.textContent = alanBaslik + (duzenlemeMi ? ' — Notu Düzenle' : ' — Not Ekle');
+        notModalTextarea.value = duzenlemeMi ? (duzenlenecekNot.metin || '') : '';
+        let tarih = duzenlemeMi ? duzenlenecekNot.tarih : new Date();
+        if (!(tarih instanceof Date) || isNaN(tarih.getTime())) tarih = new Date();
+        notModalTarih.value = notTarihInputaCevir(tarih);
+        notModalSaat.value = notSaatInputaCevir(tarih);
+        notModalKaydetBtn.textContent = duzenlemeMi ? 'Değişiklikleri Kaydet' : 'Kaydet';
         notModalHazirButonlariCiz(alanAdi);
         notModalOverlay.classList.add('acik');
         setTimeout(() => notModalTextarea.focus(), 80);
@@ -4523,44 +5237,39 @@
 
     function notModaliniKapat() {
         notModalOverlay.classList.remove('acik');
-        aktifAlanAdi = null;
-        aktifDurumEl = null;
+        aktifAlanAdi = null; aktifDurumEl = null; aktifNotId = null;
+        notModalKaydetBtn.textContent = 'Kaydet';
     }
 
     notModalKapatBtn.addEventListener('click', notModaliniKapat);
     notModalVazgecBtn.addEventListener('click', notModaliniKapat);
-    notModalOverlay.addEventListener('click', (e) => {
-        if (e.target === notModalOverlay) notModaliniKapat();
-    });
-
+    notModalOverlay.addEventListener('click', (e) => { if (e.target === notModalOverlay) notModaliniKapat(); });
     notModalTextarea.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-            e.preventDefault();
-            notModalKaydetBtn.click();
-        }
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); notModalKaydetBtn.click(); }
     });
 
     notModalKaydetBtn.addEventListener('click', async () => {
         const metin = notModalTextarea.value.trim();
-        if (!metin) return;
+        if (!metin) { alert('Not alanı boş bırakılamaz.'); return; }
         if (!seciliHastaId || !aktifAlanAdi) return;
-
+        const tarih = notTarihSaattenDateOlustur();
+        if (!tarih) { alert('Lütfen geçerli bir tarih ve saat seçin.'); return; }
+        const duzenlemeMi = !!aktifNotId;
+        const kayitId = aktifNotId;
+        const kayitAlan = aktifAlanAdi;
         notModalKaydetBtn.disabled = true;
-        notModalKaydetBtn.textContent = '...';
-
+        notModalKaydetBtn.textContent = 'Kaydediliyor...';
         try {
-            await addDoc(collection(db, "hastalar", seciliHastaId, aktifAlanAdi), {
-                metin,
-                olusturulmaZamani: serverTimestamp()
-            });
+            if (duzenlemeMi) {
+                await updateDoc(doc(db, "hastalar", seciliHastaId, kayitAlan, kayitId), { metin, olusturulmaZamani: tarih, sonDuzenlemeZamani: serverTimestamp() });
+            } else {
+                await addDoc(collection(db, "hastalar", seciliHastaId, kayitAlan), { metin, olusturulmaZamani: tarih });
+            }
             notModaliniKapat();
         } catch (hata) {
-            console.error('Not eklenirken hata:', hata);
-            alert('Not eklenirken bir hata oluştu. Lütfen tekrar deneyin.');
-        } finally {
-            notModalKaydetBtn.disabled = false;
-            notModalKaydetBtn.textContent = 'Kaydet';
-        }
+            console.error('Not kaydedilirken hata:', hata);
+            alert(duzenlemeMi ? 'Not düzenlenirken bir hata oluştu. Lütfen tekrar deneyin.' : 'Not eklenirken bir hata oluştu. Lütfen tekrar deneyin.');
+        } finally { notModalKaydetBtn.disabled = false; }
     });
 
     // Sol menüdeki her alt başlığın en solundaki "+" ikonuna tıklama davranışı.
@@ -4725,15 +5434,132 @@
         return `${gun}.${ay}.${yil}`;
     }
 
+    // Başvuru tarihini güvenilir biçimde milisaniyeye çevirir.
+    // Firestore'daki eski/yeni kayıt biçimlerini destekler:
+    // 1) "GG.AA.YYYY SS:DD"  (uygulamanın kaydettiği biçim)
+    // 2) "GG.AA.YYYY"
+    // 3) "YYYY-AA-GG"
+    // 4) Firestore Timestamp / Date
+    function siralamaTarihMs(deger) {
+        if (!deger) return 0;
+
+        if (typeof deger === 'object' && typeof deger.toDate === 'function') {
+            const tarih = deger.toDate();
+            return isNaN(tarih.getTime()) ? 0 : tarih.getTime();
+        }
+
+        if (deger instanceof Date) {
+            return isNaN(deger.getTime()) ? 0 : deger.getTime();
+        }
+
+        if (typeof deger !== 'string') return 0;
+
+        const metin = deger.trim();
+
+        // Uygulamanın kullandığı biçim: GG.AA.YYYY SS:DD
+        let eslesme = metin.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})(?:\s+(\d{1,2}):(\d{2}))?$/);
+        if (eslesme) {
+            const gun = Number(eslesme[1]);
+            const ay = Number(eslesme[2]);
+            const yil = Number(eslesme[3]);
+            const saat = eslesme[4] !== undefined ? Number(eslesme[4]) : 0;
+            const dakika = eslesme[5] !== undefined ? Number(eslesme[5]) : 0;
+
+            const tarih = new Date(yil, ay - 1, gun, saat, dakika, 0, 0);
+
+            // Geçersiz tarihleri kabul etme (ör. 32.13.2026)
+            if (
+                !isNaN(tarih.getTime()) &&
+                tarih.getFullYear() === yil &&
+                tarih.getMonth() === ay - 1 &&
+                tarih.getDate() === gun
+            ) {
+                return tarih.getTime();
+            }
+            return 0;
+        }
+
+        // ISO tarih: YYYY-MM-DD veya YYYY-MM-DDTHH:mm...
+        eslesme = metin.match(/^(\\d{4})-(\\d{2})-(\\d{2})(?:[T\\s](\\d{1,2}):(\\d{2})(?::(\\d{2}))?)?/);
+        if (eslesme) {
+            const yil = Number(eslesme[1]);
+            const ay = Number(eslesme[2]);
+            const gun = Number(eslesme[3]);
+            const saat = eslesme[4] !== undefined ? Number(eslesme[4]) : 0;
+            const dakika = eslesme[5] !== undefined ? Number(eslesme[5]) : 0;
+            const saniye = eslesme[6] !== undefined ? Number(eslesme[6]) : 0;
+
+            const tarih = new Date(yil, ay - 1, gun, saat, dakika, saniye, 0);
+
+            if (
+                !isNaN(tarih.getTime()) &&
+                tarih.getFullYear() === yil &&
+                tarih.getMonth() === ay - 1 &&
+                tarih.getDate() === gun
+            ) {
+                return tarih.getTime();
+            }
+            return 0;
+        }
+
+        // Son çare: tarayıcının anlayabildiği tarih biçimleri.
+        const tarih = new Date(metin);
+        return isNaN(tarih.getTime()) ? 0 : tarih.getTime();
+    }
+
+    function hastalariSirala(liste) {
+        const sirali = [...liste];
+
+        sirali.sort((a, b) => {
+            if (siralamaTuru === 'isim-asc' || siralamaTuru === 'isim-desc') {
+                const adA = (a.adSoyad || '').trim().toLocaleLowerCase('tr-TR');
+                const adB = (b.adSoyad || '').trim().toLocaleLowerCase('tr-TR');
+                const sonuc = adA.localeCompare(adB, 'tr-TR', { sensitivity: 'base' });
+                return siralamaTuru === 'isim-asc' ? sonuc : -sonuc;
+            }
+
+            let tarihA = 0;
+            let tarihB = 0;
+
+            if (siralamaTuru === 'basvuru-desc' || siralamaTuru === 'basvuru-asc') {
+                tarihA = siralamaTarihMs(a.basvuru);
+                tarihB = siralamaTarihMs(b.basvuru);
+            } else {
+                tarihA = hastaSonGelisTarihleri[a.id] || 0;
+                tarihB = hastaSonGelisTarihleri[b.id] || 0;
+            }
+
+            const sonuc = tarihA - tarihB;
+            if (sonuc !== 0) {
+                return siralamaTuru.endsWith('-desc') ? -sonuc : sonuc;
+            }
+
+            // Aynı tarihte isim, isim de aynıysa Firestore ID'si ile
+            // deterministik ve değişmeyen bir sıra oluştur.
+            const isimSonucu = (a.adSoyad || '').localeCompare(
+                b.adSoyad || '',
+                'tr-TR',
+                { sensitivity: 'base' }
+            );
+            if (isimSonucu !== 0) return isimSonucu;
+
+            return String(a.id || '').localeCompare(String(b.id || ''));
+        });
+
+        return sirali;
+    }
+
     function listeyiCiz() {
         hastaListesi.innerHTML = '';
 
         const sorgu = aramaInput.value.trim().toLocaleLowerCase('tr-TR');
         const filtrelenmis = hastalar.filter(h => {
             if (!sorgu) return true;
-            const isim = h.adSoyad.toLocaleLowerCase('tr-TR');
-            return isim.includes(sorgu) || h.tcNo.includes(sorgu);
+            const isim = (h.adSoyad || '').toLocaleLowerCase('tr-TR');
+            const tc = h.tcNo || '';
+            return isim.includes(sorgu) || tc.includes(sorgu);
         });
+        const siraliFiltrelenmis = hastalariSirala(filtrelenmis);
 
         if (hastalar.length === 0) {
             listeBos.style.display = 'block';
@@ -4748,7 +5574,7 @@
         }
         aramaSonucYok.style.display = 'none';
 
-        filtrelenmis.forEach((hasta, index) => {
+        siraliFiltrelenmis.forEach((hasta, index) => {
             const satir = document.createElement('div');
             satir.className = 'hasta-satir';
 
@@ -4879,6 +5705,12 @@
 
     yeniKayitBtn.addEventListener('click', modaliAc);
     aramaInput.addEventListener('input', listeyiCiz);
+
+    siralamaSelect.addEventListener('change', () => {
+        siralamaTuru = siralamaSelect.value;
+        listeyiCiz();
+    });
+
     modalKapatBtn.addEventListener('click', modaliKapat);
     vazgecBtn.addEventListener('click', () => {
         formuTemizle();
@@ -4898,8 +5730,8 @@
         const sikayet = secilenleriAl('sikayetGrubu');
         const oyku = secilenleriAl('oykuGrubu');
 
-        if (!adSoyad || !tcNo) {
-            alert('Lütfen en azından Adı Soyadı ve T.C. Kimlik Numarasını giriniz.');
+        if (!adSoyad) {
+            alert('Lütfen Adı Soyadı bilgisini giriniz.');
             return;
         }
 
@@ -5024,7 +5856,21 @@
                     : null;
                 return { id: belge.id, zamanMs };
             });
+
+            const gecerliZamanlar = gelisler
+                .map(g => g.zamanMs)
+                .filter(z => z !== null && z !== undefined && !isNaN(z));
+
+            hastaSonGelisTarihleri[hastaId] = gecerliZamanlar.length
+                ? Math.max(...gecerliZamanlar)
+                : 0;
+
             idbGelisleriKaydet(hastaId, gelisler);
+
+            // Son geliş sıralaması açıksa, yeni geliş geldiğinde listeyi anında güncelle.
+            if (siralamaTuru === 'gelis-desc' || siralamaTuru === 'gelis-asc') {
+                listeyiCiz();
+            }
         }, (hata) => {
             console.error(`Hasta (${hastaId}) gelişleri IndexedDB'ye senkronize edilirken hata:`, hata);
         });
