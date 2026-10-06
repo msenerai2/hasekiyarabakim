@@ -574,7 +574,7 @@
     }
 
     .hesap-grid {
-        display: grid;
+        display: none;
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 14px;
         margin-bottom: 26px;
@@ -1584,6 +1584,47 @@
         max-height: 60vh;
     }
 
+    .antibiyotik-ayar-form { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0; padding:12px; background:var(--surface-subtle); border:1px solid var(--border-subtle); border-radius:8px; }
+    .antibiyotik-ayar-form .tam { grid-column:1/-1; }
+    .antibiyotik-ayar-form label { font-size:10.5px; color:var(--text-secondary); font-weight:600; margin-bottom:4px; display:block; }
+    .antibiyotik-ayar-form input { width:100%; }
+    .antibiyotik-ayar-ekle { grid-column:1/-1; display:flex; justify-content:flex-end; }
+    .antibiyotik-ayar-liste .hazir-not-satiri { grid-template-columns:1fr auto; }
+    .antibiyotik-ayar-ozet { display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .antibiyotik-ayar-isim { font-size:12px; font-weight:650; color:var(--text-heading); }
+    .antibiyotik-ayar-detay { font-size:10.5px; color:var(--text-faint); }
+    .antibiyotik-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .antibiyotik-form-grup { margin-bottom:11px; }
+    .antibiyotik-form-grup label { display:block; font-size:11px; color:var(--text-secondary); font-weight:600; margin-bottom:5px; }
+    .antibiyotik-form-grup input, .antibiyotik-form-grup select, .antibiyotik-form-grup textarea { width:100%; box-sizing:border-box; }
+    .antibiyotik-secim-baslik { font-size:12px; color:var(--text-secondary); font-weight:650; margin-bottom:8px; }
+    .antibiyotik-secenekler, .antibiyotik-chipler { display:flex; flex-wrap:wrap; gap:7px; }
+    .antibiyotik-secenek-btn, .antibiyotik-chip-btn { background:var(--white); border:1px solid var(--border-subtle); color:var(--text-body); border-radius:8px; padding:8px 10px; cursor:pointer; font:500 11px inherit; text-align:left; }
+    .antibiyotik-secenek-btn:hover, .antibiyotik-chip-btn:hover { border-color:var(--primary); background:var(--primary-tint-50); }
+    .antibiyotik-secenek-btn.secili, .antibiyotik-chip-btn.secili { border-color:var(--primary); background:var(--primary-tint-100); color:var(--primary-dark); }
+    .antibiyotik-secenek-btn.secili { box-shadow:0 0 0 1px rgba(13,148,136,.12); }
+    .antibiyotik-kombinasyon-bilgi { margin-top:8px; padding:8px 10px; border-radius:7px; background:var(--surface-subtle); border:1px dashed var(--border-subtle); color:var(--text-secondary); font-size:10.5px; line-height:1.45; }
+    .antibiyotik-kombinasyon-bilgi.vurgu { background:var(--primary-tint-50); border-color:var(--primary-tint-200); color:var(--primary-dark); }
+    .antibiyotik-secili-liste { display:flex; flex-direction:column; gap:7px; }
+    .antibiyotik-secili-kayit { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px; align-items:center; padding:8px 9px; background:var(--surface-subtle); border:1px solid var(--border-subtle); border-radius:8px; }
+    .antibiyotik-secili-ozet { min-width:0; }
+    .antibiyotik-secili-ad { font-size:11.5px; font-weight:700; color:var(--text-heading); }
+    .antibiyotik-secili-detay { margin-top:2px; font-size:10px; color:var(--text-faint); }
+    .antibiyotik-secili-yol { display:flex; flex-wrap:wrap; gap:4px; justify-content:flex-end; }
+    .antibiyotik-secili-yol .antibiyotik-chip-btn { padding:5px 7px; font-size:9.5px; }
+    .antibiyotik-secili-bos { padding:8px 10px; border-radius:7px; background:var(--surface-subtle); color:var(--text-faint); font-size:10.5px; }
+    .antibiyotik-tedavi-iliski { margin:0 10px 9px; padding:7px 8px; border-radius:7px; background:var(--white); border:1px solid var(--border-subtle); font-size:10.5px; color:var(--text-secondary); line-height:1.45; }
+    .antibiyotik-tedavi-iliski strong { color:var(--text-heading); }
+    .antibiyotik-tedavi-rozetleri { display:flex; flex-wrap:wrap; gap:5px; margin:0 10px 9px; }
+    .antibiyotik-tedavi-rozet { display:inline-flex; align-items:center; gap:4px; padding:3px 7px; border-radius:999px; font-size:9px; font-weight:700; background:var(--primary-tint-50); color:var(--primary-dark); border:1px solid var(--primary-tint-100); }
+    .antibiyotik-tedavi-rozet.degisim { background:var(--warning-tint); color:var(--warning); border-color:#f4cf9d; }
+    .antibiyotik-tedavi-rozet.kombinasyon { background:#eef2ff; color:#4338ca; border-color:#c7d2fe; }
+    .antibiyotik-secim-kutu { max-width:600px; }
+    .antibiyotik-ozet { background:var(--primary-tint-50); border:1px solid var(--primary-tint-100); border-radius:8px; padding:10px 12px; margin-bottom:12px; font-size:11px; color:var(--text-secondary); line-height:1.5; }
+    .antibiyotik-sure-chipler { margin-top:6px; }
+    .antibiyotik-sure-chip { padding:6px 9px; }
+    @media (max-width:600px){ .antibiyotik-form-grid, .antibiyotik-ayar-form { grid-template-columns:1fr; } .antibiyotik-ayar-form .tam, .antibiyotik-ayar-ekle { grid-column:auto; } }
+
     .hazir-not-alan-sekmeleri {
         display: flex;
         flex-wrap: wrap;
@@ -2135,69 +2176,34 @@
         margin-bottom: 16px;
     }
 
-    .foto-ekle-grubu {
+    .foto-ekle-btn {
         display: flex;
         align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    .foto-ekle-btn,
-    .foto-kamera-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
-        min-height: 38px;
-        padding: 8px 13px;
-        border-radius: 7px;
-        font-size: 12.5px;
-        font-weight: 600;
-        cursor: pointer;
-        font-family: inherit;
-        transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
-    }
-
-    .foto-ekle-btn {
+        gap: 6px;
         background: var(--primary);
         color: var(--white);
-        border: 1px solid var(--primary);
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-size: 12.5px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.15s ease;
     }
 
     .foto-ekle-btn:hover {
         background: var(--primary-dark);
-        border-color: var(--primary-dark);
-        box-shadow: 0 3px 10px rgba(13, 148, 136, 0.2);
     }
 
-    .foto-kamera-btn {
-        background: var(--white);
-        color: var(--primary);
-        border: 1px solid var(--primary-tint-300);
-    }
-
-    .foto-kamera-btn:hover {
-        background: var(--primary-tint-50);
-        border-color: var(--primary);
-        box-shadow: 0 3px 10px rgba(13, 148, 136, 0.12);
-    }
-
-    .foto-ekle-btn:active,
-    .foto-kamera-btn:active {
-        transform: translateY(1px);
-    }
-
-    .foto-ekle-btn:disabled,
-    .foto-kamera-btn:disabled {
-        opacity: 0.55;
+    .foto-ekle-btn:disabled {
+        opacity: 0.6;
         cursor: default;
-        box-shadow: none;
     }
 
-    .foto-ekle-btn svg,
-    .foto-kamera-btn svg {
-        width: 16px;
-        height: 16px;
+    .foto-ekle-btn svg {
+        width: 14px;
+        height: 14px;
         flex-shrink: 0;
     }
 
@@ -3168,6 +3174,57 @@
         width: 100%;
         max-width: 100%;
         min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    /* Marker araçları fotoğrafın üstünde tek, ince ve yatay bir satırda.
+       Fotoğraf alttan tam genişliği kullanır; marker koordinatları fotoğraf
+       katmanı içinde tutulduğu için daha önce kaydedilen noktaların konumu değişmez. */
+    .ayak-marker-panel-alani {
+        width: 100%;
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+
+    .ayak-marker-panel {
+        width: 100%;
+        min-height: 42px;
+        height: 42px;
+        padding: 6px 10px;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 18px;
+    }
+
+    .ayak-marker-panel-baslik {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        font-size: 11px;
+    }
+
+    .ayak-marker-panel-grup {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .ayak-marker-panel-grup .ayak-marker-alt-baslik {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .ayak-marker-boyutlar,
+    .ayak-marker-renkler {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
     }
 
     .tarihegore-foto,
@@ -3181,7 +3238,7 @@
         }
 
         .ayak-marker-panel-alani {
-            width: 160px;
+            width: 100%;
         }
     }
 
@@ -3209,17 +3266,19 @@
         .ayak-marker-panel {
             width: 100%;
             min-width: 0;
+            min-height: 42px;
             height: auto;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: auto 1fr 1.25fr;
+            padding: 7px 9px;
+            display: flex;
+            flex-direction: row;
             align-items: center;
-            gap: 9px 12px;
+            gap: 8px;
+            overflow-x: auto;
         }
 
         .ayak-marker-panel-baslik {
-            grid-column: 1 / -1;
-            font-size: 12px;
+            flex: 0 0 auto;
+            font-size: 11px;
             line-height: 1.2;
         }
 
@@ -3497,6 +3556,727 @@
         }
     }
 
+
+
+    /* ===================== DEBRİDMAN / ANTİBİYOTİK İŞLEM BUTONU ===================== */
+    .tedavi-islem-baslat-btn {
+        width: 100%;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        padding: 10px 12px;
+        border: 1px solid var(--primary-tint-300);
+        border-radius: 7px;
+        background: var(--primary-tint-50);
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 650;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .tedavi-islem-baslat-btn:hover { background: var(--primary-tint-100); border-color: var(--primary); }
+    .tedavi-islem-baslat-btn svg { width: 15px; height: 15px; }
+
+    .islem-secim-kutu { max-width: 430px; }
+    .islem-secim-aciklama { font-size: 12px; color: var(--text-faint); line-height: 1.45; margin-bottom: 14px; }
+    .islem-secim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .islem-secim-btn {
+        border: 1px solid var(--border-subtle); background: var(--white); color: var(--text-heading);
+        border-radius: 9px; padding: 18px 12px; cursor: pointer; font-family: inherit;
+        display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+        transition: .15s ease;
+    }
+    .islem-secim-btn:hover { border-color: var(--primary); background: var(--primary-tint-50); transform: translateY(-1px); }
+    .islem-secim-btn svg { width: 28px; height: 28px; color: var(--primary); }
+    .islem-secim-btn strong { font-size: 13px; }
+    .islem-secim-btn span { font-size: 10.5px; color: var(--text-faint); }
+
+    .debridman-kutu { max-width: 500px; }
+    .debridman-ozet {
+        background: var(--primary-tint-50); border: 1px solid var(--primary-tint-100);
+        border-radius: 8px; padding: 10px 12px; margin-bottom: 14px;
+        font-size: 12px; color: var(--text-secondary); line-height: 1.45;
+    }
+    .debridman-ozet strong { color: var(--text-heading); }
+    .debridman-tarih-grid { display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+    .debridman-tarih-grid label { display:block; font-size:11px; color:var(--text-secondary); margin-bottom:5px; font-weight:600; }
+    .debridman-tarih-grid input { width:100%; box-sizing:border-box; }
+    .debridman-tur-bilgi { margin-top:10px; font-size:11px; color:var(--text-faint); }
+
+    /* ===================== HESAPLAMA 3 SÜTUN ===================== */
+    .hesap-uc-sutun {
+        display:grid;
+        grid-template-columns:minmax(430px, 1.45fr) minmax(280px, 1.15fr) minmax(240px, 1fr);
+        gap:12px;
+        align-items:start;
+    }
+    /* 3 sütun korunur. İlk sütunun içinde: solda ince istatistikler,
+       sağda geniş hasta adı + geliş tarih/saat listesi. */
+    .hesap-gelis-yerlesim {
+        display:grid;
+        grid-template-columns:150px minmax(0, 1fr);
+        gap:12px;
+        align-items:start;
+    }
+    .hesap-istatistik-sol {
+        min-width:0;
+    }
+    .hesap-hasta-sag {
+        min-width:0;
+        border-left:1px solid var(--border-subtle);
+        padding-left:10px;
+        padding-left:12px;
+    }
+    .hesap-hasta-sag .gelis-hasta-listesi {
+        max-height:520px;
+    }
+    .hesap-panel-kutu {
+        border:1px solid var(--border-subtle); border-radius:9px; background:var(--white);
+        min-width:0; overflow:hidden;
+    }
+    .hesap-panel-baslik {
+        padding:11px 12px; border-bottom:1px solid var(--border-subtle);
+        font-size:11px; font-weight:700; color:var(--text-heading); text-transform:uppercase;
+        letter-spacing:.45px; background:var(--primary-tint-50);
+    }
+    .hesap-panel-icerik { padding:10px; }
+    .hesap-panel-kartlari {
+        display:grid; grid-template-columns:1fr; gap:6px;
+        margin-bottom:0;
+    }
+    .hesap-panel-kartlari .hesap-karti {
+        min-height:54px; box-sizing:border-box; justify-content:center; padding:7px 6px;
+        border-radius:7px;
+    }
+    .hesap-panel-kartlari .hesap-sayi { font-size:19px; }
+    .hesap-panel-kartlari .hesap-etiket { font-size:9px; line-height:1.2; }
+    .hesap-panel-liste-baslik {
+        font-size:10.5px; font-weight:700; color:var(--text-faint);
+        text-transform:uppercase; letter-spacing:.4px; margin:4px 0 8px;
+    }
+    .hesap-liste-baslik-satiri { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:4px 0 8px; }
+    .hesap-liste-baslik-satiri .hesap-panel-liste-baslik { margin:0; }
+    .gelis-siralama-select { font-family:inherit; font-size:10.5px; color:var(--text-secondary); background:var(--white); border:1px solid var(--border-subtle); border-radius:6px; padding:5px 7px; cursor:pointer; }
+    .gelis-hasta-listesi { display:flex; flex-direction:column; gap:8px; max-height:500px; overflow:auto; }
+    .gelis-hasta-blok {
+        border:1px solid var(--border-subtle); border-radius:8px; background:var(--white);
+        padding:9px 10px;
+    }
+    .gelis-hasta-baslik { display:flex; align-items:center; justify-content:space-between; gap:8px; padding-bottom:6px; border-bottom:1px solid var(--primary-tint-50); }
+    .gelis-hasta-adi { font-size:12px; font-weight:700; color:var(--text-heading); text-transform:uppercase; }
+    .gelis-hasta-sayisi { font-size:10px; font-weight:700; color:var(--primary); background:var(--primary-tint-50); border-radius:10px; padding:3px 7px; white-space:nowrap; }
+    .gelis-tarih-listesi { display:flex; flex-direction:column; gap:3px; padding-top:6px; }
+    .gelis-tarih-satiri { font-size:10.5px; color:var(--text-faint); padding-left:8px; }
+    .hesap-istatistik-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; margin-bottom:14px; }
+    .hesap-istatistik-grid .hesap-karti { min-height:72px; box-sizing:border-box; justify-content:center; padding:10px; }
+    /* DEBRİDMAN: kartlar solda, hasta/ad-soyad ve tarihler sağda */
+    .debridman-yerlesim {
+        display:grid; grid-template-columns:145px minmax(0, 1fr); gap:12px; align-items:start;
+    }
+    .debridman-istatistik-sol { min-width:0; }
+    .debridman-hasta-sag {
+        min-width:0; border-left:1px solid var(--border-subtle); padding-left:12px;
+    }
+    .debridman-istatistik-sol .hesap-istatistik-grid {
+        display:grid; grid-template-columns:1fr; gap:6px; margin:0;
+    }
+    .debridman-istatistik-sol .hesap-karti {
+        min-height:50px; box-sizing:border-box; justify-content:center; padding:7px 5px; border-radius:7px;
+    }
+    .debridman-istatistik-sol .hesap-sayi { font-size:18px; }
+    .debridman-istatistik-sol .hesap-etiket { font-size:8.5px; line-height:1.18; }
+    .debridman-liste-baslik-satiri { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:4px 0 8px; }
+    .debridman-liste-baslik-satiri .hesap-panel-liste-baslik { margin:0; }
+    .debridman-siralama-select { font-family:inherit; font-size:10.5px; color:var(--text-secondary); background:var(--white); border:1px solid var(--border-subtle); border-radius:6px; padding:5px 7px; cursor:pointer; }
+    .debridman-hasta-liste { max-height:520px; overflow:auto; }
+    .debridman-istatistik-karti {
+        border:1px solid var(--border-subtle); border-radius:8px; padding:10px; text-align:center; background:var(--white);
+    }
+    .debridman-istatistik-karti .sayi { font-size:21px; font-weight:750; color:var(--primary); }
+    .debridman-istatistik-karti .etiket { font-size:10px; color:var(--text-faint); line-height:1.25; margin-top:2px; }
+    .debridman-hasta-baslik { display:flex; align-items:center; justify-content:space-between; gap:8px; padding-bottom:6px; border-bottom:1px solid var(--primary-tint-50); }
+    .debridman-hasta-adi { font-size:12px; font-weight:700; color:var(--text-heading); text-transform:uppercase; }
+    .debridman-hasta-sayisi { font-size:10px; font-weight:700; color:var(--primary); background:var(--primary-tint-50); border-radius:10px; padding:3px 7px; white-space:nowrap; }
+    @media (max-width: 1200px) { .debridman-yerlesim { grid-template-columns:130px minmax(0, 1fr); } }
+    .debridman-liste { margin-top:0; max-height:500px; overflow:auto; }
+    .debridman-hasta-blok {
+        border:1px solid var(--border-subtle); border-radius:8px; background:var(--white);
+        padding:9px 10px; margin-bottom:8px;
+    }
+    .debridman-hasta-adi {
+        font-size:12px; font-weight:700; color:var(--text-heading); text-transform:uppercase;
+        padding-bottom:6px; border-bottom:1px solid var(--primary-tint-50);
+    }
+    .debridman-kayit-satiri { padding:6px 0 2px; }
+    .debridman-kayit-ust { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+    .debridman-kayit-tarih { font-size:10.5px; color:var(--text-faint); }
+    .debridman-kayit-tur { margin-top:3px; font-size:10.5px; color:var(--primary); font-weight:650; }
+    /* ===================== ANTİBİYOTİK İSTATİSTİKLERİ ===================== */
+    .antibiyotik-hazir-panel { padding:10px; box-sizing:border-box; }
+    .antibiyotik-istatistik-panel { display:flex; flex-direction:column; gap:12px; }
+    .antibiyotik-istatistik-aciklama {
+        font-size:10.5px; line-height:1.45; color:var(--text-faint);
+        background:var(--surface-subtle); border:1px solid var(--border-subtle);
+        border-radius:7px; padding:8px 9px;
+    }
+    .antibiyotik-istatistik-grup { border:1px solid var(--border-subtle); border-radius:8px; overflow:hidden; background:var(--white); }
+    .antibiyotik-istatistik-grup-baslik {
+        display:flex; align-items:center; justify-content:space-between; gap:8px;
+        padding:8px 10px; background:var(--primary-tint-50); border-bottom:1px solid var(--border-subtle);
+    }
+    .antibiyotik-istatistik-grup-baslik strong { font-size:10.5px; color:var(--text-heading); text-transform:uppercase; letter-spacing:.35px; }
+    .antibiyotik-istatistik-grup-baslik span { font-size:9.5px; color:var(--text-faint); }
+    .antibiyotik-ozet-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; padding:8px; }
+    .antibiyotik-ozet-karti {
+        border:1px solid var(--border-subtle); border-radius:7px; padding:7px 6px; text-align:center;
+        background:var(--white); min-width:0;
+    }
+    .antibiyotik-ozet-sayi { display:block; font-size:18px; line-height:1.1; font-weight:750; color:var(--primary); }
+    .antibiyotik-ozet-etiket { display:block; margin-top:3px; font-size:8.5px; line-height:1.2; color:var(--text-faint); }
+    .antibiyotik-alt-ozet-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; padding:0 8px 8px; }
+    .antibiyotik-alt-karti { border:1px solid var(--border-subtle); border-radius:7px; padding:6px; background:var(--surface-subtle); text-align:center; min-width:0; }
+    .antibiyotik-alt-karti strong { display:block; color:var(--text-heading); font-size:12px; }
+    .antibiyotik-alt-karti span { display:block; margin-top:2px; color:var(--text-faint); font-size:8.5px; line-height:1.2; }
+    .antibiyotik-kombinasyon-kutu { margin:0 8px 8px; border:1px solid var(--border-subtle); border-radius:7px; overflow:hidden; background:var(--surface-subtle); }
+    .antibiyotik-kombinasyon-baslik { padding:7px 8px; font-size:9.5px; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:.25px; border-bottom:1px solid var(--border-subtle); }
+    .antibiyotik-kombinasyon-liste { display:flex; flex-direction:column; }
+    .antibiyotik-kombinasyon-satir { display:flex; justify-content:space-between; gap:10px; align-items:center; padding:6px 8px; border-bottom:1px solid var(--surface-muted); }
+    .antibiyotik-kombinasyon-satir:last-child { border-bottom:none; }
+    .antibiyotik-kombinasyon-ad { font-size:9.5px; font-weight:700; color:var(--text-heading); }
+    .antibiyotik-kombinasyon-meta { font-size:8.5px; color:var(--text-faint); white-space:nowrap; }
+    .antibiyotik-istatistik-bos.mini { padding:8px; }
+    .antibiyotik-tedavi-rozet.basamak { background:var(--surface-subtle); color:var(--text-secondary); }
+    .antibiyotik-detay-kapsayici { padding:0 8px 8px; overflow:auto; }
+    .antibiyotik-detay-tablo { width:100%; border-collapse:collapse; min-width:720px; font-size:10px; }
+    .antibiyotik-detay-tablo th {
+        position:sticky; top:0; z-index:1; text-align:left; padding:7px 7px; background:var(--surface-subtle);
+        color:var(--text-secondary); font-size:9px; font-weight:700; border-bottom:1px solid var(--border-subtle); white-space:nowrap;
+    }
+    .antibiyotik-detay-tablo td { padding:7px; border-bottom:1px solid var(--surface-muted); vertical-align:top; color:var(--text-body-alt); }
+    .antibiyotik-detay-tablo tbody tr:last-child td { border-bottom:none; }
+    .antibiyotik-detay-tablo .antibiyotik-ad { font-weight:700; color:var(--text-heading); white-space:nowrap; }
+    .antibiyotik-detay-tablo .sayisal { font-weight:650; color:var(--primary); white-space:nowrap; }
+    .antibiyotik-varyant { display:block; margin:0 0 2px; }
+    .antibiyotik-varyant:last-child { margin-bottom:0; }
+    .antibiyotik-varyant small { color:var(--text-faint); }
+    .antibiyotik-istatistik-bos { padding:14px 8px; text-align:center; color:var(--text-faint); font-size:10.5px; }
+    .antibiyotik-toplam-not {
+        margin:0 8px 8px; padding:7px 8px; border-radius:6px; background:var(--primary-tint-25);
+        color:var(--text-secondary); font-size:9.5px; line-height:1.35; border:1px solid var(--primary-tint-100);
+    }
+    @media (max-width: 900px) { .antibiyotik-ozet-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .antibiyotik-alt-ozet-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 560px) { .antibiyotik-ozet-grid, .antibiyotik-alt-ozet-grid { grid-template-columns:1fr; } .antibiyotik-kombinasyon-satir { flex-direction:column; align-items:flex-start; } }
+    @media (max-width: 1050px) {
+        .hesap-uc-sutun { grid-template-columns:1fr; }
+        .hesap-gelis-yerlesim { grid-template-columns:190px minmax(0, 1fr); }
+    }
+    @media (max-width: 720px) {
+        .hesap-gelis-yerlesim { grid-template-columns:1fr; }
+        .hesap-hasta-sag { border-left:none; border-top:1px solid var(--border-subtle); padding-left:0; padding-top:14px; }
+    }
+
+
+    /* =========================================================
+       ANTİBİYOTİK TAKİP PANELİ
+       Ayak fotoğrafının sağında; kültür/antibiyotik kayıtlarını
+       canlı olarak Firestore'dan gösterir.
+       ========================================================= */
+    .ayak-foto-antibiyotik-satiri {
+        width: 100%;
+        min-width: 0;
+        display: grid;
+        grid-template-columns: minmax(285px, 315px) minmax(0, 1fr);
+        gap: 14px;
+        align-items: stretch;
+    }
+
+    .ayak-foto-antibiyotik-satiri .tarihegore-foto {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 300px;
+        aspect-ratio: 5 / 2;
+    }
+
+    .ayak-foto-antibiyotik-satiri .antibiyotik-takip-panel { order: 1; }
+    .ayak-foto-antibiyotik-satiri .tarihegore-foto { order: 2; }
+
+    .antibiyotik-takip-panel {
+        min-width: 0;
+        min-height: 300px;
+        max-height: 620px;
+        display: flex;
+        flex-direction: column;
+        background: var(--white);
+        border: 1px solid var(--border-default);
+        border-radius: 10px;
+        box-shadow: var(--golge-orta);
+        overflow: hidden;
+    }
+
+    .antibiyotik-takip-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border-subtle);
+        background: linear-gradient(135deg, var(--primary-tint-25), var(--white));
+        flex-shrink: 0;
+    }
+
+    .antibiyotik-takip-baslik-grup {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .antibiyotik-takip-ikon {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        background: var(--primary-tint-100);
+        flex-shrink: 0;
+    }
+
+    .antibiyotik-takip-ikon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .antibiyotik-takip-baslik {
+        font-size: 14px;
+        font-weight: 750;
+        color: var(--text-heading);
+        white-space: nowrap;
+    }
+
+    .antibiyotik-takip-sayac {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        background: var(--primary-tint-100);
+        padding: 3px 7px;
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+
+    .antibiyotik-takip-liste {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .antibiyotik-takip-bos {
+        min-height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px 18px;
+        color: var(--text-faint);
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .antibiyotik-takip-kart {
+        border: 1px solid var(--border-subtle);
+        border-radius: 9px;
+        background: var(--surface-faint);
+        overflow: hidden;
+    }
+
+    .antibiyotik-takip-kart.aktif {
+        border-color: var(--primary-tint-300);
+        background: var(--white);
+    }
+
+    .antibiyotik-takip-kart.sonlanmis {
+        opacity: .9;
+    }
+
+    .antibiyotik-takip-kart-ust {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 10px 11px 7px;
+    }
+
+    .antibiyotik-takip-ad {
+        font-size: 13.5px;
+        font-weight: 750;
+        color: var(--text-heading);
+        line-height: 1.25;
+        word-break: break-word;
+    }
+
+    .antibiyotik-takip-durum {
+        font-size: 9.5px;
+        font-weight: 750;
+        padding: 3px 7px;
+        border-radius: 10px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .antibiyotik-takip-durum.devam {
+        color: var(--success);
+        background: #eaf7ee;
+    }
+
+    .antibiyotik-takip-durum.son {
+        color: var(--text-secondary);
+        background: var(--surface-muted);
+    }
+
+    .antibiyotik-takip-durum.bekliyor {
+        color: var(--warning);
+        background: var(--warning-tint);
+    }
+
+    .antibiyotik-takip-bilgiler {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px 10px;
+        padding: 3px 11px 9px;
+    }
+
+    .antibiyotik-takip-bilgi:nth-child(4),
+    .antibiyotik-takip-bilgi:nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .antibiyotik-takip-bilgi:nth-child(5) {
+        grid-column: 2 / span 2;
+    }
+
+    .antibiyotik-takip-bilgi {
+        min-width: 0;
+    }
+
+    .antibiyotik-takip-bilgi.tam {
+        grid-column: 1 / -1;
+    }
+
+    .antibiyotik-takip-etiket {
+        display: block;
+        font-size: 9px;
+        font-weight: 650;
+        color: var(--text-faint);
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+    }
+
+    .antibiyotik-takip-deger {
+        display: block;
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--text-body);
+        line-height: 1.3;
+        word-break: break-word;
+    }
+
+    .antibiyotik-takip-tarih-satiri {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin: 0 10px 9px;
+        padding: 7px 8px;
+        border-radius: 7px;
+        background: var(--surface-subtle);
+        border: 1px solid var(--border-faint);
+    }
+
+    .antibiyotik-takip-tarih .antibiyotik-takip-etiket {
+        margin-bottom: 1px;
+    }
+
+    .antibiyotik-takip-tarih .antibiyotik-takip-deger {
+        font-size: 11px;
+    }
+
+    .antibiyotik-takip-sure {
+        margin: 0 10px 9px;
+        padding: 9px 10px;
+        border-radius: 8px;
+        background: var(--primary-tint-50);
+        border: 1px solid var(--primary-tint-100);
+    }
+
+    .antibiyotik-takip-sure.sonlanmis {
+        background: var(--surface-muted);
+        border-color: var(--border-subtle);
+    }
+
+    .antibiyotik-takip-sure-baslik {
+        font-size: 15px;
+        line-height: 1.2;
+        font-weight: 800;
+        color: var(--primary-dark);
+    }
+
+    .antibiyotik-takip-sure.sonlanmis .antibiyotik-takip-sure-baslik {
+        color: var(--text-body);
+    }
+
+    .antibiyotik-takip-sure-alt {
+        margin-top: 3px;
+        font-size: 11px;
+        color: var(--text-secondary);
+        line-height: 1.35;
+    }
+
+    .antibiyotik-takip-ad { font-size: 17px; }
+    .antibiyotik-takip-deger { font-size: 14px; font-weight: 750; }
+    .antibiyotik-takip-etiket { font-size: 10px; }
+    .antibiyotik-takip-tarih .antibiyotik-takip-deger { font-size: 13px; font-weight: 750; }
+
+    .antibiyotik-takip-sure {
+        position: relative;
+        padding: 13px 12px 12px;
+    }
+    .antibiyotik-takip-sure-baslik { font-size: 24px; font-weight: 850; }
+    .antibiyotik-takip-sure-alt { font-size: 17px; font-weight: 750; }
+    .antibiyotik-takip-sure-cizgi { margin-top: 12px; }
+    .antibiyotik-takip-sure-cizgi-ust {
+        position: relative; height: 9px; border-radius: 999px;
+        background: linear-gradient(90deg, #27ae60 0%, #8bc34a 42%, #f1c40f 68%, #e67e22 84%, #e74c3c 100%);
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+    }
+    .antibiyotik-takip-sure-nokta {
+        position: absolute; top: 50%; left: var(--sure-yuzde, 0%);
+        width: 17px; height: 17px; border-radius: 50%;
+        transform: translate(-50%, -50%); background: var(--sure-renk, #27ae60);
+        border: 3px solid #fff; box-shadow: 0 1px 6px rgba(0,0,0,.25);
+    }
+    .antibiyotik-takip-sure-cizgi-etiket {
+        display: flex; justify-content: space-between; gap: 8px;
+        margin-top: 5px; font-size: 10px; font-weight: 700; color: var(--text-secondary);
+    }
+    .antibiyotik-takip-yeni-bitis {
+        margin-top: 8px; padding: 8px 10px; border-radius: 7px;
+        background: var(--white); border: 1px dashed var(--primary-tint-300);
+        font-size: 12px; font-weight: 700; color: var(--primary-dark);
+    }
+
+    .antibiyotik-takip-devam-btn {
+        width: calc(100% - 20px);
+        margin: 0 10px 10px;
+        padding: 8px 10px;
+        border: 1px solid var(--primary);
+        border-radius: 7px;
+        background: var(--white);
+        color: var(--primary-dark);
+        font-size: 11.5px;
+        font-weight: 700;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background .15s ease, color .15s ease, transform .1s ease;
+    }
+
+    .antibiyotik-takip-devam-btn:hover {
+        background: var(--primary);
+        color: var(--white);
+    }
+
+    .antibiyotik-takip-devam-btn:active {
+        transform: translateY(1px);
+    }
+
+    .antibiyotik-devam-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2500;
+        background: rgba(10, 20, 18, .42);
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+    }
+
+    .antibiyotik-devam-overlay.acik {
+        display: flex;
+    }
+
+    .antibiyotik-devam-kutu {
+        width: 360px;
+        max-width: 100%;
+        background: var(--white);
+        border-radius: 11px;
+        box-shadow: 0 14px 40px rgba(0,0,0,.22);
+        overflow: hidden;
+    }
+
+    .antibiyotik-devam-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 13px 16px;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .antibiyotik-devam-baslik {
+        font-size: 14px;
+        font-weight: 750;
+        color: var(--text-heading);
+    }
+
+    .antibiyotik-devam-kapat {
+        border: none;
+        background: none;
+        color: var(--text-faint);
+        font-size: 21px;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .antibiyotik-devam-body {
+        padding: 15px 16px;
+    }
+
+    .antibiyotik-devam-ozet {
+        margin-bottom: 12px;
+        padding: 9px 10px;
+        border-radius: 7px;
+        background: var(--primary-tint-50);
+        color: var(--text-secondary);
+        font-size: 11.5px;
+        line-height: 1.45;
+    }
+
+    .antibiyotik-devam-alan label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 11px;
+        font-weight: 650;
+        color: var(--text-secondary);
+    }
+
+    .antibiyotik-devam-alan input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 9px 10px;
+        border: 1px solid var(--border-default);
+        border-radius: 7px;
+        background: var(--surface-subtle);
+        color: var(--text-body);
+        font: 600 13px inherit;
+        outline: none;
+    }
+
+    .antibiyotik-devam-alan input:focus {
+        border-color: var(--primary);
+        background: var(--white);
+    }
+
+    .antibiyotik-devam-aciklama {
+        margin-top: 7px;
+        font-size: 12px;
+        line-height: 1.45;
+        color: var(--text-faint);
+    }
+
+    .antibiyotik-devam-alan input[type="date"] {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: .2px;
+    }
+
+    .antibiyotik-devam-yeni-bitis.gecersiz {
+        color: #c0392b;
+        background: #fff1f0;
+        border-color: #f3b6b0;
+    }
+
+    .antibiyotik-devam-hizli {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 9px;
+    }
+
+    .antibiyotik-devam-hizli button {
+        border: 1px solid var(--border-subtle);
+        background: var(--white);
+        color: var(--text-secondary);
+        border-radius: 6px;
+        padding: 6px 9px;
+        font: 600 10.5px inherit;
+        cursor: pointer;
+    }
+
+    .antibiyotik-devam-hizli button:hover {
+        border-color: var(--primary);
+        color: var(--primary-dark);
+        background: var(--primary-tint-50);
+    }
+
+    .antibiyotik-devam-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        padding: 11px 16px;
+        border-top: 1px solid var(--surface-muted);
+    }
+
+    @media (max-width: 1100px) {
+        .ayak-foto-antibiyotik-satiri {
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 36%);
+        }
+
+        .ayak-foto-antibiyotik-satiri .tarihegore-foto {
+            min-height: 250px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .ayak-foto-antibiyotik-satiri { grid-template-columns: 1fr; }
+        .ayak-foto-antibiyotik-satiri .antibiyotik-takip-panel,
+        .ayak-foto-antibiyotik-satiri .tarihegore-foto { order: initial; }
+    }
+
+    @media (max-width: 900px) {
+        .ayak-foto-antibiyotik-satiri {
+            grid-template-columns: 1fr;
+        }
+
+        .antibiyotik-takip-panel {
+            min-height: 0;
+            max-height: none;
+        }
+
+        .ayak-foto-antibiyotik-satiri .tarihegore-foto {
+            min-height: 190px;
+            aspect-ratio: 5 / 2;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .antibiyotik-takip-bilgiler {
+            grid-template-columns: 1fr;
+        }
+
+        .antibiyotik-takip-bilgi.tam {
+            grid-column: auto;
+        }
+    }
+
 </style>
 </head>
 <body>
@@ -3597,6 +4377,10 @@
                         <button class="degerlendirme-baslat-btn" id="degerlendirmeBaslatBtn">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                             Hasta Değerlendirme Başlat
+                        </button>
+                        <button class="tedavi-islem-baslat-btn" id="tedaviIslemBaslatBtn" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="9"/></svg>
+                            Debridman / Antibiyotik Başlat
                         </button>
                         <button class="degerlendirme-baslat-btn degerlendirme-tarihe-btn aktif" id="tarihegoreAcBtn">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -3707,22 +4491,44 @@
                                     </div>
                                 </div>
 
-                                <div class="tarihegore-foto" id="tarihegoreFoto">
-                                    <img src="ayak.png" alt="Ayak Fotoğrafı" id="tarihegoreFotoImg" draggable="false">
-                                    <div class="ayak-marker-katman" id="ayakMarkerKatman">
-                                        <div class="ayak-marker-onizleme" id="ayakMarkerOnizleme"></div>
+                                <div class="ayak-foto-antibiyotik-satiri">
+                                    <div class="tarihegore-foto" id="tarihegoreFoto">
+                                        <img src="ayak.png" alt="Ayak Fotoğrafı" id="tarihegoreFotoImg" draggable="false">
+                                        <div class="ayak-marker-katman" id="ayakMarkerKatman">
+                                            <div class="ayak-marker-onizleme" id="ayakMarkerOnizleme"></div>
+                                        </div>
+
+                                        <div class="ayak-marker-sayac" id="ayakMarkerSayac">0/0</div>
+
+                                        <button class="ayak-marker-nav-btn ayak-marker-nav-sol" id="ayakFotoOncekiBtn" type="button" title="Önceki (←)">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                        </button>
+                                        <button class="ayak-marker-nav-btn ayak-marker-nav-sag" id="ayakFotoSonrakiBtn" type="button" title="Sonraki (→)">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                        </button>
+
+                                        <div class="ayak-marker-tarih" id="ayakMarkerTarih" style="display:none;">-</div>
                                     </div>
 
-                                    <div class="ayak-marker-sayac" id="ayakMarkerSayac">0/0</div>
-
-                                    <button class="ayak-marker-nav-btn ayak-marker-nav-sol" id="ayakFotoOncekiBtn" type="button" title="Önceki (←)">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                                    </button>
-                                    <button class="ayak-marker-nav-btn ayak-marker-nav-sag" id="ayakFotoSonrakiBtn" type="button" title="Sonraki (→)">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                                    </button>
-
-                                    <div class="ayak-marker-tarih" id="ayakMarkerTarih" style="display:none;">-</div>
+                                    <aside class="antibiyotik-takip-panel" id="antibiyotikTakipPanel">
+                                        <div class="antibiyotik-takip-header">
+                                            <div class="antibiyotik-takip-baslik-grup">
+                                                <div class="antibiyotik-takip-ikon" aria-hidden="true">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M8 3v6"></path>
+                                                        <path d="M16 3v6"></path>
+                                                        <path d="M7 6h10"></path>
+                                                        <path d="M9 9v11a3 3 0 0 0 6 0V9"></path>
+                                                    </svg>
+                                                </div>
+                                                <span class="antibiyotik-takip-baslik">Antibiyotik Takibi</span>
+                                            </div>
+                                            <span class="antibiyotik-takip-sayac" id="antibiyotikTakipSayac">0 kayıt</span>
+                                        </div>
+                                        <div class="antibiyotik-takip-liste" id="antibiyotikTakipListesi">
+                                            <div class="antibiyotik-takip-bos">Seçili hastanın başlatılmış kültür antibiyotiği burada görünecek.</div>
+                                        </div>
+                                    </aside>
                                 </div>
                             </div>
                             <div class="alan-baslik-satiri">
@@ -3836,25 +4642,15 @@
             <!-- SEKME 4: HASTA FOTOĞRAFLARI -->
             <div class="sekme-icerik" id="sekmeFotograflar">
                 <div class="foto-ust-satir">
-                    <div class="foto-ekle-grubu">
-                        <button class="foto-ekle-btn" id="fotoEkleBtn" type="button">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <path d="M21 15l-5-5L5 21"></path>
-                            </svg>
-                            Galeriden Seç
-                        </button>
-                        <button class="foto-kamera-btn" id="fotoKameraBtn" type="button">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14.5 4h-5L7.8 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2.8z"></path>
-                                <circle cx="12" cy="13" r="3.5"></circle>
-                            </svg>
-                            Kamera ile Çek
-                        </button>
-                    </div>
+                    <button class="foto-ekle-btn" id="fotoEkleBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <path d="M21 15l-5-5L5 21"></path>
+                        </svg>
+                        Fotoğraf Ekle (Tekli veya Toplu)
+                    </button>
                     <input type="file" id="fotoInput" accept="image/*" multiple hidden>
-                    <input type="file" id="fotoKameraInput" accept="image/*" capture="environment" hidden>
                     <span class="foto-durum" id="fotoDurum"></span>
                 </div>
                 <div class="foto-galeri-sarici" id="fotoGaleriSarici">
@@ -3878,8 +4674,38 @@
             </div>
             <div class="hesap-tarih-araligi" id="hesapTarihAraligi"></div>
             <div class="hesap-grid" id="hesapGrid"></div>
-            <div class="hesap-bolum-baslik">Hasta Bazında Gelişler</div>
-            <div class="hesap-hasta-listesi" id="hesapHastaListesi"></div>
+            <div class="hesap-uc-sutun">
+                <div class="hesap-panel-kutu">
+                    <div class="hesap-panel-baslik">Hasta Bazında Gelişler</div>
+                    <div class="hesap-panel-icerik" id="hesapHastaListesi"></div>
+                </div>
+                <div class="hesap-panel-kutu">
+                    <div class="hesap-panel-baslik">Debridman İstatistikleri</div>
+                    <div class="hesap-panel-icerik debridman-yerlesim">
+                        <div class="debridman-istatistik-sol">
+                            <div class="hesap-istatistik-grid" id="debridmanIstatistikGrid"></div>
+                        </div>
+                        <div class="debridman-hasta-sag">
+                            <div class="debridman-liste-baslik-satiri">
+                                <div class="hesap-panel-liste-baslik">Hasta Ad Soyad, Tarih / Saatler</div>
+                                <select class="debridman-siralama-select" id="debridmanSiralamaSelect" aria-label="Debridman hasta sıralaması">
+                                    <option value="cok-desc">En çok debridman</option>
+                                    <option value="az-asc">En az debridman</option>
+                                    <option value="az-ad">A-Z</option>
+                                    <option value="za-ad">Z-A</option>
+                                </select>
+                            </div>
+                            <div class="debridman-liste debridman-hasta-liste" id="debridmanListe"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hesap-panel-kutu">
+                    <div class="hesap-panel-baslik">Antibiyotik İstatistikleri</div>
+                    <div class="antibiyotik-hazir-panel" id="antibiyotikIstatistikPanel">
+                        <div class="antibiyotik-istatistik-panel" id="antibiyotikIstatistikIcerik"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- TÜM HASTA FOTOĞRAFLARI GALERİSİ - SAĞ PANEL İÇİNDE (önce tüm fotoğraflar ızgara halinde) -->
@@ -3932,13 +4758,29 @@
         <div class="not-modal-body hazir-not-ayar-body">
             <div class="hazir-not-alan-sekmeleri" id="hazirNotAlanSekmeleri"></div>
 
-            <div class="hazir-not-ekle-satiri">
-                <input type="text" id="hazirNotYeniInput" placeholder="Yeni hazır not metni ekle...">
-                <button class="btn btn-kaydet" id="hazirNotYeniEkleBtn" type="button">Ekle</button>
+            <div id="standartHazirNotAyarAlani">
+                <div class="hazir-not-ekle-satiri">
+                    <input type="text" id="hazirNotYeniInput" placeholder="Yeni hazır not metni ekle...">
+                    <button class="btn btn-kaydet" id="hazirNotYeniEkleBtn" type="button">Ekle</button>
+                </div>
+                <div class="hazir-not-liste" id="hazirNotListesi"></div>
+                <div class="hazir-not-bos" id="hazirNotBos">Bu başlık için henüz hazır not butonu eklenmedi.</div>
             </div>
-
-            <div class="hazir-not-liste" id="hazirNotListesi"></div>
-            <div class="hazir-not-bos" id="hazirNotBos">Bu başlık için henüz hazır not butonu eklenmedi.</div>
+            <div id="antibiyotikAyarAlani" style="display:none;">
+                <div class="antibiyotik-ayar-form">
+                    <div><label for="ayarAntibiyotikAdi">Antibiyotik Adı</label><input id="ayarAntibiyotikAdi" type="text" placeholder="Örn. Amoksisilin-klavulanat"></div>
+                    <div><label for="ayarAntibiyotikDozu">Dozu</label><input id="ayarAntibiyotikDozu" type="text" placeholder="Örn. 1 g"></div>
+                    <div class="tam"><label for="ayarAntibiyotikSikligi">Sıklığı</label><input id="ayarAntibiyotikSikligi" type="text" placeholder="Örn. 2x1 / 12 saatte bir"></div>
+                    <div class="antibiyotik-ayar-ekle"><button class="btn btn-kaydet" id="ayarAntibiyotikEkleBtn" type="button">Antibiyotik Ekle</button></div>
+                </div>
+                <div class="hazir-not-liste antibiyotik-ayar-liste" id="ayarAntibiyotikListesi"></div>
+                <div class="hazir-not-bos" id="ayarAntibiyotikBos">Henüz antibiyotik eklenmedi.</div>
+            </div>
+            <div id="antibiyotikSecimAyarAlani" style="display:none;">
+                <div class="hazir-not-ekle-satiri"><input type="text" id="antibiyotikSecimAyarInput" placeholder="Yeni seçenek ekle..."><button class="btn btn-kaydet" id="antibiyotikSecimAyarEkleBtn" type="button">Ekle</button></div>
+                <div class="hazir-not-liste" id="antibiyotikSecimAyarListesi"></div>
+                <div class="hazir-not-bos" id="antibiyotikSecimAyarBos">Henüz seçenek eklenmedi.</div>
+            </div>
         </div>
         <div class="not-modal-footer">
             <span class="not-modal-ipucu">Sürükleyerek butonların sırasını değiştirebilirsiniz</span>
@@ -4100,6 +4942,103 @@
     </div>
 </div>
 
+<!-- DEBRİDMAN / ANTİBİYOTİK İŞLEM SEÇİM MODALI -->
+<div class="modal-overlay" id="tedaviIslemSecimModalOverlay">
+    <div class="modal-kutu islem-secim-kutu">
+        <div class="modal-header">
+            <h3>Başlatılacak İşlemi Seçiniz</h3>
+            <button class="modal-kapat" id="tedaviIslemSecimKapatBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="islem-secim-aciklama">Seçtiğiniz işlem mevcut hasta için ayrı bir takip kaydı olarak oluşturulacaktır.</div>
+            <div class="islem-secim-grid">
+                <button type="button" class="islem-secim-btn" id="debridmanSecBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6"/><path d="M13 5l6 6"/><path d="M3 21l6-6"/><path d="M8 8l8 8"/><path d="M4 14l6 6"/></svg>
+                    <strong>Debridman</strong><span>Tarih ve saat ile kayıt oluştur</span>
+                </button>
+                <button type="button" class="islem-secim-btn" id="antibiyotikSecBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10v7a5 5 0 0 1-10 0V3z"/><path d="M7 8h10"/><path d="M12 15v6"/><path d="M9 21h6"/></svg>
+                    <strong>Antibiyotik</strong><span>Antibiyotik takip ekranı</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DEBRİDMAN KAYIT MODALI -->
+<div class="modal-overlay" id="debridmanModalOverlay">
+    <div class="modal-kutu debridman-kutu">
+        <div class="modal-header">
+            <h3>Debridman Kaydı Oluştur</h3>
+            <button class="modal-kapat" id="debridmanKapatBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="debridman-ozet"><strong>Hasta:</strong> <span id="debridmanHastaAdi">-</span><br><span id="debridmanTurBilgi"></span></div>
+            <div class="debridman-tarih-grid">
+                <div><label for="debridmanTarih">Tarih</label><input type="date" id="debridmanTarih"></div>
+                <div><label for="debridmanSaat">Saat</label><input type="time" id="debridmanSaat"></div>
+            </div>
+            <div class="debridman-tur-bilgi">Kayıt oluşturulduğunda planlanan tetkik/tedavi alanına otomatik olarak “Hastaya yara yeri debridmanı yapıldı.” notu eklenir.</div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-vazgec" id="debridmanVazgecBtn">Vazgeç</button>
+            <button class="btn btn-kaydet" id="debridmanKaydetBtn">Debridman Kaydı Oluştur</button>
+        </div>
+    </div>
+</div>
+
+<!-- ANTİBİYOTİK BAŞLAT MODALI -->
+<div class="modal-overlay" id="antibiyotikModalOverlay">
+    <div class="modal-kutu antibiyotik-secim-kutu">
+        <div class="modal-header"><h3>Antibiyotik Başlat</h3><button class="modal-kapat" id="antibiyotikKapatBtn">&times;</button></div>
+        <div class="modal-body">
+            <div class="antibiyotik-ozet"><strong>Hasta:</strong> <span id="antibiyotikHastaAdi">-</span></div>
+            <div class="antibiyotik-form-grup">
+                <label>Antibiyotik(ler) — aynı anda 2 veya daha fazla seçilebilir; her biri ayrı doz/sıklık kaydı olarak tutulur</label>
+                <div class="antibiyotik-secenekler" id="antibiyotikSecenekler"></div>
+                <div class="antibiyotik-kombinasyon-bilgi" id="antibiyotikKombinasyonBilgi">Henüz antibiyotik seçilmedi.</div>
+            </div>
+            <div class="antibiyotik-form-grup">
+                <label>Seçilen antibiyotiklerin uygulama yolları</label>
+                <div class="antibiyotik-secili-liste" id="antibiyotikSeciliListe"></div>
+            </div>
+            <div class="antibiyotik-form-grid">
+                <div class="antibiyotik-form-grup"><label for="antibiyotikBaslangicTarihi">Başlama Tarihi</label><input type="date" id="antibiyotikBaslangicTarihi"></div>
+                <div class="antibiyotik-form-grup"><label for="antibiyotikBitisTarihi">Bitiş Tarihi</label><input type="date" id="antibiyotikBitisTarihi"></div>
+            </div>
+            <div class="antibiyotik-form-grup"><label>Hızlı Süre Seçimi</label><div class="antibiyotik-chipler antibiyotik-sure-chipler" id="antibiyotikSureSecenekleri"></div></div>
+            <div class="antibiyotik-form-grup"><label>Başlama Nedeni</label><div class="antibiyotik-secenekler" id="antibiyotikNedenSecenekleri"></div></div>
+            <div class="antibiyotik-form-grup"><label>Kültür Durumu</label><div class="antibiyotik-secenekler" id="kulturDurumSecenekleri"></div></div>
+            <div class="antibiyotik-form-grup"><label for="antibiyotikAciklama">Açıklama</label><textarea id="antibiyotikAciklama" rows="4" placeholder="Ek açıklama / klinik not"></textarea></div>
+        </div>
+        <div class="modal-footer"><button class="btn btn-vazgec" id="antibiyotikVazgecBtn">Vazgeç</button><button class="btn btn-kaydet" id="antibiyotikKaydetBtn">Antibiyotik Başlat</button></div>
+    </div>
+</div>
+
+<!-- ANTİBİYOTİK BİTİŞ TARİHİ GÜNCELLEME MODALI -->
+<div class="antibiyotik-devam-overlay" id="antibiyotikDevamOverlay">
+    <div class="antibiyotik-devam-kutu">
+        <div class="antibiyotik-devam-header">
+            <div class="antibiyotik-devam-baslik">Antibiyotik Bitiş Tarihini Güncelle</div>
+            <button type="button" class="antibiyotik-devam-kapat" id="antibiyotikDevamKapatBtn">&times;</button>
+        </div>
+        <div class="antibiyotik-devam-body">
+            <div class="antibiyotik-devam-ozet" id="antibiyotikDevamOzet">-</div>
+            <div class="antibiyotik-devam-alan">
+                <label for="antibiyotikDevamTarih">Yeni bitiş tarihi</label>
+                <input type="date" id="antibiyotikDevamTarih">
+                <div class="antibiyotik-devam-aciklama">Tarihi elle seçebilirsin. Mevcut tarihten ileriye veya geriye çekebilirsin. Başlangıç tarihinden önce bir bitiş tarihi seçilemez.</div>
+                <div class="antibiyotik-devam-hizli" id="antibiyotikDevamSureSecenekleri"></div>
+                <div class="antibiyotik-devam-yeni-bitis" id="antibiyotikDevamYeniBitis">Yeni bitiş tarihi: -</div>
+            </div>
+        </div>
+        <div class="antibiyotik-devam-footer">
+            <button type="button" class="btn btn-vazgec" id="antibiyotikDevamVazgecBtn">Vazgeç</button>
+            <button type="button" class="btn btn-kaydet" id="antibiyotikDevamKaydetBtn">Güncelle</button>
+        </div>
+    </div>
+</div>
+
 <!-- HASTA DEĞERLENDİRME BAŞLAT MODALI - tüm alt başlıklara tek seferde not girer -->
 <div class="modal-overlay" id="degerlendirmeBaslatModalOverlay">
     <div class="modal-kutu degerlendirme-baslat-kutu">
@@ -4186,6 +5125,7 @@
         setDoc,
         onSnapshot,
         serverTimestamp,
+        Timestamp,
         query,
         orderBy,
         getDocs
@@ -4311,6 +5251,710 @@
     degerlendirmeMenuBtns.forEach(btn => {
         btn.addEventListener('click', () => degerlendirmeSayfasiniAc(btn.dataset.hedef));
     });
+
+    // ===================== DEBRİDMAN / ANTİBİYOTİK İŞLEMLERİ =====================
+    const tedaviIslemBaslatBtn = document.getElementById('tedaviIslemBaslatBtn');
+    const tedaviIslemSecimModalOverlay = document.getElementById('tedaviIslemSecimModalOverlay');
+    const tedaviIslemSecimKapatBtn = document.getElementById('tedaviIslemSecimKapatBtn');
+    const debridmanSecBtn = document.getElementById('debridmanSecBtn');
+    const antibiyotikSecBtn = document.getElementById('antibiyotikSecBtn');
+    const debridmanModalOverlay = document.getElementById('debridmanModalOverlay');
+    const debridmanKapatBtn = document.getElementById('debridmanKapatBtn');
+    const debridmanVazgecBtn = document.getElementById('debridmanVazgecBtn');
+    const debridmanKaydetBtn = document.getElementById('debridmanKaydetBtn');
+    const debridmanHastaAdi = document.getElementById('debridmanHastaAdi');
+    const debridmanTurBilgi = document.getElementById('debridmanTurBilgi');
+    const debridmanTarih = document.getElementById('debridmanTarih');
+    const debridmanSaat = document.getElementById('debridmanSaat');
+
+    function tarihInputBugun() {
+        const d = new Date();
+        return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    }
+    function saatInputSimdi() {
+        const d = new Date();
+        return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    }
+    function debridmanTuruBelirle(hasta) {
+        const sikayet = hasta?.sikayet || [];
+        const dm = sikayet.includes('DM Ayak');
+        const kronik = sikayet.includes('Kronik Yara');
+        if (dm && kronik) return 'DM Ayak + Kronik Yara Debridmanı';
+        if (dm) return 'DM Ayak Debridmanı';
+        if (kronik) return 'Kronik Yara Debridmanı';
+        return 'Genel Yara Yeri Debridmanı';
+    }
+    function tedaviIslemSecimKapat() { tedaviIslemSecimModalOverlay.classList.remove('acik'); }
+    function debridmanModalKapat() { debridmanModalOverlay.classList.remove('acik'); }
+
+    tedaviIslemBaslatBtn.addEventListener('click', () => {
+        if (!seciliHastaId) { alert('Lütfen önce sol taraftan bir hasta seçin.'); return; }
+        tedaviIslemSecimModalOverlay.classList.add('acik');
+    });
+    tedaviIslemSecimKapatBtn.addEventListener('click', tedaviIslemSecimKapat);
+    tedaviIslemSecimModalOverlay.addEventListener('click', e => { if (e.target === tedaviIslemSecimModalOverlay) tedaviIslemSecimKapat(); });
+
+    debridmanSecBtn.addEventListener('click', () => {
+        const hasta = hastalar.find(h => h.id === seciliHastaId);
+        if (!hasta) { alert('Seçili hasta bulunamadı.'); return; }
+        debridmanHastaAdi.textContent = hasta.adSoyad || '-';
+        debridmanTurBilgi.textContent = 'Debridman türü: ' + debridmanTuruBelirle(hasta);
+        debridmanTarih.value = tarihInputBugun();
+        debridmanSaat.value = saatInputSimdi();
+        tedaviIslemSecimKapat();
+        debridmanModalOverlay.classList.add('acik');
+    });
+    const antibiyotikModalOverlay = document.getElementById('antibiyotikModalOverlay');
+    const antibiyotikKapatBtn = document.getElementById('antibiyotikKapatBtn');
+    const antibiyotikVazgecBtn = document.getElementById('antibiyotikVazgecBtn');
+    const antibiyotikKaydetBtn = document.getElementById('antibiyotikKaydetBtn');
+    const antibiyotikHastaAdi = document.getElementById('antibiyotikHastaAdi');
+    const antibiyotikSecenekler = document.getElementById('antibiyotikSecenekler');
+    const antibiyotikSeciliListe = document.getElementById('antibiyotikSeciliListe');
+    const antibiyotikKombinasyonBilgi = document.getElementById('antibiyotikKombinasyonBilgi');
+    const antibiyotikBaslangicTarihi = document.getElementById('antibiyotikBaslangicTarihi');
+    const antibiyotikBitisTarihi = document.getElementById('antibiyotikBitisTarihi');
+    const antibiyotikSureSecenekleri = document.getElementById('antibiyotikSureSecenekleri');
+    const antibiyotikNedenSecenekleri = document.getElementById('antibiyotikNedenSecenekleri');
+    const kulturDurumSecenekleri = document.getElementById('kulturDurumSecenekleri');
+    const antibiyotikAciklama = document.getElementById('antibiyotikAciklama');
+    let seciliAntibiyotik = null, seciliAntibiyotikYolu = null, seciliAntibiyotikNedeni = null, seciliKulturDurumu = null;
+    let seciliAntibiyotikler = [];
+    let seciliAntibiyotikYollari = {};
+    let antibiyotikYeniBaslatBaglami = null;
+    // ===================== ANTİBİYOTİK TAKİP PANELİ =====================
+    const antibiyotikTakipPanel = document.getElementById('antibiyotikTakipPanel');
+    const antibiyotikTakipListesi = document.getElementById('antibiyotikTakipListesi');
+    const antibiyotikTakipSayac = document.getElementById('antibiyotikTakipSayac');
+    const antibiyotikDevamOverlay = document.getElementById('antibiyotikDevamOverlay');
+    const antibiyotikDevamOzet = document.getElementById('antibiyotikDevamOzet');
+    const antibiyotikDevamTarih = document.getElementById('antibiyotikDevamTarih');
+    const antibiyotikDevamKapatBtn = document.getElementById('antibiyotikDevamKapatBtn');
+    const antibiyotikDevamVazgecBtn = document.getElementById('antibiyotikDevamVazgecBtn');
+    const antibiyotikDevamKaydetBtn = document.getElementById('antibiyotikDevamKaydetBtn');
+    const antibiyotikDevamSureSecenekleri = document.getElementById('antibiyotikDevamSureSecenekleri');
+    const antibiyotikDevamYeniBitis = document.getElementById('antibiyotikDevamYeniBitis');
+
+    let antibiyotikTakipDinleyici = null;
+    let antibiyotikTakipKayitlari = [];
+    let antibiyotikDevamKaydi = null;
+
+    function antibiyotikTarihDate(tarih) {
+        if (!tarih) return null;
+        if (tarih instanceof Date) return isNaN(tarih.getTime()) ? null : new Date(tarih.getFullYear(), tarih.getMonth(), tarih.getDate());
+        if (typeof tarih === 'object' && typeof tarih.toDate === 'function') {
+            const d = tarih.toDate();
+            return isNaN(d.getTime()) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        }
+        if (typeof tarih === 'number') {
+            const d = new Date(tarih);
+            return isNaN(d.getTime()) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        }
+        if (typeof tarih === 'string') {
+            const eslesen = tarih.match(/^(\d{4})-(\d{2})-(\d{2})/);
+            if (eslesen) return new Date(Number(eslesen[1]), Number(eslesen[2]) - 1, Number(eslesen[3]));
+            const d = new Date(tarih);
+            return isNaN(d.getTime()) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        }
+        return null;
+    }
+
+    function antibiyotikYerelBugun() {
+        const d = new Date();
+        return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    }
+
+    function antibiyotikGunFarki(baslangic, bitis) {
+        const ms = 24 * 60 * 60 * 1000;
+        return Math.round((bitis.getTime() - baslangic.getTime()) / ms);
+    }
+
+    function antibiyotikTarihFormatla(tarih) {
+        const d = antibiyotikTarihDate(tarih);
+        if (!d) return '-';
+        return `${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()}`;
+    }
+
+    function antibiyotikHtmlKacis(metin) {
+        return String(metin ?? '-')
+            .replace(/&/g,'&amp;')
+            .replace(/</g,'&lt;')
+            .replace(/>/g,'&gt;')
+            .replace(/"/g,'&quot;')
+            .replace(/'/g,'&#039;');
+    }
+
+    function antibiyotikTakipDurumu(kayit) {
+        const baslangic = antibiyotikTarihDate(kayit.baslamaTarihi);
+        const bitis = antibiyotikTarihDate(kayit.bitisTarihi);
+        const bugun = antibiyotikYerelBugun();
+
+        if (!baslangic || !bitis) {
+            return { tip:'belirsiz', baslangic, bitis, kullanilanGun:0, kalanGun:0 };
+        }
+
+        if (bugun < baslangic) {
+            return {
+                tip:'bekliyor',
+                baslangic,
+                bitis,
+                baslamayaGun: Math.max(0, antibiyotikGunFarki(bugun, baslangic)),
+                kullanilanGun:0,
+                kalanGun: Math.max(0, antibiyotikGunFarki(bugun, bitis))
+            };
+        }
+
+        if (bugun > bitis) {
+            return {
+                tip:'sonlanmis',
+                baslangic,
+                bitis,
+                kullanilanGun: Math.max(1, antibiyotikGunFarki(baslangic, bitis) + 1),
+                kalanGun:0
+            };
+        }
+
+        return {
+            tip:'aktif',
+            baslangic,
+            bitis,
+            kullanilanGun: Math.max(1, antibiyotikGunFarki(baslangic, bugun) + 1),
+            kalanGun: Math.max(0, antibiyotikGunFarki(bugun, bitis))
+        };
+    }
+
+    function antibiyotikTakipMetniOlustur(kayit) {
+        const neden = kayit.baslamaNedeni || '-';
+        const kultur = kayit.kulturDurumu || '-';
+        let metin = `Antibiyotik: ${kayit.antibiyotikAdi || '-'} | Doz: ${kayit.doz || '-'} | Sıklık: ${kayit.siklik || '-'} | Uygulama yolu: ${kayit.uygulamaYolu || '-'} | Başlama: ${kayit.baslamaTarihi || '-'} | Bitiş: ${kayit.bitisTarihi || '-'} | Başlama nedeni: ${neden} | Kültür durumu: ${kultur}`;
+        if (kayit.aciklama) metin += ` | Açıklama: ${kayit.aciklama}`;
+        return metin;
+    }
+
+    function antibiyotikDevamModalKapat() {
+        antibiyotikDevamOverlay.classList.remove('acik');
+        antibiyotikDevamKaydi = null;
+        if (antibiyotikDevamTarih) antibiyotikDevamTarih.value = '';
+        if (antibiyotikDevamYeniBitis) antibiyotikDevamYeniBitis.textContent = 'Yeni bitiş tarihi: -';
+    }
+
+    function antibiyotikTarihInputMetni(tarih) {
+        const d = antibiyotikTarihDate(tarih);
+        if (!d) return '';
+        return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    function antibiyotikDevamYeniBitisHesapla() {
+        if (!antibiyotikDevamKaydi || !antibiyotikDevamTarih) {
+            antibiyotikDevamYeniBitis.textContent = 'Yeni bitiş tarihi: -';
+            return;
+        }
+        const tarih = antibiyotikTarihDate(antibiyotikDevamTarih.value);
+        const baslangic = antibiyotikTarihDate(antibiyotikDevamKaydi.baslamaTarihi);
+        if (!tarih) {
+            antibiyotikDevamYeniBitis.textContent = 'Yeni bitiş tarihi: -';
+            return;
+        }
+        if (baslangic && tarih < baslangic) {
+            antibiyotikDevamYeniBitis.textContent = 'Geçersiz tarih: başlangıç tarihinden önce olamaz.';
+            antibiyotikDevamYeniBitis.classList.add('gecersiz');
+            return;
+        }
+        antibiyotikDevamYeniBitis.classList.remove('gecersiz');
+        const mevcut = antibiyotikTarihDate(antibiyotikDevamKaydi.bitisTarihi);
+        let yon = '';
+        if (mevcut) {
+            const fark = antibiyotikGunFarki(mevcut, tarih);
+            if (fark > 0) yon = ` · ${fark} gün ileri`;
+            else if (fark < 0) yon = ` · ${Math.abs(fark)} gün geri`;
+            else yon = ' · değişiklik yok';
+        }
+        antibiyotikDevamYeniBitis.textContent = `Yeni bitiş tarihi: ${antibiyotikTarihFormatla(tarih)}${yon}`;
+    }
+
+    function antibiyotikSureGununuBul(item) {
+        if (item == null) return 0;
+        const sayi = Number(item.gun);
+        if (Number.isFinite(sayi) && sayi > 0) return Math.round(sayi);
+        const metin = String(item.metin ?? item).replace(',', '.');
+        const eslesen = metin.match(/\d+(?:\.\d+)?/);
+        const parsed = eslesen ? Number(eslesen[0]) : 0;
+        return Number.isFinite(parsed) && parsed > 0 ? Math.round(parsed) : 0;
+    }
+
+    function antibiyotikDevamSureleriniCiz() {
+        if (!antibiyotikDevamSureSecenekleri) return;
+        const sureler = (hazirNotVerisi.antibiyotikSureleri || [])
+            .map(item => ({ item, gun: antibiyotikSureGununuBul(item) }))
+            .filter(x => x.gun > 0);
+        antibiyotikDevamSureSecenekleri.innerHTML = '';
+        if (!sureler.length || !antibiyotikDevamKaydi) return;
+        sureler.forEach(({item, gun}) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.textContent = String(item.metin ?? item.ad ?? `${gun} gün`);
+            btn.title = `Mevcut bitiş tarihine ${gun} gün ekle`;
+            btn.addEventListener('click', () => {
+                const mevcut = antibiyotikTarihDate(antibiyotikDevamKaydi.bitisTarihi);
+                if (!mevcut) return;
+                const yeni = new Date(mevcut.getFullYear(), mevcut.getMonth(), mevcut.getDate() + gun);
+                antibiyotikDevamTarih.value = antibiyotikTarihInputMetni(yeni);
+                antibiyotikDevamYeniBitisHesapla();
+            });
+            antibiyotikDevamSureSecenekleri.appendChild(btn);
+        });
+    }
+
+    function antibiyotikDevamModalAc(kayit) {
+        if (!kayit) return;
+        antibiyotikDevamKaydi = kayit;
+        antibiyotikDevamOzet.innerHTML = `<strong>${antibiyotikHtmlKacis(kayit.antibiyotikAdi || 'Antibiyotik')}</strong><br>Mevcut bitiş tarihi: <strong>${antibiyotikTarihFormatla(kayit.bitisTarihi)}</strong>`;
+        antibiyotikDevamTarih.value = antibiyotikTarihInputMetni(kayit.bitisTarihi);
+        const baslangic = antibiyotikTarihInputMetni(kayit.baslamaTarihi);
+        if (baslangic) antibiyotikDevamTarih.min = baslangic;
+        antibiyotikDevamSureleriniCiz();
+        antibiyotikDevamYeniBitisHesapla();
+        antibiyotikDevamOverlay.classList.add('acik');
+        setTimeout(() => antibiyotikDevamTarih.focus(), 0);
+    }
+
+    function antibiyotikTakipKartHtml(kayit) {
+        const durum = antibiyotikTakipDurumu(kayit);
+        const ad = antibiyotikHtmlKacis(kayit.antibiyotikAdi || '-');
+        const doz = antibiyotikHtmlKacis(kayit.doz || '-');
+        const siklik = antibiyotikHtmlKacis(kayit.siklik || '-');
+        const yol = antibiyotikHtmlKacis(kayit.uygulamaYolu || '-');
+        const neden = antibiyotikHtmlKacis(kayit.baslamaNedeni || '-');
+        const kultur = antibiyotikHtmlKacis(kayit.kulturDurumu || '-');
+        const baslangic = antibiyotikTarihFormatla(kayit.baslamaTarihi);
+        const bitis = antibiyotikTarihFormatla(kayit.bitisTarihi);
+        let durumRozeti = 'Devam ediyor', durumSinifi = 'devam', kartSinifi = 'aktif', devamButonu = '', sureBaslik='', sureAlt='', sureYuzde=0, sureRenk='#27ae60';
+
+        if (durum.tip === 'sonlanmis') {
+            durumRozeti='Sonlandı'; durumSinifi='son'; kartSinifi='sonlanmis';
+            sureBaslik=`${durum.kullanilanGun} gün kullanıldı`; sureAlt='Tedavi bitiş tarihine ulaştı.'; sureYuzde=100; sureRenk='#e74c3c';
+            devamButonu=`<button type="button" class="antibiyotik-takip-devam-btn" data-antibiyotik-guncelle="${antibiyotikHtmlKacis(kayit.id)}">Bitiş tarihini güncelle</button>`;
+        } else if (durum.tip === 'bekliyor') {
+            durumRozeti='Başlamadı'; durumSinifi='bekliyor';
+            sureBaslik=`${durum.baslamayaGun} gün sonra başlayacak`; sureAlt=`Başlangıç: ${baslangic}`; sureYuzde=0; sureRenk='#27ae60';
+        } else {
+            const toplam=Math.max(0,antibiyotikGunFarki(durum.baslangic,durum.bitis));
+            const gecen=Math.max(0,antibiyotikGunFarki(durum.baslangic,antibiyotikYerelBugun()));
+            sureYuzde=toplam>0?Math.min(100,Math.max(0,(gecen/toplam)*100)):100;
+            if(sureYuzde>=85)sureRenk='#e74c3c'; else if(sureYuzde>=60)sureRenk='#e67e22'; else if(sureYuzde>=40)sureRenk='#f1c40f';
+            sureBaslik=`${durum.kullanilanGun} gündür kullanıyor`; sureAlt=`Sonlanmasına ${durum.kalanGun} gün var`;
+            devamButonu=`<button type="button" class="antibiyotik-takip-devam-btn" data-antibiyotik-guncelle="${antibiyotikHtmlKacis(kayit.id)}">Bitiş tarihini güncelle</button>`;
+        }
+
+        const rozetler=[];
+        if(kayit.kombinasyonMu)rozetler.push('<span class="antibiyotik-tedavi-rozet kombinasyon">Kombinasyon tedavisi</span>');
+        if(kayit.tedaviDegisikligi)rozetler.push('<span class="antibiyotik-tedavi-rozet degisim">Önceki tedavi sonrası değiştirildi</span>');
+        if(kayit.tedaviGrubuTipi==='kombinasyon' && !kayit.kombinasyonMu)rozetler.push('<span class="antibiyotik-tedavi-rozet kombinasyon">Kombinasyon grubu</span>');
+        if(kayit.tedaviBasamakNo)rozetler.push(`<span class="antibiyotik-tedavi-rozet basamak">${antibiyotikHtmlKacis(kayit.tedaviBasamakNo)}. tedavi basamağı</span>`);
+        const ilişki = kayit.oncekiAntibiyotikKayitId ? `Önceki tedavi sonrası başladı${kayit.oncekiAntibiyotikAdi ? `: <strong>${antibiyotikHtmlKacis(kayit.oncekiAntibiyotikAdi)}</strong>` : ''}.` : '';
+        const yeniBtnLabel = kayit.kombinasyonMu ? 'Bu kombinasyonun ardından yeni tedavi başlat' : 'Bitişinden sonra yeni antibiyotik başlat';
+        const yeniBtn=`<button type="button" class="antibiyotik-takip-devam-btn antibiyotik-yeni-baslat-btn" data-antibiyotik-yeni="${antibiyotikHtmlKacis(kayit.id)}">${yeniBtnLabel}</button>`;
+
+        return `<article class="antibiyotik-takip-kart ${kartSinifi}">
+            <div class="antibiyotik-takip-kart-ust"><div class="antibiyotik-takip-ad">${ad}</div><span class="antibiyotik-takip-durum ${durumSinifi}">${durumRozeti}</span></div>
+            ${rozetler.length?`<div class="antibiyotik-tedavi-rozetleri">${rozetler.join('')}</div>`:''}
+            ${ilişki?`<div class="antibiyotik-tedavi-iliski">${ilişki}</div>`:''}
+            <div class="antibiyotik-takip-bilgiler">
+                <div class="antibiyotik-takip-bilgi"><span class="antibiyotik-takip-etiket">Doz</span><span class="antibiyotik-takip-deger">${doz}</span></div>
+                <div class="antibiyotik-takip-bilgi"><span class="antibiyotik-takip-etiket">Sıklık</span><span class="antibiyotik-takip-deger">${siklik}</span></div>
+                <div class="antibiyotik-takip-bilgi"><span class="antibiyotik-takip-etiket">Yol</span><span class="antibiyotik-takip-deger">${yol}</span></div>
+                <div class="antibiyotik-takip-bilgi"><span class="antibiyotik-takip-etiket">Kültür durumu</span><span class="antibiyotik-takip-deger">${kultur}</span></div>
+                <div class="antibiyotik-takip-bilgi"><span class="antibiyotik-takip-etiket">Başlama nedeni</span><span class="antibiyotik-takip-deger">${neden}</span></div>
+            </div>
+            <div class="antibiyotik-takip-tarih-satiri"><div class="antibiyotik-takip-tarih"><span class="antibiyotik-takip-etiket">Başlangıç</span><span class="antibiyotik-takip-deger">${baslangic}</span></div><div class="antibiyotik-takip-tarih"><span class="antibiyotik-takip-etiket">Bitiş</span><span class="antibiyotik-takip-deger">${bitis}</span></div></div>
+            <div class="antibiyotik-takip-sure ${kartSinifi === 'sonlanmis' ? 'sonlanmis' : ''}" style="--sure-yuzde:${sureYuzde}%;--sure-renk:${sureRenk};"><div class="antibiyotik-takip-sure-baslik">${sureBaslik}</div><div class="antibiyotik-takip-sure-alt">${sureAlt}</div><div class="antibiyotik-takip-sure-cizgi"><div class="antibiyotik-takip-sure-cizgi-ust"><span class="antibiyotik-takip-sure-nokta"></span></div><div class="antibiyotik-takip-sure-cizgi-etiket"><span>${baslangic}</span><span>${bitis}</span></div></div></div>
+            ${devamButonu}${yeniBtn}
+        </article>`;
+    }
+
+    function antibiyotikTakipPaneliniCiz() {
+        if (!antibiyotikTakipListesi || !antibiyotikTakipSayac) return;
+        const sirali=[...antibiyotikTakipKayitlari].sort((a,b)=>{
+            const da=antibiyotikTarihDate(a.baslamaTarihi), db=antibiyotikTarihDate(b.baslamaTarihi);
+            return (db?db.getTime():0)-(da?da.getTime():0);
+        });
+        const aktif=sirali.filter(k=>['aktif','bekliyor'].includes(antibiyotikTakipDurumu(k).tip));
+        const sonlanan=sirali.filter(k=>antibiyotikTakipDurumu(k).tip==='sonlanmis');
+        const duzenli=[...aktif,...sonlanan];
+        const grupSayisi=new Set(sirali.map(k=>k.tedaviGrubuId||k.id)).size;
+        const zincirSayisi=new Set(sirali.map(k=>k.tedaviZinciriId||k.id)).size;
+        antibiyotikTakipSayac.textContent=`${sirali.length} ilaç · ${grupSayisi} başlangıç grubu · ${zincirSayisi} tedavi zinciri`;
+        if(!duzenli.length){antibiyotikTakipListesi.innerHTML='<div class="antibiyotik-takip-bos">Seçili hastanın başlatılmış antibiyotik kaydı yok.</div>';return;}
+        antibiyotikTakipListesi.innerHTML=duzenli.map(antibiyotikTakipKartHtml).join('');
+        antibiyotikTakipListesi.querySelectorAll('[data-antibiyotik-guncelle]').forEach(btn=>btn.addEventListener('click',()=>{
+            const kayit=antibiyotikTakipKayitlari.find(k=>k.id===btn.dataset.antibiyotikGuncelle); antibiyotikDevamModalAc(kayit);
+        }));
+        antibiyotikTakipListesi.querySelectorAll('[data-antibiyotik-yeni]').forEach(btn=>btn.addEventListener('click',()=>{
+            const kayit=antibiyotikTakipKayitlari.find(k=>k.id===btn.dataset.antibiyotikYeni); antibiyotikYeniTedaviBaslat(kayit);
+        }));
+    }
+
+    function antibiyotikTakibiniSifirla() {
+        if (antibiyotikTakipDinleyici) antibiyotikTakipDinleyici();
+        antibiyotikTakipDinleyici = null;
+        antibiyotikTakipKayitlari = [];
+        antibiyotikDevamModalKapat();
+        antibiyotikTakipPaneliniCiz();
+    }
+
+    function antibiyotikTakibiniBaglat(hastaId) {
+        if (antibiyotikTakipDinleyici) antibiyotikTakipDinleyici();
+
+        const ref = collection(db, "hastalar", hastaId, "kultur");
+        antibiyotikTakipDinleyici = onSnapshot(ref, (snapshot) => {
+            antibiyotikTakipKayitlari = snapshot.docs.map(d => ({ id:d.id, ...d.data() }));
+            antibiyotikTakipPaneliniCiz();
+        }, (hata) => {
+            console.error('Antibiyotik kayıtları dinlenirken hata:', hata);
+            antibiyotikTakipListesi.innerHTML = '<div class="antibiyotik-takip-bos">Antibiyotik kayıtları yüklenemedi.</div>';
+        });
+    }
+
+    antibiyotikDevamKapatBtn.addEventListener('click', antibiyotikDevamModalKapat);
+    antibiyotikDevamVazgecBtn.addEventListener('click', antibiyotikDevamModalKapat);
+    antibiyotikDevamOverlay.addEventListener('click', (e) => {
+        if (e.target === antibiyotikDevamOverlay) antibiyotikDevamModalKapat();
+    });
+
+    antibiyotikDevamTarih.addEventListener('input', antibiyotikDevamYeniBitisHesapla);
+    antibiyotikDevamTarih.addEventListener('change', antibiyotikDevamYeniBitisHesapla);
+
+    antibiyotikDevamKaydetBtn.addEventListener('click', async () => {
+        if (!seciliHastaId || !antibiyotikDevamKaydi) return;
+        const yeniBitis = antibiyotikTarihDate(antibiyotikDevamTarih.value);
+        const baslangic = antibiyotikTarihDate(antibiyotikDevamKaydi.baslamaTarihi);
+        if (!yeniBitis) { alert('Lütfen geçerli bir bitiş tarihi seçin.'); return; }
+        if (baslangic && yeniBitis < baslangic) { alert('Bitiş tarihi başlangıç tarihinden önce olamaz.'); return; }
+        const yeniBitisMetin = antibiyotikTarihInputMetni(yeniBitis);
+        antibiyotikDevamKaydetBtn.disabled = true;
+        antibiyotikDevamKaydetBtn.textContent = 'Güncelleniyor...';
+        try {
+            const guncelKayit = { ...antibiyotikDevamKaydi, bitisTarihi:yeniBitisMetin };
+            await updateDoc(doc(db, "hastalar", seciliHastaId, "kultur", antibiyotikDevamKaydi.id), {
+                bitisTarihi: yeniBitisMetin,
+                metin: antibiyotikTakipMetniOlustur(guncelKayit),
+                sonGuncellemeZamani: serverTimestamp()
+            });
+            antibiyotikDevamModalKapat();
+        } catch (hata) {
+            console.error('Antibiyotik bitiş tarihi güncellenirken hata:', hata);
+            alert('Antibiyotik bitiş tarihi güncellenirken bir hata oluştu.');
+        } finally {
+            antibiyotikDevamKaydetBtn.disabled = false;
+            antibiyotikDevamKaydetBtn.textContent = 'Güncelle';
+        }
+    });
+
+    // Süreler gün içinde değişebileceği için paneli dakikada bir yenile.
+    setInterval(() => {
+        if (seciliHastaId && antibiyotikTakipKayitlari.length) antibiyotikTakipPaneliniCiz();
+    }, 60000);
+    // ===================== ANTİBİYOTİK TAKİP PANELİ SONU =====================
+
+
+    function antibiyotikModalKapat(){
+        antibiyotikModalOverlay.classList.remove('acik');
+        antibiyotikYeniBaslatBaglami = null;
+        seciliAntibiyotikler = [];
+        seciliAntibiyotikYollari = {};
+    }
+
+    function tarihEkleGun(tarih, gun){
+        const d=new Date(tarih+'T00:00:00');
+        if (isNaN(d.getTime())) return tarih;
+        d.setDate(d.getDate()+Number(gun));
+        return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    function yeniKimlik(prefix='id') {
+        try { if (window.crypto && typeof window.crypto.randomUUID === 'function') return `${prefix}_${window.crypto.randomUUID()}`; } catch (_) {}
+        return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2,10)}`;
+    }
+
+    function secenekButonlariniCiz(kapsayici, liste, seciliDeger, callback){
+        kapsayici.innerHTML='';
+        (liste||[]).forEach(item=>{
+            const btn=document.createElement('button');
+            btn.type='button';
+            btn.className='antibiyotik-secenek-btn'+(seciliDeger===item.id||seciliDeger===item.metin||seciliDeger===item ? ' secili':'');
+            btn.textContent=item.metin||item;
+            btn.addEventListener('click',()=>callback(item));
+            kapsayici.appendChild(btn);
+        });
+    }
+
+    function seciliAntibiyotikSatirlariniCiz(){
+        if (!antibiyotikSeciliListe) return;
+        antibiyotikSeciliListe.innerHTML='';
+        if (!seciliAntibiyotikler.length) {
+            antibiyotikSeciliListe.innerHTML='<div class="antibiyotik-secili-bos">Seçtiğiniz antibiyotiklerin uygulama yolunu burada ayrı ayrı belirleyin.</div>';
+            return;
+        }
+        const antibiyotikler = hazirNotVerisi.antibiyotikler || [];
+        seciliAntibiyotikler.forEach(id => {
+            const item = antibiyotikler.find(x => x.id === id);
+            if (!item) return;
+            const satir = document.createElement('div');
+            satir.className = 'antibiyotik-secili-kayit';
+            const ozet = document.createElement('div');
+            ozet.className = 'antibiyotik-secili-ozet';
+            ozet.innerHTML = `<div class="antibiyotik-secili-ad">${antibiyotikHtmlKacis(item.ad)}</div><div class="antibiyotik-secili-detay">Doz: ${antibiyotikHtmlKacis(item.doz || '-')} · Sıklık: ${antibiyotikHtmlKacis(item.siklik || '-')}</div>`;
+            const yol = document.createElement('div');
+            yol.className = 'antibiyotik-secili-yol';
+            ['IV','PO','IM','Diğer'].forEach(y => {
+                const btn = document.createElement('button');
+                btn.type='button';
+                btn.className='antibiyotik-chip-btn' + (seciliAntibiyotikYollari[id] === y ? ' secili' : '');
+                btn.textContent=y;
+                btn.addEventListener('click',()=>{
+                    seciliAntibiyotikYollari[id]=y;
+                    seciliAntibiyotikSatirlariniCiz();
+                });
+                yol.appendChild(btn);
+            });
+            satir.appendChild(ozet);
+            satir.appendChild(yol);
+            antibiyotikSeciliListe.appendChild(satir);
+        });
+    }
+
+    function antibiyotikModalSecimBilgisiniGuncelle(){
+        if (!antibiyotikKombinasyonBilgi) return;
+        if (!seciliAntibiyotikler.length) {
+            antibiyotikKombinasyonBilgi.className='antibiyotik-kombinasyon-bilgi';
+            antibiyotikKombinasyonBilgi.textContent='Henüz antibiyotik seçilmedi.';
+            return;
+        }
+        const sayi = seciliAntibiyotikler.length;
+        antibiyotikKombinasyonBilgi.className='antibiyotik-kombinasyon-bilgi' + (sayi > 1 ? ' vurgu' : '');
+        antibiyotikKombinasyonBilgi.innerHTML = sayi > 1
+            ? `<strong>${sayi} antibiyotik aynı tedavi grubu altında başlatılacak.</strong> Her ilaç ayrı kayıt olarak istatistiğe girecek; ancak ortak tedavi zinciri içinde bağlantılı tutulacak.`
+            : 'Tek antibiyotik seçildi. Daha sonra bitişinden sonra başka bir antibiyotik başlatılırsa aynı tedavi zincirinde sonraki basamak olarak kaydedilebilir.';
+    }
+
+    function antibiyotikModaliniCiz(){
+        const antibiyotikler = hazirNotVerisi.antibiyotikler || [];
+        antibiyotikSecenekler.innerHTML='';
+        antibiyotikler.forEach(item=>{
+            const btn=document.createElement('button');
+            btn.type='button';
+            btn.className='antibiyotik-secenek-btn'+(seciliAntibiyotikler.includes(item.id)?' secili':'');
+            btn.innerHTML=`<strong>${antibiyotikHtmlKacis(item.ad)}</strong><br><span style="font-size:10px;color:var(--text-faint)">${antibiyotikHtmlKacis(item.doz || '-')} · ${antibiyotikHtmlKacis(item.siklik || '-')}</span>`;
+            btn.addEventListener('click',()=>{
+                if (seciliAntibiyotikler.includes(item.id)) {
+                    seciliAntibiyotikler = seciliAntibiyotikler.filter(id=>id!==item.id);
+                    delete seciliAntibiyotikYollari[item.id];
+                } else {
+                    seciliAntibiyotikler.push(item.id);
+                }
+                seciliAntibiyotik = seciliAntibiyotikler[0] || null;
+                antibiyotikModaliniCiz();
+            });
+            antibiyotikSecenekler.appendChild(btn);
+        });
+        if(!antibiyotikler.length) antibiyotikSecenekler.innerHTML='<div class="hazir-not-bos">Hazır Not Butonları Ayarları kısmından antibiyotik ekleyin.</div>';
+
+        antibiyotikSureSecenekleri.innerHTML='';
+        (hazirNotVerisi.antibiyotikSureleri||[]).forEach(item=>{
+            const btn=document.createElement('button');
+            btn.type='button';
+            btn.className='antibiyotik-chip-btn';
+            btn.textContent=item.metin||item.gun+' gün';
+            btn.addEventListener('click',()=>{ antibiyotikBitisTarihi.value=tarihEkleGun(antibiyotikBaslangicTarihi.value||tarihInputBugun(), item.gun || parseInt(item.metin)); });
+            antibiyotikSureSecenekleri.appendChild(btn);
+        });
+        secenekButonlariniCiz(antibiyotikNedenSecenekleri,hazirNotVerisi.antibiyotikBaslamaNedenleri||[],seciliAntibiyotikNedeni,x=>{seciliAntibiyotikNedeni=x.id||x.metin||x; antibiyotikModaliniCiz();});
+        secenekButonlariniCiz(kulturDurumSecenekleri,hazirNotVerisi.kulturDurumlari||[],seciliKulturDurumu,x=>{seciliKulturDurumu=x.id||x.metin||x; antibiyotikModaliniCiz();});
+        seciliAntibiyotikSatirlariniCiz();
+        antibiyotikModalSecimBilgisiniGuncelle();
+    }
+
+    function antibiyotikFormunuAc({baglam=null, seciliIds=[], baslangic='', bitis='', baslik='Antibiyotik Başlat'}={}){
+        seciliAntibiyotikler = [...seciliIds];
+        seciliAntibiyotik = seciliAntibiyotikler[0] || null;
+        seciliAntibiyotikYollari = {};
+        antibiyotikYeniBaslatBaglami = baglam;
+        const hasta = hastalar.find(h=>h.id===seciliHastaId);
+        if(!hasta){alert('Seçili hasta bulunamadı.');return;}
+        antibiyotikHastaAdi.textContent=hasta.adSoyad||'-';
+        const modalBaslik = document.querySelector('#antibiyotikModalOverlay .modal-header h3');
+        if (modalBaslik) modalBaslik.textContent = baslik;
+        antibiyotikBaslangicTarihi.value=baslangic||tarihInputBugun();
+        antibiyotikBitisTarihi.value=bitis||'';
+        antibiyotikAciklama.value='';
+        seciliAntibiyotikNedeni=null;
+        seciliKulturDurumu=null;
+        antibiyotikModaliniCiz();
+        antibiyotikModalOverlay.classList.add('acik');
+    }
+
+    function antibiyotikYeniTedaviBaslat(kayit){
+        if (!kayit) return;
+
+        // Aynı anda başlatılan iki/üç antibiyotik tek bir tedavi grubu oluşturur.
+        // Yeni antibiyotik başlatılırken bütün grup önceki tedavi olarak bağlanır.
+        const zincirId = kayit.tedaviZinciriId || yeniKimlik('zincir');
+        const oncekiKayitlar = kayit.tedaviGrubuId
+            ? antibiyotikTakipKayitlari.filter(x=>x.tedaviGrubuId===kayit.tedaviGrubuId)
+            : [kayit];
+
+        // Kombinasyon üyelerinin bitiş tarihleri farklı olabiliyorsa, yeni tedavinin
+        // varsayılan başlangıcını grubun en geç biten ilacının ertesi günü yap.
+        const bitisler = oncekiKayitlar
+            .map(x=>antibiyotikTarihDate(x.bitisTarihi))
+            .filter(Boolean)
+            .sort((a,b)=>b.getTime()-a.getTime());
+        const sonBitis = bitisler[0] || null;
+        const varsayilanBaslangic = sonBitis
+            ? antibiyotikTarihInputMetni(new Date(sonBitis.getFullYear(), sonBitis.getMonth(), sonBitis.getDate()+1))
+            : tarihInputBugun();
+
+        antibiyotikFormunuAc({
+            baglam:{
+                tedaviZinciriId:zincirId,
+                oncekiTedaviGrubuId:kayit.tedaviGrubuId || null,
+                oncekiAntibiyotikKayitId:kayit.id,
+                oncekiAntibiyotikKayitIds:oncekiKayitlar.map(x=>x.id),
+                oncekiAntibiyotikAdi:oncekiKayitlar.map(x=>x.antibiyotikAdi || '').filter(Boolean).join(' + '),
+                tedaviDegisikligi:true
+            },
+            seciliIds:[],
+            baslangic:varsayilanBaslangic,
+            baslik:'Yeni Antibiyotik / Tedavi Değişikliği'
+        });
+    }
+
+    antibiyotikSecBtn.addEventListener('click',()=>{
+        tedaviIslemSecimKapat();
+        antibiyotikFormunuAc();
+    });
+    antibiyotikBaslangicTarihi.addEventListener('change',()=>{ if(!antibiyotikBaslangicTarihi.value)return; });
+    antibiyotikKapatBtn.addEventListener('click',antibiyotikModalKapat);
+    antibiyotikVazgecBtn.addEventListener('click',antibiyotikModalKapat);
+    antibiyotikModalOverlay.addEventListener('click',e=>{if(e.target===antibiyotikModalOverlay)antibiyotikModalKapat();});
+
+    antibiyotikKaydetBtn.addEventListener('click',async()=>{
+        if(!seciliHastaId)return;
+        const antibiyotikler = hazirNotVerisi.antibiyotikler || [];
+        const secilenler = seciliAntibiyotikler.map(id=>antibiyotikler.find(x=>x.id===id)).filter(Boolean);
+        if(!secilenler.length){alert('Lütfen en az bir antibiyotik seçin.');return;}
+        for (const ilac of secilenler) {
+            if(!seciliAntibiyotikYollari[ilac.id]) { alert(`${ilac.ad} için uygulama yolu seçin.`); return; }
+        }
+        if(!antibiyotikBaslangicTarihi.value||!antibiyotikBitisTarihi.value){alert('Lütfen başlama ve bitiş tarihlerini seçin.');return;}
+        if(!seciliAntibiyotikNedeni){alert('Lütfen başlama nedenini seçin.');return;}
+        if(!seciliKulturDurumu){alert('Lütfen kültür durumunu seçin.');return;}
+        if(new Date(antibiyotikBitisTarihi.value+'T00:00:00')<new Date(antibiyotikBaslangicTarihi.value+'T00:00:00')){alert('Bitiş tarihi başlama tarihinden önce olamaz.');return;}
+
+        const neden=(hazirNotVerisi.antibiyotikBaslamaNedenleri||[]).find(x=>(x.id||x.metin||x)===seciliAntibiyotikNedeni);
+        const kultur=(hazirNotVerisi.kulturDurumlari||[]).find(x=>(x.id||x.metin||x)===seciliKulturDurumu);
+        const baglam = antibiyotikYeniBaslatBaglami;
+        const zincirId = baglam?.tedaviZinciriId || yeniKimlik('zincir');
+        const grupId = yeniKimlik('grup');
+        const kombinasyonMu = secilenler.length > 1;
+        const degisimMi = !!baglam?.tedaviDegisikligi;
+        const tarihBaslangic = antibiyotikBaslangicTarihi.value;
+        const tarihBitis = antibiyotikBitisTarihi.value;
+
+        // Tedavi zincirindeki basamak numarası: aynı anda başlanan birden fazla ilaç
+        // tek bir basamak sayılır; o basamaktaki ilaçların tamamı ayrı kayıt olur.
+        const mevcutZincirGruplari = new Set(
+            antibiyotikTakipKayitlari
+                .filter(x=>x.tedaviZinciriId===zincirId)
+                .map(x=>x.tedaviGrubuId || x.id)
+        );
+        const tedaviBasamakNo = mevcutZincirGruplari.size + 1;
+
+        antibiyotikKaydetBtn.disabled=true; antibiyotikKaydetBtn.textContent='Kaydediliyor...';
+        try{
+            const oncekiIds = Array.from(new Set(baglam?.oncekiAntibiyotikKayitIds || (baglam?.oncekiAntibiyotikKayitId ? [baglam.oncekiAntibiyotikKayitId] : [])));
+            if (oncekiIds.length) {
+                await Promise.all(oncekiIds.map(id => updateDoc(doc(db,'hastalar',seciliHastaId,'kultur',id), {
+                    tedaviZinciriId:zincirId,
+                    sonGuncellemeZamani:serverTimestamp()
+                })));
+            }
+
+            for (let i=0; i<secilenler.length; i++) {
+                const antibiyotik = secilenler[i];
+                const uygulamaYolu = seciliAntibiyotikYollari[antibiyotik.id];
+                const metin=`Antibiyotik: ${antibiyotik.ad} | Doz: ${antibiyotik.doz} | Sıklık: ${antibiyotik.siklik} | Uygulama yolu: ${uygulamaYolu} | Başlama: ${tarihBaslangic} | Bitiş: ${tarihBitis} | Başlama nedeni: ${neden?.metin||seciliAntibiyotikNedeni} | Kültür durumu: ${kultur?.metin||seciliKulturDurumu}${degisimMi?' | Tedavi değişikliği: önceki antibiyotik sonrası başlandı':''}${kombinasyonMu?' | Kombinasyon tedavisi':''}${antibiyotikAciklama.value.trim()?' | Açıklama: '+antibiyotikAciklama.value.trim():''}`;
+                await addDoc(collection(db,'hastalar',seciliHastaId,'kultur'),{
+                    metin,
+                    antibiyotikId:antibiyotik.id,
+                    antibiyotikAdi:antibiyotik.ad,
+                    doz:antibiyotik.doz,
+                    siklik:antibiyotik.siklik,
+                    uygulamaYolu,
+                    baslamaTarihi:tarihBaslangic,
+                    bitisTarihi:tarihBitis,
+                    baslamaNedeni:neden?.metin||seciliAntibiyotikNedeni,
+                    kulturDurumu:kultur?.metin||seciliKulturDurumu,
+                    aciklama:antibiyotikAciklama.value.trim(),
+                    olusturulmaZamani:serverTimestamp(),
+                    kayitTipi:'antibiyotik',
+                    tedaviZinciriId:zincirId,
+                    tedaviGrubuId:grupId,
+                    tedaviGrubuTipi:kombinasyonMu?'kombinasyon':'tekli',
+                    kombinasyonMu,
+                    kombinasyonSira:i+1,
+                    tedaviDegisikligi:degisimMi,
+                    tedaviBasamakNo,
+                    oncekiTedaviGrubuId:baglam?.oncekiTedaviGrubuId || null,
+                    oncekiAntibiyotikKayitId:baglam?.oncekiAntibiyotikKayitId || null,
+                    oncekiAntibiyotikKayitIds:oncekiIds.length ? oncekiIds : [],
+                    oncekiAntibiyotikAdi:baglam?.oncekiAntibiyotikAdi || null,
+                    tedaviBaslangicTarihi:tarihBaslangic
+                });
+            }
+            antibiyotikModalKapat();
+            degerlendirmeSayfasiniAc('kultur');
+            alert(kombinasyonMu ? `${secilenler.length} antibiyotik aynı tedavi grubu altında başlatıldı.` : (degisimMi ? 'Yeni antibiyotik tedavisi başlatıldı.' : 'Antibiyotik kaydı oluşturuldu.'));
+        }
+        catch(hata){console.error('Antibiyotik kaydı hatası:',hata);alert('Antibiyotik kaydı oluşturulurken bir hata oluştu.');}
+        finally{antibiyotikKaydetBtn.disabled=false;antibiyotikKaydetBtn.textContent='Antibiyotik Başlat';}
+    });
+    debridmanKapatBtn.addEventListener('click', debridmanModalKapat);
+    debridmanVazgecBtn.addEventListener('click', debridmanModalKapat);
+    debridmanModalOverlay.addEventListener('click', e => { if (e.target === debridmanModalOverlay) debridmanModalKapat(); });
+
+    debridmanKaydetBtn.addEventListener('click', async () => {
+        if (!seciliHastaId) { debridmanModalKapat(); return; }
+        if (!debridmanTarih.value || !debridmanSaat.value) { alert('Lütfen tarih ve saat seçin.'); return; }
+        const tarihSaat = new Date(`${debridmanTarih.value}T${debridmanSaat.value}`);
+        if (isNaN(tarihSaat.getTime())) { alert('Geçerli bir tarih ve saat seçin.'); return; }
+        const hasta = hastalar.find(h => h.id === seciliHastaId);
+        const debridmanTuru = debridmanTuruBelirle(hasta);
+        debridmanKaydetBtn.disabled = true;
+        debridmanKaydetBtn.textContent = 'Kaydediliyor...';
+        try {
+            await addDoc(collection(db, 'hastalar', seciliHastaId, 'debridmanlar'), {
+                tarihSaat: Timestamp.fromDate(tarihSaat),
+                olusturulmaZamani: serverTimestamp(),
+                debridmanTuru,
+                planNotu: 'Hastaya yara yeri debridmanı yapıldı.'
+            });
+            await addDoc(collection(db, 'hastalar', seciliHastaId, 'plan'), {
+                metin: 'Hastaya yara yeri debridmanı yapıldı.',
+                olusturulmaZamani: Timestamp.fromDate(tarihSaat),
+                kaynak: 'debridman'
+            });
+            debridmanModalKapat();
+            alert('Debridman kaydı oluşturuldu.');
+        } catch (hata) {
+            console.error('Debridman kaydı hatası:', hata);
+            alert('Debridman kaydı oluşturulurken bir hata oluştu.');
+        } finally {
+            debridmanKaydetBtn.disabled = false;
+            debridmanKaydetBtn.textContent = 'Debridman Kaydı Oluştur';
+        }
+    });
+    // ===================== DEBRİDMAN / ANTİBİYOTİK İŞLEMLERİ SONU =====================
 
     // ===================== HASTA DEĞERLENDİRME BAŞLAT (TOPLU NOT GİRİŞİ) =====================
     // "Hasta Değerlendirme Başlat" butonuna basılınca, Hasta Değerlendirme
@@ -4857,6 +6501,8 @@
         fotograflariBaglat(hasta.id);
         ayakMarkerlariSifirla();
         ayakMarkerlariBaglat(hasta.id);
+        antibiyotikTakibiniSifirla();
+        antibiyotikTakibiniBaglat(hasta.id);
         listeyiCiz(); // seçili satırı vurgulamak için yeniden çiz
     }
 
@@ -5054,8 +6700,6 @@
 
     const fotoEkleBtn = document.getElementById('fotoEkleBtn');
     const fotoInput = document.getElementById('fotoInput');
-    const fotoKameraBtn = document.getElementById('fotoKameraBtn');
-    const fotoKameraInput = document.getElementById('fotoKameraInput');
     const fotoDurum = document.getElementById('fotoDurum');
     const fotoGrid = document.getElementById('fotoGrid');
     const fotoGaleriSolBtn = document.getElementById('fotoGaleriSolBtn');
@@ -5100,69 +6744,44 @@
         });
     }
 
-    if (fotoKameraBtn) {
-        fotoKameraBtn.addEventListener('click', () => {
-            if (!seciliHastaId) {
-                alert('Lütfen önce sol taraftan bir hasta seçin.');
-                return;
-            }
-            fotoKameraInput.click();
-        });
-    }
-
-    async function fotograflariYukle(dosyalar, kaynakInput) {
-        if (!dosyalar || dosyalar.length === 0) return;
-
-        if (!seciliHastaId) {
-            alert('Lütfen önce sol taraftan bir hasta seçin.');
-            if (kaynakInput) kaynakInput.value = '';
-            return;
-        }
-
-        fotoEkleBtn.disabled = true;
-        if (fotoKameraBtn) fotoKameraBtn.disabled = true;
-
-        let basarili = 0;
-
-        for (let i = 0; i < dosyalar.length; i++) {
-            fotoDurum.textContent = `Yükleniyor... (${i + 1}/${dosyalar.length})`;
-            try {
-                const url = await cloudinaryYukle(dosyalar[i]);
-                await addDoc(collection(db, "hastalar", seciliHastaId, "fotograflar"), {
-                    url,
-                    olusturulmaZamani: serverTimestamp()
-                });
-                basarili++;
-            } catch (hata) {
-                console.error('Fotoğraf yüklenirken hata:', hata);
-            }
-        }
-
-        if (basarili === dosyalar.length) {
-            fotoDurum.textContent = `${basarili} fotoğraf başarıyla eklendi.`;
-            setTimeout(() => { fotoDurum.textContent = ''; }, 2500);
-        } else {
-            fotoDurum.textContent = `${basarili}/${dosyalar.length} fotoğraf yüklenebildi.`;
-            alert('Bazı fotoğraflar yüklenirken bir hata oluştu. Lütfen tekrar deneyin.');
-            setTimeout(() => { fotoDurum.textContent = ''; }, 4000);
-        }
-
-        fotoEkleBtn.disabled = false;
-        if (fotoKameraBtn) fotoKameraBtn.disabled = false;
-        if (kaynakInput) kaynakInput.value = '';
-    }
-
     if (fotoInput) {
         fotoInput.addEventListener('change', async () => {
             const dosyalar = Array.from(fotoInput.files || []);
-            await fotograflariYukle(dosyalar, fotoInput);
-        });
-    }
+            if (dosyalar.length === 0) return;
+            if (!seciliHastaId) {
+                alert('Lütfen önce sol taraftan bir hasta seçin.');
+                fotoInput.value = '';
+                return;
+            }
 
-    if (fotoKameraInput) {
-        fotoKameraInput.addEventListener('change', async () => {
-            const dosyalar = Array.from(fotoKameraInput.files || []);
-            await fotograflariYukle(dosyalar, fotoKameraInput);
+            fotoEkleBtn.disabled = true;
+            let basarili = 0;
+
+            for (let i = 0; i < dosyalar.length; i++) {
+                fotoDurum.textContent = `Yükleniyor... (${i + 1}/${dosyalar.length})`;
+                try {
+                    const url = await cloudinaryYukle(dosyalar[i]);
+                    await addDoc(collection(db, "hastalar", seciliHastaId, "fotograflar"), {
+                        url,
+                        olusturulmaZamani: serverTimestamp()
+                    });
+                    basarili++;
+                } catch (hata) {
+                    console.error('Fotoğraf yüklenirken hata:', hata);
+                }
+            }
+
+            fotoDurum.textContent = basarili === dosyalar.length
+                ? ''
+                : `${basarili}/${dosyalar.length} fotoğraf yüklenebildi.`;
+
+            if (basarili < dosyalar.length) {
+                alert('Bazı fotoğraflar yüklenirken bir hata oluştu. Lütfen tekrar deneyin.');
+                setTimeout(() => { fotoDurum.textContent = ''; }, 4000);
+            }
+
+            fotoEkleBtn.disabled = false;
+            fotoInput.value = '';
         });
     }
 
@@ -6078,6 +7697,11 @@
         return `${gun}.${ay}.${yil}`;
     }
 
+    function tarihSaatKisaFormatla(tarih) {
+        if (!(tarih instanceof Date) || isNaN(tarih.getTime())) return '-';
+        return `${String(tarih.getDate()).padStart(2,'0')}.${String(tarih.getMonth()+1).padStart(2,'0')}.${tarih.getFullYear()} ${String(tarih.getHours()).padStart(2,'0')}:${String(tarih.getMinutes()).padStart(2,'0')}`;
+    }
+
     function hesaplaModaliniAc() {
         // Varsayılan aralık: içinde bulunulan ayın ilk günü - bugün
         const bugun = new Date();
@@ -6119,112 +7743,538 @@
             const bitisMs = bitis.getTime();
 
             let toplamGelis = 0;
-            let dmAyakSayisi = 0;
-            let kronikYaraSayisi = 0;
-            const hastaGelisSayilari = [];
+            let dmAyakGelisSayisi = 0;
+            let kronikYaraGelisSayisi = 0;
+            // Tekil hasta bazında DM Ayak / Kronik Yara sayıları.
+            // Aynı hasta birden fazla geliş yapsa bile burada yalnızca 1 kez sayılır.
+            const dmAyakTekilHastaIdleri = new Set();
+            const kronikYaraTekilHastaIdleri = new Set();
+            const hastaGelisleri = [];
+            const debridmanKayitlari = [];
 
-            // HESAPLAMA DOĞRUDAN FIRESTORE'DAKİ GERÇEK GELİŞ KAYITLARINDAN YAPILIR.
-            // IndexedDB yalnızca önbellek/sıralama amacıyla kullanılabilir; hesaplama
-            // sırasında eski veya henüz senkronize olmamış önbelleğe güvenilmez.
-            //
-            // Tüm hastaların "gelisler" alt koleksiyonları paralel okunur. Böylece
-            // her hastanın tarih aralığına giren gerçek geliş sayısı hesaplanır.
+            // Her hastanın gerçek geliş, debridman ve antibiyotik kayıtlarını birlikte oku.
+            // Antibiyotik istatistikleri seçilen aralıkta BAŞLATILAN tedavileri esas alır.
+            const baslangicMsAralik = baslangicMs;
             const hastaSonuclari = await Promise.all(
                 hastalar.map(async (hasta) => {
-                    try {
-                        const gelisRef = collection(db, "hastalar", hasta.id, "gelisler");
-                        const gelisSnapshot = await getDocs(gelisRef);
+                    let gelisler = [];
+                    let debridmanlar = [];
+                    let antibiyotiklar = [];
 
-                        let sayi = 0;
+                    try {
+                        const gelisRef = collection(db, 'hastalar', hasta.id, 'gelisler');
+                        const gelisSnapshot = await getDocs(gelisRef);
 
                         gelisSnapshot.forEach((belge) => {
                             const veri = belge.data();
                             const zaman = veri.olusturulmaZamani;
-
-                            // serverTimestamp henüz oluşmamış kayıtları hesaba katma.
                             if (!zaman) return;
 
                             let zamanMs = null;
+                            if (typeof zaman.toDate === 'function') zamanMs = zaman.toDate().getTime();
+                            else if (zaman instanceof Date) zamanMs = zaman.getTime();
+                            else if (typeof zaman === 'number') zamanMs = zaman;
 
-                            if (typeof zaman.toDate === 'function') {
-                                zamanMs = zaman.toDate().getTime();
-                            } else if (zaman instanceof Date) {
-                                zamanMs = zaman.getTime();
-                            } else if (typeof zaman === 'number') {
-                                zamanMs = zaman;
-                            }
-
-                            if (
-                                zamanMs !== null &&
-                                !isNaN(zamanMs) &&
-                                zamanMs >= baslangicMs &&
-                                zamanMs <= bitisMs
-                            ) {
-                                sayi++;
+                            if (zamanMs !== null && !isNaN(zamanMs) && zamanMs >= baslangicMs && zamanMs <= bitisMs) {
+                                gelisler.push({ id: belge.id, zamanMs });
                             }
                         });
-
-                        return { hasta, sayi };
                     } catch (hata) {
-                        console.error(
-                            `Hasta (${hasta.adSoyad}) gelişleri hesaplanırken hata:`,
-                            hata
-                        );
-                        return { hasta, sayi: 0 };
+                        console.error(`Hasta (${hasta.adSoyad}) gelişleri hesaplanırken hata:`, hata);
                     }
+
+                    try {
+                        const debridmanRef = collection(db, 'hastalar', hasta.id, 'debridmanlar');
+                        const debridmanSnapshot = await getDocs(debridmanRef);
+
+                        debridmanSnapshot.forEach((belge) => {
+                            const veri = belge.data();
+                            const zaman = veri.tarihSaat || veri.olusturulmaZamani;
+                            if (!zaman) return;
+
+                            let zamanMs = null;
+                            if (typeof zaman.toDate === 'function') zamanMs = zaman.toDate().getTime();
+                            else if (zaman instanceof Date) zamanMs = zaman.getTime();
+                            else if (typeof zaman === 'number') zamanMs = zaman;
+
+                            if (zamanMs !== null && !isNaN(zamanMs) && zamanMs >= baslangicMs && zamanMs <= bitisMs) {
+                                debridmanlar.push({
+                                    id: belge.id,
+                                    zamanMs,
+                                    debridmanTuru: veri.debridmanTuru || 'Genel Yara Yeri Debridmanı'
+                                });
+                            }
+                        });
+                    } catch (hata) {
+                        console.error(`Hasta (${hasta.adSoyad}) debridmanları hesaplanırken hata:`, hata);
+                    }
+
+                    try {
+                        const kulturRef = collection(db, 'hastalar', hasta.id, 'kultur');
+                        const kulturSnapshot = await getDocs(kulturRef);
+                        kulturSnapshot.forEach((belge) => {
+                            const veri = belge.data();
+                            const baslangicTarihi = antibiyotikTarihDate(veri.baslamaTarihi);
+                            if (!baslangicTarihi || isNaN(baslangicTarihi.getTime())) return;
+                            const baslangicMs = new Date(baslangicTarihi.getFullYear(), baslangicTarihi.getMonth(), baslangicTarihi.getDate()).getTime();
+                            if (baslangicMs < baslangicMsAralik) return;
+                            if (baslangicMs > bitisMs) return;
+                            antibiyotiklar.push({ id: belge.id, ...veri });
+                        });
+                    } catch (hata) {
+                        console.error(`Hasta (${hasta.adSoyad}) antibiyotik kayıtları hesaplanırken hata:`, hata);
+                    }
+
+                    return { hasta, gelisler, debridmanlar, antibiyotiklar };
                 })
             );
 
-            for (const { hasta, sayi } of hastaSonuclari) {
-                if (sayi > 0) {
-                    toplamGelis += sayi;
-                    hastaGelisSayilari.push({
-                        adSoyad: hasta.adSoyad,
-                        sikayet: hasta.sikayet || [],
-                        sayi
-                    });
+            const antibiyotikKayitlari = [];
 
-                    // DM Ayak / Kronik Yara burada "hasta sayısı" olarak hesaplanır.
-                    // Aynı hastanın birden fazla geliş kaydı olsa bile ilgili kartta
-                    // hasta yalnızca bir kez sayılır.
-                    if ((hasta.sikayet || []).includes('DM Ayak')) dmAyakSayisi++;
-                    if ((hasta.sikayet || []).includes('Kronik Yara')) kronikYaraSayisi++;
+            hastaSonuclari.forEach(({ hasta, gelisler, debridmanlar, antibiyotiklar }) => {
+                if (gelisler.length > 0) {
+                    toplamGelis += gelisler.length;
+                    const sikayetler = hasta.sikayet || [];
+                    if (sikayetler.includes('DM Ayak')) {
+                        dmAyakGelisSayisi += gelisler.length;
+                        dmAyakTekilHastaIdleri.add(hasta.id);
+                    }
+                    if (sikayetler.includes('Kronik Yara')) {
+                        kronikYaraGelisSayisi += gelisler.length;
+                        kronikYaraTekilHastaIdleri.add(hasta.id);
+                    }
+
+                    hastaGelisleri.push({
+                        id: hasta.id,
+                        adSoyad: hasta.adSoyad || 'İsimsiz Hasta',
+                        gelisler: gelisler.sort((a, b) => b.zamanMs - a.zamanMs)
+                    });
                 }
+
+                debridmanlar.forEach(kayit => {
+                    debridmanKayitlari.push({
+                        hastaId: hasta.id,
+                        adSoyad: hasta.adSoyad || 'İsimsiz Hasta',
+                        zamanMs: kayit.zamanMs,
+                        debridmanTuru: kayit.debridmanTuru
+                    });
+                });
+
+                (antibiyotiklar || []).forEach(kayit => {
+                    const bas = antibiyotikTarihDate(kayit.baslamaTarihi);
+                    const bit = antibiyotikTarihDate(kayit.bitisTarihi);
+                    let kullanimGunu = null;
+                    if (bas && bit) {
+                        kullanimGunu = Math.max(1, antibiyotikGunFarki(bas, bit) + 1);
+                    }
+                    antibiyotikKayitlari.push({
+                        hastaId: hasta.id,
+                        adSoyad: hasta.adSoyad || 'İsimsiz Hasta',
+                        hastaSikayetleri: Array.isArray(hasta.sikayet) ? hasta.sikayet : [],
+                        ...kayit,
+                        kullanimGunu
+                    });
+                });
+            });
+
+            hastaGelisleri.sort((a, b) => a.adSoyad.localeCompare(b.adSoyad, 'tr'));
+            debridmanKayitlari.sort((a, b) => b.zamanMs - a.zamanMs);
+
+            const tekilHastaSayisi = hastaGelisleri.length;
+            const dmAyakTekilHastaSayisi = dmAyakTekilHastaIdleri.size;
+            const kronikYaraTekilHastaSayisi = kronikYaraTekilHastaIdleri.size;
+            const ortalamaGelis = tekilHastaSayisi > 0 ? (toplamGelis / tekilHastaSayisi).toFixed(1) : '0.0';
+            // DM Ayak ve Kronik Yara gelişlerinin, ilgili tekil hastalara göre ortalaması.
+            const ortalamaDmAyakGelisHasta = dmAyakTekilHastaSayisi > 0
+                ? (dmAyakGelisSayisi / dmAyakTekilHastaSayisi).toFixed(1)
+                : '0.0';
+            const ortalamaKronikYaraGelisHasta = kronikYaraTekilHastaSayisi > 0
+                ? (kronikYaraGelisSayisi / kronikYaraTekilHastaSayisi).toFixed(1)
+                : '0.0';
+
+            // Debridman istatistikleri: her oluşturulan kayıt = 1 debridman.
+            const debridmanSayisi = debridmanKayitlari.length;
+            const debridmanHastaIdleri = new Set(debridmanKayitlari.map(k => k.hastaId));
+            const debridmanTekilHasta = debridmanHastaIdleri.size;
+            const dmAyakDebridman = debridmanKayitlari.filter(k => k.debridmanTuru.includes('DM Ayak')).length;
+            const kronikYaraDebridman = debridmanKayitlari.filter(k => k.debridmanTuru.includes('Kronik Yara')).length;
+            const ortalamaDebridmanHasta = debridmanTekilHasta > 0
+                ? (debridmanSayisi / debridmanTekilHasta).toFixed(1)
+                : '0.0';
+
+            // ===================== ANTİBİYOTİK İSTATİSTİKLERİ =====================
+            const antibiyotikGenel = antibiyotikKayitlari;
+            const antibiyotikDmAyak = antibiyotikKayitlari.filter(k => k.hastaSikayetleri.includes('DM Ayak'));
+            const antibiyotikKronikYara = antibiyotikKayitlari.filter(k => k.hastaSikayetleri.includes('Kronik Yara'));
+
+            function antibiyotikIstatistikGrubu(kayitlar) {
+                const tekilHastaIdleri = new Set(kayitlar.map(k => k.hastaId));
+                const tedaviZincirleri = new Set(kayitlar.map(k => k.tedaviZinciriId || `kayit:${k.id}`));
+
+                // Aynı anda başlanan ilaçlar tek bir "tedavi grubu"dur; gruptaki
+                // her antibiyotik ise ayrı ilaç başlama kaydıdır.
+                const grupMap = new Map();
+                kayitlar.forEach(k => {
+                    const key = k.tedaviGrubuId || `kayit:${k.id}`;
+                    if (!grupMap.has(key)) grupMap.set(key, []);
+                    grupMap.get(key).push(k);
+                });
+                const tedaviGruplari = Array.from(grupMap.entries()).map(([id, kayitlar]) => ({id, kayitlar}));
+                const kombinasyonGruplari = tedaviGruplari.filter(g => g.kayitlar.length > 1 || g.kayitlar.some(k => k.kombinasyonMu));
+                const degisiklikGruplari = tedaviGruplari.filter(g => g.kayitlar.some(k => k.tedaviDegisikligi || k.oncekiAntibiyotikKayitId || k.oncekiAntibiyotikKayitIds?.length));
+
+                const gruplar = new Map();
+                kayitlar.forEach(k => {
+                    const ad = k.antibiyotikAdi || 'İsimsiz Antibiyotik';
+                    if (!gruplar.has(ad)) {
+                        gruplar.set(ad, {
+                            ad,
+                            toplam: 0,
+                            hastaIdleri: new Set(),
+                            sureler: [],
+                            dozSiklikGruplari: new Map(),
+                            yolGruplari: new Map(),
+                            kombinasyonAdedi: 0,
+                            degisimAdedi: 0
+                        });
+                    }
+                    const g = gruplar.get(ad);
+                    g.toplam += 1;
+                    g.hastaIdleri.add(k.hastaId);
+                    if (Number.isFinite(k.kullanimGunu) && k.kullanimGunu > 0) g.sureler.push(k.kullanimGunu);
+                    if (k.kombinasyonMu) g.kombinasyonAdedi += 1;
+                    if (k.tedaviDegisikligi || k.oncekiAntibiyotikKayitId || k.oncekiAntibiyotikKayitIds?.length) g.degisimAdedi += 1;
+
+                    const doz = k.doz || '-';
+                    const siklik = k.siklik || '-';
+                    const dsKey = `${doz}||${siklik}`;
+                    const mevcutDs = g.dozSiklikGruplari.get(dsKey) || { doz, siklik, adet: 0 };
+                    mevcutDs.adet += 1;
+                    g.dozSiklikGruplari.set(dsKey, mevcutDs);
+
+                    const yol = k.uygulamaYolu || '-';
+                    g.yolGruplari.set(yol, (g.yolGruplari.get(yol) || 0) + 1);
+                });
+
+                // Kombinasyon örüntüleri: "Piperasilin + Vankomisin" gibi aynı
+                // tedavi grubunda birlikte başlatılan ilaç kombinasyonlarını say.
+                const kombinasyonMap = new Map();
+                kombinasyonGruplari.forEach(g => {
+                    const adlar = [...new Set(g.kayitlar.map(k => k.antibiyotikAdi || 'İsimsiz Antibiyotik'))].sort((a,b) => a.localeCompare(b, 'tr'));
+                    const key = adlar.join(' + ');
+                    if (!kombinasyonMap.has(key)) kombinasyonMap.set(key, { adlar, adet: 0, hastaIdleri: new Set() });
+                    const item = kombinasyonMap.get(key);
+                    item.adet += 1;
+                    g.kayitlar.forEach(k => item.hastaIdleri.add(k.hastaId));
+                });
+
+                const gecerliSureler = kayitlar.map(k => k.kullanimGunu).filter(s => Number.isFinite(s) && s > 0);
+                const ortalamaKullanim = gecerliSureler.length
+                    ? gecerliSureler.reduce((a,b) => a+b, 0) / gecerliSureler.length
+                    : null;
+
+                return {
+                    toplam: kayitlar.length,
+                    tekilHasta: tekilHastaIdleri.size,
+                    ortalama: tekilHastaIdleri.size ? kayitlar.length / tekilHastaIdleri.size : 0,
+                    tedaviZinciri: tedaviZincirleri.size,
+                    tedaviGrubu: tedaviGruplari.length,
+                    kombinasyonBaslangici: kombinasyonGruplari.length,
+                    kombinasyonIlacAdedi: kayitlar.filter(k => k.kombinasyonMu).length,
+                    tedaviDegisikligi: degisiklikGruplari.length,
+                    degisiklikIlacAdedi: kayitlar.filter(k => k.tedaviDegisikligi || k.oncekiAntibiyotikKayitId || k.oncekiAntibiyotikKayitIds?.length).length,
+                    ortalamaKullanim,
+                    kombinasyonlar: Array.from(kombinasyonMap.values())
+                        .map(x => ({...x, tekilHasta: x.hastaIdleri.size}))
+                        .sort((a,b) => b.adet-a.adet || a.adlar.join(' + ').localeCompare(b.adlar.join(' + '), 'tr')),
+                    ilaclar: Array.from(gruplar.values()).map(g => ({
+                        ...g,
+                        tekilHasta: g.hastaIdleri.size,
+                        ortalamaGun: g.sureler.length ? g.sureler.reduce((a,b) => a+b, 0) / g.sureler.length : null,
+                        dozSikliklar: Array.from(g.dozSiklikGruplari.values()).sort((a,b) => b.adet-a.adet || a.doz.localeCompare(b.doz,'tr')),
+                        yollar: Array.from(g.yolGruplari.entries()).sort((a,b) => b[1]-a[1])
+                    })).sort((a,b) => b.toplam-a.toplam || a.ad.localeCompare(b.ad,'tr'))
+                };
             }
 
-            const tekilHastaSayisi = hastaGelisSayilari.length;
-            const ortalama = tekilHastaSayisi > 0 ? (toplamGelis / tekilHastaSayisi).toFixed(1) : '0';
+            function antibiyotikHtmlKacisIstatistik(metin) {
+                return String(metin ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+            }
 
-            hastaGelisSayilari.sort((a, b) => b.sayi - a.sayi);
+            function varyantMetniOlustur(varyantlar) {
+                if (!varyantlar.length) return '-';
+                return varyantlar.map(v => `<span class="antibiyotik-varyant">${antibiyotikHtmlKacisIstatistik(v.doz)} · ${antibiyotikHtmlKacisIstatistik(v.siklik)} <small>(${v.adet})</small></span>`).join('');
+            }
+
+            function yolMetniOlustur(yollar) {
+                if (!yollar.length) return '-';
+                return yollar.map(([yol, adet]) => `<span class="antibiyotik-varyant">${antibiyotikHtmlKacisIstatistik(yol)} <small>(${adet})</small></span>`).join('');
+            }
+
+            function kombinasyonMetniOlustur(kombinasyonlar) {
+                if (!kombinasyonlar.length) return '<div class="antibiyotik-istatistik-bos mini">Seçilen dönemde ikili/çoklu antibiyotik kombinasyonu bulunamadı.</div>';
+                return `<div class="antibiyotik-kombinasyon-liste">${kombinasyonlar.slice(0,10).map(x => `
+                    <div class="antibiyotik-kombinasyon-satir">
+                        <div class="antibiyotik-kombinasyon-ad">${x.adlar.map(antibiyotikHtmlKacisIstatistik).join(' + ')}</div>
+                        <div class="antibiyotik-kombinasyon-meta"><strong>${x.adet}</strong> başlangıç · <strong>${x.tekilHasta}</strong> tekil hasta</div>
+                    </div>`).join('')}</div>`;
+            }
+
+            function antibiyotikIstatistikBolumuHtml(baslik, aciklama, veri) {
+                const ilacSatirlari = veri.ilaclar.length ? veri.ilaclar.map(g => `
+                    <tr>
+                        <td class="antibiyotik-ad">${antibiyotikHtmlKacisIstatistik(g.ad)}</td>
+                        <td class="sayisal">${g.toplam}</td>
+                        <td class="sayisal">${g.tekilHasta}</td>
+                        <td class="sayisal">${g.ortalamaGun === null ? '-' : g.ortalamaGun.toFixed(1) + ' gün'}</td>
+                        <td class="sayisal">${g.kombinasyonAdedi}</td>
+                        <td class="sayisal">${g.degisimAdedi}</td>
+                        <td>${varyantMetniOlustur(g.dozSikliklar)}</td>
+                        <td>${yolMetniOlustur(g.yollar)}</td>
+                    </tr>`).join('') : `
+                    <tr><td colspan="8"><div class="antibiyotik-istatistik-bos">Bu grupta seçilen tarih aralığında başlanmış antibiyotik kaydı bulunamadı.</div></td></tr>`;
+
+                return `
+                    <section class="antibiyotik-istatistik-grup">
+                        <div class="antibiyotik-istatistik-grup-baslik">
+                            <strong>${baslik}</strong><span>${aciklama}</span>
+                        </div>
+                        <div class="antibiyotik-ozet-grid">
+                            <div class="antibiyotik-ozet-karti"><span class="antibiyotik-ozet-sayi">${veri.tekilHasta}</span><span class="antibiyotik-ozet-etiket">Antibiyotik başlanan tekil hasta</span></div>
+                            <div class="antibiyotik-ozet-karti"><span class="antibiyotik-ozet-sayi">${veri.toplam}</span><span class="antibiyotik-ozet-etiket">Toplam başlanan antibiyotik</span></div>
+                            <div class="antibiyotik-ozet-karti"><span class="antibiyotik-ozet-sayi">${veri.ortalama.toFixed(1)}</span><span class="antibiyotik-ozet-etiket">Ortalama antibiyotik / hasta</span></div>
+                            <div class="antibiyotik-ozet-karti"><span class="antibiyotik-ozet-sayi">${veri.kombinasyonBaslangici}</span><span class="antibiyotik-ozet-etiket">İkili / çoklu başlangıç</span></div>
+                            <div class="antibiyotik-ozet-karti"><span class="antibiyotik-ozet-sayi">${veri.tedaviDegisikligi}</span><span class="antibiyotik-ozet-etiket">Tedavi değişikliği</span></div>
+                            <div class="antibiyotik-ozet-karti"><span class="antibiyotik-ozet-sayi">${veri.tedaviZinciri}</span><span class="antibiyotik-ozet-etiket">Tedavi zinciri</span></div>
+                        </div>
+                        <div class="antibiyotik-alt-ozet-grid">
+                            <div class="antibiyotik-alt-karti"><strong>${veri.tedaviGrubu}</strong><span>Başlangıç grubu / basamak</span></div>
+                            <div class="antibiyotik-alt-karti"><strong>${veri.kombinasyonIlacAdedi}</strong><span>Kombinasyon içindeki toplam ilaç</span></div>
+                            <div class="antibiyotik-alt-karti"><strong>${veri.degisiklikIlacAdedi}</strong><span>Değişiklik sonrası başlanan ilaç</span></div>
+                            <div class="antibiyotik-alt-karti"><strong>${veri.ortalamaKullanim === null ? '-' : veri.ortalamaKullanim.toFixed(1) + ' gün'}</strong><span>Tüm antibiyotiklerde ortalama kullanım</span></div>
+                        </div>
+                        <div class="antibiyotik-kombinasyon-kutu">
+                            <div class="antibiyotik-kombinasyon-baslik">Birlikte başlanan antibiyotik kombinasyonları</div>
+                            ${kombinasyonMetniOlustur(veri.kombinasyonlar)}
+                        </div>
+                        <div class="antibiyotik-detay-kapsayici">
+                            <table class="antibiyotik-detay-tablo">
+                                <thead><tr>
+                                    <th>Antibiyotik</th><th>Başlama</th><th>Tekil hasta</th><th>Ort. kullanım</th><th>Kombinasyon</th><th>Değişiklik</th><th>Doz · Sıklık</th><th>Uygulama yolu</th>
+                                </tr></thead>
+                                <tbody>${ilacSatirlari}</tbody>
+                            </table>
+                        </div>
+                    </section>`;
+            }
+
+            const antibiyotikIstatistikIcerik = document.getElementById('antibiyotikIstatistikIcerik');
+            const antibiyotikGenelVeri = antibiyotikIstatistikGrubu(antibiyotikGenel);
+            const antibiyotikDmVeri = antibiyotikIstatistikGrubu(antibiyotikDmAyak);
+            const antibiyotikKronikVeri = antibiyotikIstatistikGrubu(antibiyotikKronikYara);
+
+            antibiyotikIstatistikIcerik.innerHTML = `
+                <div class="antibiyotik-istatistik-aciklama">
+                    Hesaplama, seçtiğiniz tarih aralığında <strong>başlama tarihi</strong> bulunan antibiyotik kayıtları üzerinden yapılır. Aynı anda başlayan 2 veya daha fazla antibiyotik, <strong>ayrı ilaç başlangıçları</strong> olarak sayılır; ancak tek bir tedavi grubu ve aynı tedavi zinciri altında tutulur. Antibiyotik grubunun bitiminden sonra başlatılan yeni ilaç, önceki grup ile ilişkilendirilerek <strong>ardışık tedavi / tedavi değişikliği</strong> olarak izlenir. Doz, sıklık ve uygulama yolu ilaç bazında ayrı ayrı korunur. Ortalama kullanım süresi başlangıç ve bitiş tarihleri gün dahil edilerek hesaplanır.
+                </div>
+                ${antibiyotikIstatistikBolumuHtml('Genel Antibiyotik İstatistikleri', `${antibiyotikGenelVeri.ilaclar.length} farklı antibiyotik`, antibiyotikGenelVeri)}
+                ${antibiyotikIstatistikBolumuHtml('DM Ayak Antibiyotik İstatistikleri', 'DM Ayak tanımlı hastalar', antibiyotikDmVeri)}
+                ${antibiyotikIstatistikBolumuHtml('Kronik Yara Antibiyotik İstatistikleri', 'Kronik Yara tanımlı hastalar', antibiyotikKronikVeri)}
+                <div class="antibiyotik-toplam-not">Not: Bir hasta hem “DM Ayak” hem “Kronik Yara” olarak işaretliyse, ilgili antibiyotik kaydı her iki kategoriye de dahil edilir.</div>
+            `;
 
             hesapTarihAraligi.textContent = `${gunFormatla(baslangic)} — ${gunFormatla(bitis)} tarihleri arası`;
 
-            hesapGrid.innerHTML = [
-                hesapKarti(tekilHastaSayisi, 'Tekil Hasta'),
-                hesapKarti(toplamGelis, 'Toplam Geliş'),
-                hesapKarti(ortalama, 'Ort. Geliş / Hasta'),
-                hesapKarti(dmAyakSayisi, 'DM Ayak'),
-                hesapKarti(kronikYaraSayisi, 'Kronik Yara')
+            // Üç sütunlu hesaplama ekranında her sütunun kendi istatistik kartları bulunur.
+            hesapGrid.innerHTML = '';
+
+            // SOL: SADECE GELİŞ İSTATİSTİK KARTLARI + ALTINDA HASTA İSİMLERİ VE GELİŞ TARİH/SAATLERİ
+            hesapHastaListesi.innerHTML = `
+                <div class="hesap-gelis-yerlesim">
+                    <div class="hesap-istatistik-sol">
+                        <div class="hesap-panel-liste-baslik">İstatistikler</div>
+                        <div class="hesap-panel-kartlari">
+                            ${hesapKarti(tekilHastaSayisi, 'Tekil Hasta')}
+                            ${hesapKarti(toplamGelis, 'Toplam Geliş')}
+                            ${hesapKarti(ortalamaGelis, 'Ortalama Geliş / Hasta')}
+                            ${hesapKarti(dmAyakTekilHastaSayisi, 'DM Ayak Tekil Hasta')}
+                            ${hesapKarti(dmAyakGelisSayisi, 'DM Ayak Toplam Geliş')}
+                            ${hesapKarti(ortalamaDmAyakGelisHasta, 'Ortalama DM Ayak Geliş / Hasta')}
+                            ${hesapKarti(kronikYaraTekilHastaSayisi, 'Kronik Yara Tekil Hasta')}
+                            ${hesapKarti(kronikYaraGelisSayisi, 'Kronik Yara Toplam Geliş')}
+                            ${hesapKarti(ortalamaKronikYaraGelisHasta, 'Ortalama Kronik Yara Geliş / Hasta')}
+                        </div>
+                    </div>
+                    <div class="hesap-hasta-sag">
+                        <div class="hesap-liste-baslik-satiri">
+                            <div class="hesap-panel-liste-baslik">Hastalar ve Geliş Tarih / Saatleri</div>
+                            <select class="gelis-siralama-select" id="gelisSiralamaSelect" aria-label="Hasta geliş sıralaması">
+                                <option value="coktan-aza">En çok gelen</option>
+                                <option value="azdan-coka">En az gelen</option>
+                                <option value="az">A-Z</option>
+                                <option value="za">Z-A</option>
+                            </select>
+                        </div>
+                        <div class="gelis-hasta-listesi" id="gelisHastaDetayListesi"></div>
+                    </div>
+                </div>
+            `;
+
+            const gelisDetayListesi = document.getElementById('gelisHastaDetayListesi');
+            if (hastaGelisleri.length === 0) {
+                gelisDetayListesi.innerHTML = '<div class="hesap-bos">Bu tarih aralığında geliş kaydı bulunamadı.</div>';
+            } else {
+                const gelisSiralamaSelect = document.getElementById('gelisSiralamaSelect');
+                const hastaGelisleriniCiz = () => {
+                    const siralama = gelisSiralamaSelect ? gelisSiralamaSelect.value : 'coktan-aza';
+                    const siraliHastalar = [...hastaGelisleri].sort((a, b) => {
+                        if (siralama === 'coktan-aza') {
+                            return b.gelisler.length - a.gelisler.length || a.adSoyad.localeCompare(b.adSoyad, 'tr');
+                        }
+                        if (siralama === 'azdan-coka') {
+                            return a.gelisler.length - b.gelisler.length || a.adSoyad.localeCompare(b.adSoyad, 'tr');
+                        }
+                        if (siralama === 'za') return b.adSoyad.localeCompare(a.adSoyad, 'tr');
+                        return a.adSoyad.localeCompare(b.adSoyad, 'tr');
+                    });
+
+                    gelisDetayListesi.innerHTML = '';
+                    siraliHastalar.forEach(hasta => {
+                        const blok = document.createElement('div');
+                        blok.className = 'gelis-hasta-blok';
+                        blok.innerHTML = `
+                            <div class="gelis-hasta-baslik">
+                                <div class="gelis-hasta-adi"></div>
+                                <div class="gelis-hasta-sayisi">${hasta.gelisler.length} geliş</div>
+                            </div>
+                            <div class="gelis-tarih-listesi"></div>
+                        `;
+                        blok.querySelector('.gelis-hasta-adi').textContent = hasta.adSoyad;
+                        const tarihListesi = blok.querySelector('.gelis-tarih-listesi');
+                        hasta.gelisler.forEach(gelis => {
+                            const tarihEl = document.createElement('div');
+                            tarihEl.className = 'gelis-tarih-satiri';
+                            tarihEl.textContent = new Date(gelis.zamanMs).toLocaleString('tr-TR');
+                            tarihListesi.appendChild(tarihEl);
+                        });
+                        gelisDetayListesi.appendChild(blok);
+                    });
+                };
+
+                if (gelisSiralamaSelect) gelisSiralamaSelect.addEventListener('change', hastaGelisleriniCiz);
+                hastaGelisleriniCiz();
+            }
+
+            // ORTA: DEBRİDMAN İSTATİSTİKLERİ — kartlar solda, hasta detayları sağda
+            const debridmanIstatistikGrid = document.getElementById('debridmanIstatistikGrid');
+            const debridmanListe = document.getElementById('debridmanListe');
+            const debridmanSiralamaSelect = document.getElementById('debridmanSiralamaSelect');
+
+            // Debridman kayıtlarını hastaya göre grupla. Bir kayıt, türünde DM Ayak +
+            // Kronik Yara birlikte geçiyorsa her iki kategoriye de dahil edilir.
+            const debridmanHastaGruplari = new Map();
+            const dmAyakDebridmanHastaIdleri = new Set();
+            const kronikYaraDebridmanHastaIdleri = new Set();
+            let dmAyakDebridmanSayisi = 0;
+            let kronikYaraDebridmanSayisi = 0;
+
+            debridmanKayitlari.forEach(kayit => {
+                if (!debridmanHastaGruplari.has(kayit.hastaId)) {
+                    debridmanHastaGruplari.set(kayit.hastaId, {
+                        hastaId: kayit.hastaId,
+                        adSoyad: kayit.adSoyad,
+                        kayitlar: []
+                    });
+                }
+                debridmanHastaGruplari.get(kayit.hastaId).kayitlar.push(kayit);
+
+                const tur = kayit.debridmanTuru || '';
+                if (tur.includes('DM Ayak')) {
+                    dmAyakDebridmanSayisi++;
+                    dmAyakDebridmanHastaIdleri.add(kayit.hastaId);
+                }
+                if (tur.includes('Kronik Yara')) {
+                    kronikYaraDebridmanSayisi++;
+                    kronikYaraDebridmanHastaIdleri.add(kayit.hastaId);
+                }
+            });
+
+            const dmAyakDebridmanTekilHasta = dmAyakDebridmanHastaIdleri.size;
+            const kronikYaraDebridmanTekilHasta = kronikYaraDebridmanHastaIdleri.size;
+            const ortalamaDmAyakDebridmanHasta = dmAyakDebridmanTekilHasta > 0
+                ? (dmAyakDebridmanSayisi / dmAyakDebridmanTekilHasta).toFixed(1) : '0.0';
+            const ortalamaKronikYaraDebridmanHasta = kronikYaraDebridmanTekilHasta > 0
+                ? (kronikYaraDebridmanSayisi / kronikYaraDebridmanTekilHasta).toFixed(1) : '0.0';
+
+            // İstenen sıra: genel 3 kart, ardından DM Ayak 3 kart, ardından Kronik Yara 3 kart.
+            debridmanIstatistikGrid.innerHTML = [
+                hesapKarti(debridmanTekilHasta, 'Tekil Debridman Hastası'),
+                hesapKarti(debridmanSayisi, 'Toplam Debridman'),
+                hesapKarti(ortalamaDebridmanHasta, 'Ortalama Debridman / Hasta'),
+                hesapKarti(dmAyakDebridmanTekilHasta, 'Tekil DM Ayak Debridman Hastası'),
+                hesapKarti(dmAyakDebridmanSayisi, 'DM Ayak Toplam Debridman'),
+                hesapKarti(ortalamaDmAyakDebridmanHasta, 'Ortalama DM Ayak Debridman / Hasta'),
+                hesapKarti(kronikYaraDebridmanTekilHasta, 'Tekil Kronik Yara Debridman Hastası'),
+                hesapKarti(kronikYaraDebridmanSayisi, 'Kronik Yara Toplam Debridman'),
+                hesapKarti(ortalamaKronikYaraDebridmanHasta, 'Ortalama Kronik Debridman / Hasta')
             ].join('');
 
-            hesapHastaListesi.innerHTML = '';
-            if (hastaGelisSayilari.length === 0) {
-                const bos = document.createElement('div');
-                bos.className = 'hesap-bos';
-                bos.textContent = 'Bu tarih aralığında geliş kaydı bulunamadı.';
-                hesapHastaListesi.appendChild(bos);
-            } else {
-                hastaGelisSayilari.forEach(h => {
-                    const satir = document.createElement('div');
-                    satir.className = 'hesap-hasta-satiri';
-                    satir.innerHTML = `
-                        <span class="hesap-hasta-adi"></span>
-                        <span class="hesap-hasta-sayi">${h.sayi} geliş</span>
+            function debridmanHastalariniCiz() {
+                const siralama = debridmanSiralamaSelect ? debridmanSiralamaSelect.value : 'cok-desc';
+                const hastalar = Array.from(debridmanHastaGruplari.values());
+                hastalar.forEach(hasta => hasta.kayitlar.sort((a, b) => b.zamanMs - a.zamanMs));
+
+                hastalar.sort((a, b) => {
+                    if (siralama === 'cok-desc') {
+                        const fark = b.kayitlar.length - a.kayitlar.length;
+                        return fark || a.adSoyad.localeCompare(b.adSoyad, 'tr');
+                    }
+                    if (siralama === 'az-asc') {
+                        const fark = a.kayitlar.length - b.kayitlar.length;
+                        return fark || a.adSoyad.localeCompare(b.adSoyad, 'tr');
+                    }
+                    if (siralama === 'za-ad') return b.adSoyad.localeCompare(a.adSoyad, 'tr');
+                    return a.adSoyad.localeCompare(b.adSoyad, 'tr');
+                });
+
+                debridmanListe.innerHTML = '';
+                if (hastalar.length === 0) {
+                    debridmanListe.innerHTML = '<div class="hesap-bos">Bu tarih aralığında debridman kaydı bulunamadı.</div>';
+                    return;
+                }
+
+                hastalar.forEach(hasta => {
+                    const blok = document.createElement('div');
+                    blok.className = 'debridman-hasta-blok';
+                    blok.innerHTML = `
+                        <div class="debridman-hasta-baslik">
+                            <div class="debridman-hasta-adi"></div>
+                            <div class="debridman-hasta-sayisi">${hasta.kayitlar.length} debridman</div>
+                        </div>
+                        <div class="debridman-kayitlari"></div>
                     `;
-                    satir.querySelector('.hesap-hasta-adi').textContent = h.adSoyad;
-                    hesapHastaListesi.appendChild(satir);
+                    blok.querySelector('.debridman-hasta-adi').textContent = hasta.adSoyad;
+                    const kayitlarEl = blok.querySelector('.debridman-kayitlari');
+
+                    hasta.kayitlar.forEach(kayit => {
+                        const satir = document.createElement('div');
+                        satir.className = 'debridman-kayit-satiri';
+                        satir.innerHTML = `
+                            <div class="debridman-kayit-ust"><span class="debridman-kayit-tarih"></span></div>
+                            <div class="debridman-kayit-tur"></div>
+                        `;
+                        satir.querySelector('.debridman-kayit-tarih').textContent = new Date(kayit.zamanMs).toLocaleString('tr-TR');
+                        satir.querySelector('.debridman-kayit-tur').textContent = kayit.debridmanTuru;
+                        kayitlarEl.appendChild(satir);
+                    });
+                    debridmanListe.appendChild(blok);
                 });
             }
+
+            if (debridmanSiralamaSelect) {
+                debridmanSiralamaSelect.addEventListener('change', debridmanHastalariniCiz);
+            }
+            debridmanHastalariniCiz();
 
             sagGorunumuAyarla('hesaplama');
             hesaplaModaliniKapat();
@@ -6368,97 +8418,49 @@
     const hazirNotYeniEkleBtn = document.getElementById('hazirNotYeniEkleBtn');
     const hazirNotListesiEl = document.getElementById('hazirNotListesi');
     const hazirNotBosEl = document.getElementById('hazirNotBos');
+    const standartHazirNotAyarAlani = document.getElementById('standartHazirNotAyarAlani');
+    const antibiyotikAyarAlani = document.getElementById('antibiyotikAyarAlani');
+    const antibiyotikSecimAyarAlani = document.getElementById('antibiyotikSecimAyarAlani');
+    const ayarAntibiyotikAdi = document.getElementById('ayarAntibiyotikAdi');
+    const ayarAntibiyotikDozu = document.getElementById('ayarAntibiyotikDozu');
+    const ayarAntibiyotikSikligi = document.getElementById('ayarAntibiyotikSikligi');
+    const ayarAntibiyotikEkleBtn = document.getElementById('ayarAntibiyotikEkleBtn');
+    const ayarAntibiyotikListesi = document.getElementById('ayarAntibiyotikListesi');
+    const ayarAntibiyotikBos = document.getElementById('ayarAntibiyotikBos');
+    const antibiyotikSecimAyarInput = document.getElementById('antibiyotikSecimAyarInput');
+    const antibiyotikSecimAyarEkleBtn = document.getElementById('antibiyotikSecimAyarEkleBtn');
+    const antibiyotikSecimAyarListesi = document.getElementById('antibiyotikSecimAyarListesi');
+    const antibiyotikSecimAyarBos = document.getElementById('antibiyotikSecimAyarBos');
+    let hazirNotOzelSekme = null;
 
     function hazirNotAyarSekmeleriCiz() {
         hazirNotAlanSekmeleri.innerHTML = '';
         HAZIR_NOT_ALANLARI.forEach(alan => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'hazir-not-alan-sekme-btn' + (alan.key === hazirNotAktifAlan ? ' aktif' : '');
-            btn.textContent = alan.ad;
-            btn.addEventListener('click', () => {
-                hazirNotAktifAlan = alan.key;
-                hazirNotAyarSekmeleriCiz();
-                hazirNotAyarListesiCiz();
-            });
-            hazirNotAlanSekmeleri.appendChild(btn);
+            const btn=document.createElement('button'); btn.type='button'; btn.className='hazir-not-alan-sekme-btn'+(!hazirNotOzelSekme && alan.key===hazirNotAktifAlan?' aktif':''); btn.textContent=alan.ad;
+            btn.addEventListener('click',()=>{hazirNotOzelSekme=null; hazirNotAktifAlan=alan.key; hazirNotAyarSekmeleriCiz(); hazirNotAyarListesiCiz();}); hazirNotAlanSekmeleri.appendChild(btn);
         });
+        const ozel=[['antibiyotikler','Antibiyotikler'],['antibiyotikSureleri','Antibiyotik Süreleri'],['antibiyotikBaslamaNedenleri','Başlama Nedenleri'],['kulturDurumlari','Kültür Durumları']];
+        ozel.forEach(([key,ad])=>{const btn=document.createElement('button');btn.type='button';btn.className='hazir-not-alan-sekme-btn'+(hazirNotOzelSekme===key?' aktif':'');btn.textContent=ad;btn.addEventListener('click',()=>{hazirNotOzelSekme=key;hazirNotAyarSekmeleriCiz();hazirNotAyarListesiCiz();});hazirNotAlanSekmeleri.appendChild(btn);});
     }
-
     function hazirNotAyarListesiCiz() {
-        const liste = hazirNotListesiGetir(hazirNotAktifAlan);
-        hazirNotListesiEl.innerHTML = '';
-        hazirNotBosEl.style.display = liste.length === 0 ? 'block' : 'none';
-
-        liste.forEach(hazirNot => {
-            const satir = document.createElement('div');
-            satir.className = 'hazir-not-satiri';
-            satir.draggable = true;
-            satir.dataset.id = hazirNot.id;
-            satir.innerHTML = `
-                <span class="hazir-not-tutamac" title="Sürükleyerek sırala">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg>
-                </span>
-                <input type="text" class="hazir-not-metin" value="">
-                <button type="button" class="hazir-not-sil-btn" title="Sil">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-            `;
-
-            const metinInput = satir.querySelector('.hazir-not-metin');
-            metinInput.value = hazirNot.metin;
-            metinInput.addEventListener('change', () => {
-                const yeniMetin = metinInput.value.trim();
-                if (yeniMetin) {
-                    hazirNot.metin = yeniMetin;
-                    hazirNotDegisiklikleriKaydet();
-                } else {
-                    metinInput.value = hazirNot.metin;
-                }
-            });
-
-            satir.querySelector('.hazir-not-sil-btn').addEventListener('click', () => {
-                hazirNotVerisi[hazirNotAktifAlan] = hazirNotListesiGetir(hazirNotAktifAlan).filter(x => x.id !== hazirNot.id);
-                hazirNotDegisiklikleriKaydet();
-                hazirNotAyarListesiCiz();
-            });
-
-            // Sürükle-bırak ile sıralama
-            satir.addEventListener('dragstart', () => {
-                hazirNotSurukleId = hazirNot.id;
-                setTimeout(() => satir.classList.add('surukleniyor'), 0);
-            });
-            satir.addEventListener('dragend', () => {
-                satir.classList.remove('surukleniyor');
-                hazirNotListesiEl.querySelectorAll('.hazir-not-satiri').forEach(el => el.classList.remove('surukle-hedefi'));
-                hazirNotSurukleId = null;
-            });
-            satir.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                satir.classList.add('surukle-hedefi');
-            });
-            satir.addEventListener('dragleave', () => {
-                satir.classList.remove('surukle-hedefi');
-            });
-            satir.addEventListener('drop', (e) => {
-                e.preventDefault();
-                satir.classList.remove('surukle-hedefi');
-                if (hazirNotSurukleId === null || hazirNotSurukleId === hazirNot.id) return;
-                const guncelListe = hazirNotListesiGetir(hazirNotAktifAlan);
-                const suruklenenIndex = guncelListe.findIndex(x => x.id === hazirNotSurukleId);
-                const hedefIndex = guncelListe.findIndex(x => x.id === hazirNot.id);
-                if (suruklenenIndex === -1 || hedefIndex === -1) return;
-                const [tasinan] = guncelListe.splice(suruklenenIndex, 1);
-                guncelListe.splice(hedefIndex, 0, tasinan);
-                hazirNotDegisiklikleriKaydet();
-                hazirNotAyarListesiCiz();
-            });
-
-            hazirNotListesiEl.appendChild(satir);
-        });
+        standartHazirNotAyarAlani.style.display=hazirNotOzelSekme?'none':'block';
+        antibiyotikAyarAlani.style.display=hazirNotOzelSekme==='antibiyotikler'?'block':'none';
+        antibiyotikSecimAyarAlani.style.display=(hazirNotOzelSekme && hazirNotOzelSekme!=='antibiyotikler')?'block':'none';
+        if(!hazirNotOzelSekme){
+            const liste=hazirNotListesiGetir(hazirNotAktifAlan); hazirNotListesiEl.innerHTML=''; hazirNotBosEl.style.display=liste.length?'none':'block';
+            liste.forEach(hazirNot=>{const satir=document.createElement('div');satir.className='hazir-not-satiri';satir.draggable=true;satir.dataset.id=hazirNot.id;satir.innerHTML=`<span class="hazir-not-tutamac">☷</span><input type="text" class="hazir-not-metin" value=""><button type="button" class="hazir-not-sil-btn" title="Sil">×</button>`; const inp=satir.querySelector('input');inp.value=hazirNot.metin;inp.addEventListener('change',()=>{const v=inp.value.trim();if(v){hazirNot.metin=v;hazirNotDegisiklikleriKaydet();}else inp.value=hazirNot.metin;});satir.querySelector('.hazir-not-sil-btn').addEventListener('click',()=>{hazirNotVerisi[hazirNotAktifAlan]=liste.filter(x=>x.id!==hazirNot.id);hazirNotDegisiklikleriKaydet();hazirNotAyarListesiCiz();});hazirNotListesiEl.appendChild(satir);});
+            return;
+        }
+        if(hazirNotOzelSekme==='antibiyotikler'){
+            const liste=hazirNotVerisi.antibiyotikler||[]; ayarAntibiyotikListesi.innerHTML=''; ayarAntibiyotikBos.style.display=liste.length?'none':'block';
+            liste.forEach(x=>{const satir=document.createElement('div');satir.className='hazir-not-satiri';satir.innerHTML=`<div class="antibiyotik-ayar-ozet"><span class="antibiyotik-ayar-isim">${x.ad}</span><span class="antibiyotik-ayar-detay">Doz: ${x.doz} · Sıklık: ${x.siklik}</span></div><button type="button" class="hazir-not-sil-btn">×</button>`;satir.querySelector('button').addEventListener('click',()=>{hazirNotVerisi.antibiyotikler=liste.filter(y=>y.id!==x.id);hazirNotDegisiklikleriKaydet();hazirNotAyarListesiCiz();});ayarAntibiyotikListesi.appendChild(satir);});
+            return;
+        }
+        const liste=hazirNotVerisi[hazirNotOzelSekme]||[]; antibiyotikSecimAyarListesi.innerHTML=''; antibiyotikSecimAyarBos.style.display=liste.length?'none':'block';
+        liste.forEach(x=>{const satir=document.createElement('div');satir.className='hazir-not-satiri';satir.innerHTML=`<input type="text" class="hazir-not-metin" value=""><button type="button" class="hazir-not-sil-btn">×</button>`;const inp=satir.querySelector('input');inp.value=x.metin||x;inp.addEventListener('change',()=>{const v=inp.value.trim();if(v){x.metin=v;hazirNotDegisiklikleriKaydet();}});satir.querySelector('button').addEventListener('click',()=>{hazirNotVerisi[hazirNotOzelSekme]=liste.filter(y=>y.id!==x.id);hazirNotDegisiklikleriKaydet();hazirNotAyarListesiCiz();});antibiyotikSecimAyarListesi.appendChild(satir);});
     }
-
     function hazirNotAyarModaliniAc() {
+        hazirNotOzelSekme=null;
         hazirNotAyarSekmeleriCiz();
         hazirNotAyarListesiCiz();
         hazirNotAyarModalOverlay.classList.add('acik');
@@ -6488,6 +8490,9 @@
         }
     });
 
+    ayarAntibiyotikEkleBtn.addEventListener('click',()=>{const ad=ayarAntibiyotikAdi.value.trim(),doz=ayarAntibiyotikDozu.value.trim(),siklik=ayarAntibiyotikSikligi.value.trim();if(!ad||!doz||!siklik){alert('Antibiyotik adı, dozu ve sıklığı doldurulmalıdır.');return;}if(!hazirNotVerisi.antibiyotikler)hazirNotVerisi.antibiyotikler=[];hazirNotVerisi.antibiyotikler.push({id:'ab_'+Date.now(),ad,doz,siklik});hazirNotDegisiklikleriKaydet();ayarAntibiyotikAdi.value='';ayarAntibiyotikDozu.value='';ayarAntibiyotikSikligi.value='';hazirNotAyarListesiCiz();});
+    antibiyotikSecimAyarEkleBtn.addEventListener('click',()=>{const metin=antibiyotikSecimAyarInput.value.trim();if(!metin)return;if(!hazirNotVerisi[hazirNotOzelSekme])hazirNotVerisi[hazirNotOzelSekme]=[];hazirNotVerisi[hazirNotOzelSekme].push({id:'abopt_'+Date.now(),metin});hazirNotDegisiklikleriKaydet();antibiyotikSecimAyarInput.value='';hazirNotAyarListesiCiz();});
+
     hazirNotAyarBtn.addEventListener('click', hazirNotAyarModaliniAc);
     hazirNotAyarKapatBtn.addEventListener('click', hazirNotAyarModaliniKapat);
     hazirNotAyarKapatBtn2.addEventListener('click', hazirNotAyarModaliniKapat);
@@ -6514,6 +8519,8 @@
             hazirNotAyarSekmeleriCiz();
             hazirNotAyarListesiCiz();
         }
+        if (antibiyotikModalOverlay.classList.contains('acik')) antibiyotikModaliniCiz();
+        if (antibiyotikDevamOverlay.classList.contains('acik')) antibiyotikDevamSureleriniCiz();
     }, (hata) => {
         console.error('Hazır not butonları dinlenirken hata:', hata);
     });
